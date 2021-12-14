@@ -1,0 +1,44 @@
+.product-image {
+  height: 200px;
+  overflow: hidden;
+  border-radius: 1em;
+}
+
+h3 {
+  margin: 0.5em;
+  max-height: 40px;
+  min-height: 40px;
+}
+
+p {
+  min-height: 40px;
+  max-height: 40px;
+}
+
+.price-ticket-container {
+  width: auto;
+  display: block;
+  justify-content: space-around;
+}
+
+.target-price .tickets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tickets {
+  font-weight: bolder;
+}
+
+span.card {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 325px;
+  height: 400px;
+  box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 2rem;
+  margin: 2rem;
+}

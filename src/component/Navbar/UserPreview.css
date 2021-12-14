@@ -1,0 +1,21 @@
+.points {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.user-photo {
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user-info-container {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.points {
+  margin-right: 20px;
+  font-weight: bolder;
+}

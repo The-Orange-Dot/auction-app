@@ -1,0 +1,6 @@
+.filter-bar {
+  position: absolute;
+  width: 200px;
+  height: 100vh;
+  background-color: royalblue;
+}
