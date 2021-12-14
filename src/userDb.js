@@ -4,6 +4,6 @@ export const users = [
     firstName: "Hung",
     lastName: "Le",
     picture: "./images/hung-le.jpg",
-    points: 20500,
+    points: 21500,
   },
 ];

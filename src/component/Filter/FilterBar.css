@@ -1,6 +1,15 @@
 .filter-bar {
-  position: absolute;
+  position: fixed;
   width: 200px;
-  height: 100vh;
+  height: 70vh;
   background-color: royalblue;
+}
+
+.filter-background {
+  position: fixed;
+  width: 200px;
+  height: 120vh;
+  background-color: royalblue;
+  transform: translateY(-80px);
+  z-index: -1;
 }

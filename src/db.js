@@ -37,4 +37,16 @@ export const products = [
     ticketsRemaining: 48,
     tickets: 50,
   },
+  {
+    id: 4,
+    category: "electronics",
+    name: "Ａpple Iphone12 Pro Max 256ＧＢ パシフィックブルー",
+    descriptionPreview: "SIMロック：アップルストアで購入（国内版 SIMフリー）",
+    description:
+      "■ カメラ保護：スワロフスキー/保護カバー　２個をお付けいたします ■ 購入後（開封後）業者にて全面nanoのコーティング施工　画面に水滴を落としても流れます ■ 表：（画面）ガラス貼り使用してました。　剥がしてお送りいたします ■ 裏：フイルム貼り (写真では貼ったままです)静電気式/簡単に剥がせます ■ 国内未発売/手帳ケース（未使用）",
+    images: ["./images/4-1.png"],
+    price: 105000,
+    ticketsRemaining: 5,
+    tickets: 20,
+  },
 ];

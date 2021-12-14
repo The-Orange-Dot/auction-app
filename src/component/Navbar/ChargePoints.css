@@ -1,0 +1,7 @@
+.gray-overlay {
+  background-color: gray;
+  opacity: 70%;
+  position: absolute;
+  width: auto;
+  height: auto;
+}
