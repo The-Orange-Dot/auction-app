@@ -11,6 +11,7 @@ export const products = [
     price: 20000,
     ticketsRemaining: 9,
     tickets: 10,
+    keywords: ["sake", "alcohol", "drinks", "hakushu"],
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export const products = [
     price: 103500,
     ticketsRemaining: 3,
     tickets: 20,
+    keywords: ["dslr", "camera", "digital", "electronics"],
   },
   {
     id: 3,
@@ -36,6 +38,7 @@ export const products = [
     price: 650000,
     ticketsRemaining: 48,
     tickets: 50,
+    keywords: ["coat", "fashion", "jacket", "luis"],
   },
   {
     id: 4,
@@ -48,5 +51,6 @@ export const products = [
     price: 105000,
     ticketsRemaining: 5,
     tickets: 20,
+    keywords: ["iphone", "smartphone", "phone", "sim free"],
   },
 ];

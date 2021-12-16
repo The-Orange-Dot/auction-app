@@ -1,5 +1,5 @@
 import React from "react";
-import "./Logo.css";
+import "./NavBar.css";
 
 const Logo = () => {
   return <h1 className="logo">Logo Goes Here!</h1>;

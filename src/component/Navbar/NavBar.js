@@ -4,12 +4,14 @@ import "./NavBar.css";
 import SearchBar from "./SearchBar";
 import UserPreview from "./UserPreview";
 
-const NavBar = () => {
+const NavBar = ({ onGrayHandler }) => {
+  //All the NavBar logic can go in here!!!
+
   return (
     <div className="navbar">
       <Logo />
       <SearchBar />
-      <UserPreview />
+      <UserPreview onGrayHandler={onGrayHandler} />
     </div>
   );
 };

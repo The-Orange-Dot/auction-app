@@ -1,11 +1,11 @@
 import React from "react";
-import "./FilterBar.css";
+import "./Filter.css";
 import FilterForm from "./FilterForm";
 
-const Filter = () => {
+const Filter = ({ filterHandler }) => {
   return (
     <div className="filter-bar">
-      <FilterForm />
+      <FilterForm filterHandler={filterHandler} />
     </div>
   );
 };

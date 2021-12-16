@@ -9,3 +9,68 @@
   padding-left: 30px;
   z-index: 1;
 }
+
+.gray {
+  background-color: black;
+  opacity: 60%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.hidden {
+  display: none;
+  background-color: black;
+  opacity: 60%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.logo {
+  color: white;
+}
+
+#search {
+  border-radius: 0.5em;
+  width: 20rem;
+  height: 1.5rem;
+  font-size: 1.2em;
+  text-align: center;
+  border: 1px solid black;
+}
+
+#submit {
+  margin-left: 10px;
+  width: 6em;
+  height: 1.5rem;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 0.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
+.points {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.user-photo {
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user-info-container {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.points {
+  margin-right: 20px;
+  font-weight: bolder;
+}

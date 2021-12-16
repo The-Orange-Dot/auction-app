@@ -47,5 +47,13 @@ span.card {
 }
 
 .big-card {
-  display: none;
+  background-color: white;
+  position: absolute;
+  transition: 0.5s;
+  width: 50%;
+  height: 50%;
+}
+
+.clickEvent {
+  z-index: 2;
 }

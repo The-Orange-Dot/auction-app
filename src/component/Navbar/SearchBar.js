@@ -1,13 +1,18 @@
 import React from "react";
-import "./SearchBar.css";
+import "./NavBar.css";
 
 const SearchBar = () => {
   const handleChange = (event) => {
     console.log(`${event.target.name}: ${event.target.value}`);
   };
 
+  const submitSearch = (event) => {
+    event.preventDefault();
+    console.log(event.target[0].value);
+  };
+
   return (
-    <form action="">
+    <form action="" onSubmit={submitSearch}>
       <input
         type="text"
         name="seach"

@@ -13,3 +13,12 @@
   transform: translateY(-80px);
   z-index: -1;
 }
+
+.form {
+  margin-top: 3rem;
+}
+
+select {
+  margin-bottom: 2em;
+  width: 150px;
+}
