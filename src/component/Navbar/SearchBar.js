@@ -1,10 +1,10 @@
 import React from "react";
 import "./NavBar.css";
 
-const SearchBar = () => {
-  const handleChange = (event) => {
-    console.log(`${event.target.name}: ${event.target.value}`);
-  };
+const SearchBar = ({ searchHandler }) => {
+  // const handleChange = (event) => {
+  //   console.log(`${event.target.name}: ${event.target.value}`);
+  // };
 
   const submitSearch = (event) => {
     event.preventDefault();
@@ -18,9 +18,8 @@ const SearchBar = () => {
         name="seach"
         id="search"
         placeholder="What are you lookin' for?"
-        onChange={handleChange}
+        onChange={searchHandler}
       />
-      <input type="submit" name="search" id="submit" />
     </form>
   );
 };

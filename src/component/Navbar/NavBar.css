@@ -10,23 +10,20 @@
   z-index: 1;
 }
 
-.gray {
-  background-color: black;
-  opacity: 60%;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
+.hide-gray {
+  display: none;
+  transition: 0.2;
 }
 
-.hidden {
-  display: none;
+.show-gray {
   background-color: black;
   opacity: 60%;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 200%;
+  height: 200%;
+  transform: translate(30px, 400px);
   z-index: 2;
+  transition: 0.2;
 }
 
 .logo {
@@ -73,4 +70,41 @@
 .points {
   margin-right: 20px;
   font-weight: bolder;
+}
+
+.charge-container {
+  position: absolute;
+  width: 900px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 25%;
+  margin-top: 45%;
+  z-index: 5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.charge {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.charge p {
+  margin: 0;
+  font-size: 2rem;
+}
+.charge h1 {
+  font-size: 4rem;
+  margin: 0;
+  margin-bottom: 5%;
 }

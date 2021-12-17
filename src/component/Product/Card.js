@@ -1,15 +1,14 @@
-import Item from "./Item";
 import React from "react";
+import ProductCard from "./ProductCard";
 
-const Card = ({ products }) => {
-  //All the product logic can go into here!!!
+const Card = ({ products, search }) => {
+  //logic here will affect ALL cards at the same time
 
-  return products.map((product) => {
-    return (
-      <span className="card" key={product.id} onClick={(e) => console.log(e)}>
-        <Item product={product} />
-      </span>
-    );
+  const productFilter = products.filter((product) => {
+    return product.name.toLowerCase().includes(search.toLowerCase());
+  });
+  return productFilter.map((product) => {
+    return <ProductCard key={product.id} product={product} />;
   });
 };
 

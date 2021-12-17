@@ -1,22 +1,29 @@
 import React from "react";
 import "./Product.css";
 
-const Item = ({ product }) => {
+const Item = ({ product, isBig }) => {
   function numberWithCommas(price) {
-    return price.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const pricePerTicket = price.price / price.tickets;
+    return pricePerTicket.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   return (
-    <div>
+    <>
       <img className="product-image" src={product.images[0]} alt="" />
       <h3 className="product-name">{product.name}</h3>
-      <p className="product-desc-prev">{product.descriptionPreview}</p>
-      <div>Target:</div>
-      <div> ¥{numberWithCommas(product)}</div>
-      <div>Tickets Remaining:</div>
+      <p className="product-desc-prev">
+        {isBig ? product.description : product.descriptionPreview}
+      </p>
+      <div>
+        <strong>Points per ticket:</strong>
+      </div>
+      <div> {numberWithCommas(product)} Points</div>
+      <div>
+        <strong>Tickets Remaining:</strong>
+      </div>
       <div>
         {product.ticketsRemaining}/{product.tickets}
       </div>
-    </div>
+    </>
   );
 };
 

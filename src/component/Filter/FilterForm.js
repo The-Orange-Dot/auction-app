@@ -13,9 +13,9 @@ const FilterForm = ({ filterHandler }) => {
     <div className="form">
       <h2>Filter</h2>
       <CategoryFilter formSubmit={formSubmit} />
-      {/* <TotalTicketsFilter formSubmit={formSubmit} />
+      <TotalTicketsFilter formSubmit={formSubmit} />
       <RemainingTicketsFilter />
-      <TimeRemainingFilter /> */}
+      <TimeRemainingFilter />
     </div>
   );
 };

@@ -6,7 +6,7 @@ export const products = [
     descriptionPreview:
       "※未開栓。※未開栓ですが、古酒扱いとなる為、味・風味の変化、液面低下、コルク栓",
     description:
-      "※未開栓。※未開栓ですが、古酒扱いとなる為、味・風味の変化、液面低下、コルク栓・ボトル等のダメージ等に関しては保証出来かねます ※こちらの商品は当店の酒類販売業免許の関係上、お届け先が東京都内限定の販売となります。対象地域以外へ発送のお客様からご注文があった場合は、自動キャンセルとなりますのでご了承願います。 ※法令により、20歳未満の方への酒類の販売は禁止されていますので、入札は20歳以上の方に限らせて頂きます。※オーダーフォームに生年月日及び満年齢の入力が無い場合、発送出来ませんので、予めご了承下さい。中古品にご理解頂けな",
+      "※未開栓。※未開栓ですが、古酒扱いとなる為、味・風味の変化、液面低下、コルク栓・ボトル等のダメージ等に関しては保証出来かねます ※こちらの商品は当店の酒類販売業免許の関係上、お届け先が東京都内限定の販売となります。",
     images: ["./images/1-1.png", "./images/1-2.png"],
     price: 20000,
     ticketsRemaining: 9,
@@ -43,7 +43,7 @@ export const products = [
   {
     id: 4,
     category: "electronics",
-    name: "Ａpple Iphone12 Pro Max 256ＧＢ パシフィックブルー",
+    name: "Apple Iphone12 Pro Max 256ＧＢ パシフィックブルー",
     descriptionPreview: "SIMロック：アップルストアで購入（国内版 SIMフリー）",
     description:
       "■ カメラ保護：スワロフスキー/保護カバー　２個をお付けいたします ■ 購入後（開封後）業者にて全面nanoのコーティング施工　画面に水滴を落としても流れます ■ 表：（画面）ガラス貼り使用してました。　剥がしてお送りいたします ■ 裏：フイルム貼り (写真では貼ったままです)静電気式/簡単に剥がせます ■ 国内未発売/手帳ケース（未使用）",
@@ -52,5 +52,18 @@ export const products = [
     ticketsRemaining: 5,
     tickets: 20,
     keywords: ["iphone", "smartphone", "phone", "sim free"],
+  },
+  {
+    id: 5,
+    category: "clothing",
+    name: "NIKE AIR JORDAN 11 ADAPT 超目玉商品！ 27.5cm",
+    descriptionPreview: "ナイキ エアジョーダン 11 アダプト ホワイト",
+    description:
+      "ナイキ エアジョーダン 11 アダプト ホワイト ナイキストア購入新品未使用品です。サイズはゴールデンサイズの27.5㎝ - 海外サイトですと最低80,000円の値で販売されています。宜しくお願いします。",
+    images: ["./images/5-1.png"],
+    price: 41001,
+    ticketsRemaining: 2,
+    tickets: 20,
+    keywords: ["nike", "shoes", "jordans", "new"],
   },
 ];
