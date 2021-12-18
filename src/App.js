@@ -10,6 +10,8 @@ function App() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
 
+console.log(products)
+
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
