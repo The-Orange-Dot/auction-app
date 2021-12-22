@@ -12,6 +12,7 @@ const CategoryFilter = ({ formSubmit }) => {
       <option value="clothing">Clothing</option>
       <option value="electronics">Electronics</option>
       <option value="food/drink">Food/Drinks</option>
+      <option value="instruments">Musical Instruments</option>
     </select>
   );
 };

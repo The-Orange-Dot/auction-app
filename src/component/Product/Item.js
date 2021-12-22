@@ -4,7 +4,9 @@ import "./Product.css";
 const Item = ({ product, isBig }) => {
   function numberWithCommas(price) {
     const pricePerTicket = price.price / price.tickets;
-    return pricePerTicket.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return Math.floor(pricePerTicket)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   return (
     <>

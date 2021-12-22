@@ -11,6 +11,7 @@ const NavBar = ({ searchHandler }) => {
     <div className="navbar">
       <Logo />
       <SearchBar searchHandler={searchHandler} />
+
       <UserPreview />
     </div>
   );
