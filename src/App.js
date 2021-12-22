@@ -6,15 +6,20 @@ import FilterBackground from "./component/Filter/FilterBackground";
 import Card from "./component/Product/Card";
 import { Switch, Route } from "react-router-dom";
 import Sell from "./component/sellComponent/Sell";
-import Fuse from "fuse.js";
 
 function App() {
   const API = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+<<<<<<< HEAD
   // const [searchText, setSearchText] = useState(
   //   localStorage.getItem("text") || ""
   // );
+=======
+
+console.log(products)
+
+>>>>>>> 151a39b8a92730dff21e0f179cb7a00b069b44a1
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
