@@ -1,0 +1,57 @@
+.welcome-page-container {
+  font-size: 3rem;
+  width: 100vw;
+  margin: 0px 0px 0px 20%;
+  display: flex;
+  padding-top: 5%;
+}
+
+.welcome-page-container h1 {
+  width: 500px;
+  display: inline-flex;
+  margin: 80px 0 0 0;
+}
+
+.welcome-page-container p {
+  font-size: 1.5rem;
+  width: 400px;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.welcome-page-container button {
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  padding: 12px;
+  border-radius: 2rem;
+  font-weight: bolder;
+  margin: 0px 5px 0px 5px;
+}
+
+.welcome-ticket-image-1 {
+  position: absolute;
+  transform: translate(420px, -400px) rotate(30deg) scale(115%);
+}
+
+.welcome-ticket-image-2 {
+  position: absolute;
+  transform: translate(420px, -350px) rotate(20deg) scale(115%);
+}
+
+.welcome-ticket-image-3 {
+  position: absolute;
+  transform: translate(420px, -300px) rotate(10deg) scale(115%);
+}
+
+.welcome-page-background {
+  background-image: url(../../database/images/circus-wallpaper.jpeg);
+  width: 3000px;
+  height: 1000px;
+  position: absolute;
+  z-index: -1;
+  left: 0%;
+  transform: rotate(20deg) translate(10px, -250px) scale(110%);
+  overflow-x: hidden;
+  opacity: 90%;
+}

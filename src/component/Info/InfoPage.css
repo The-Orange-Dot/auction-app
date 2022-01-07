@@ -1,0 +1,18 @@
+.info-page-container {
+  left: 20%;
+  padding-top: 100vh;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  display: block;
+  z-index: -1;
+}
+
+.info-page-container h1 {
+  left: -20%;
+  width: 100%;
+}
+
+.info-description {
+  display: flex;
+}

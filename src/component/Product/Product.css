@@ -1,6 +1,16 @@
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: 15%;
+  transition: 0.5s;
+  padding-top: 6%;
+}
+
 .product-image {
   height: 200px;
-  overflow: hidden;
+  width: auto;
+  object-fit: cover;
   border-radius: 0.5em;
 }
 
@@ -13,12 +23,6 @@ h3 {
 p {
   min-height: 40px;
   max-height: 40px;
-}
-
-.price-ticket-container {
-  width: auto;
-  display: block;
-  justify-content: space-around;
 }
 
 .target-price .tickets {
@@ -38,19 +42,15 @@ span.card {
   padding: 1rem;
   width: 325px;
   height: 400px;
-  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
-  border-radius: 1rem;
-  margin: 2rem;
   opacity: 1;
   transition: 0.5s;
-  /* border: 5px solid red; */
+  border: 0.01px solid rgb(236, 236, 236);
 }
 
 .big-card {
   background-color: white;
   position: fixed;
-  transition: 0.5s;
-  width: 75%;
+  width: 60%;
   height: 60%;
   margin-top: 1%;
   display: flex;
@@ -58,8 +58,9 @@ span.card {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border-radius: 2rem;
+  z-index: 2;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.5s;
 }
 
 .big-card h3 {
@@ -76,4 +77,26 @@ span.card {
 
 .clickEvent {
   z-index: 2;
+}
+
+.buy-ticket-picture {
+  transform: rotate(90deg) translate(120px, 700px) scale(90%);
+  position: absolute;
+  transition: 0.5s;
+  animation: 1s slide-up;
+}
+
+.buy-ticket-picture:hover {
+  transform: rotate(90deg) translate(100px, 700px) scale(90%);
+  transition: 0.5s;
+  transition-delay: 150ms;
+}
+
+@keyframes slide-up {
+  from {
+    transform: rotate(90deg) translate(1000px, 700px) scale(90%);
+  }
+  to {
+    transform: rotate(90deg) translate(120px, 700px) scale(90%);
+  }
 }

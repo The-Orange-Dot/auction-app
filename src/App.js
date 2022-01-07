@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import NavBar from "./component/Navbar/NavBar";
-import FilterBar from "./component/Filter/FilterBar";
-import FilterBackground from "./component/Filter/FilterBackground";
 import Card from "./component/Product/Card";
 import { Switch, Route } from "react-router-dom";
 import Sell from "./component/sellComponent/Sell";
+import SellForm from "./component/sellComponent/SellForm";
+import ProfilePage from "./component/Profile/ProfilePage";
+import WelcomePage from "./component/Welcome/WelcomePage";
+import FilterBar from "./component/Filter/FilterBar";
 
 function App() {
   const API = process.env.REACT_APP_API_URL;
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
-<<<<<<< HEAD
   // const [searchText, setSearchText] = useState(
   //   localStorage.getItem("text") || ""
   // );
-=======
-
-console.log(products)
-
->>>>>>> 151a39b8a92730dff21e0f179cb7a00b069b44a1
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
@@ -49,27 +45,34 @@ console.log(products)
   };
 
   return (
-    <Switch>
-      <Route exact path="/">
-        <div className="App">
-          <NavBar searchHandler={searchHandler} />
-          <FilterBar filterHandler={filterHandler} />
-          <FilterBackground />
+    <div className="App">
+      <NavBar searchHandler={searchHandler} />
+
+      <Switch>
+        <Route path="/sell">
+          <Sell />
+          <SellForm products={products} setProducts={setProducts} />
+        </Route>
+        <Route exact path="/profile">
+          <ProfilePage />
+        </Route>
+        <Route path="/browse">
           <span className="product-container">
-            <Card products={products} search={search} />
+            <Card
+              products={products}
+              search={search}
+              filterHandler={filterHandler}
+              setProducts={setProducts}
+            />
+            <FilterBar filterHandler={filterHandler} />
           </span>
-        </div>
-      </Route>
-      <Route path="/sell">
-        <Sell />
-      </Route>
-      <Route path="/profile">
-        <a href="/">
-          <div>PROFILE TEST</div>
-        </a>
-        {/* <Profile /> */}
-      </Route>
-    </Switch>
+        </Route>
+
+        <Route path="/">
+          <WelcomePage />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 

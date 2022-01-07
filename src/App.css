@@ -17,16 +17,6 @@ body {
   }
 }
 
-.product-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-left: 15%;
-  margin-right: 5%;
-  transition: 0.5s;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -49,4 +39,27 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+html,
+body {
+  max-width: 100%;
+  /* overflow-x: hidden; */
+}
+
+.hide-gray {
+  display: none;
+  transition: 0.2;
+}
+
+.show-gray {
+  background-color: black;
+  opacity: 20%;
+  position: absolute;
+  width: 200%;
+  height: 500vh;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+  transition: 0.2;
 }

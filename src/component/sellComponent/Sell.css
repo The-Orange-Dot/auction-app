@@ -1,0 +1,7 @@
+.sell-form-container {
+  padding-top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

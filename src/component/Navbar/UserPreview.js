@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import { users as userDefault } from "../../userDb";
 import ChargePoints from "./ChargePoints";
-import Sell from "../sellComponent/Sell";
+import { NavLink } from "react-router-dom";
 
 const UserPreview = () => {
   const [grayIsOn, setGrayIsOn] = useState(true);
@@ -27,17 +27,26 @@ const UserPreview = () => {
         className={grayIsOn ? "hide-gray" : "show-gray"}
         onClick={() => setGrayIsOn(!grayIsOn)}
       />
-      <img
-        //FIX THIS: the image not loading
-        // src={pageLoaded ? users[0].picture : userDefault[0].picture}
-        src={userDefault[0].picture}
-        alt="selfie"
-        className="user-photo"
-      />
-      <small className="points" onClick={() => setGrayIsOn(!grayIsOn)}>
-        Points: {pageLoaded ? users[0].points : userDefault[0].points}
-      </small>
-      <Sell />
+
+      <div className="profile-container">
+        <NavLink to="profile">
+          <img
+            src={userDefault[0].picture}
+            alt="selfie"
+            className="user-photo"
+          />
+        </NavLink>
+        <small className="points" onClick={() => setGrayIsOn(!grayIsOn)}>
+          Points: {pageLoaded ? users[0].points : userDefault[0].points}
+        </small>
+      </div>
+
+      <NavLink to="/sell" style={{ textDecoration: "none" }}>
+        <h2>Sell</h2>
+      </NavLink>
+      <NavLink to="/browse" style={{ textDecoration: "none" }}>
+        <h2>Browse</h2>
+      </NavLink>
     </span>
   );
 };

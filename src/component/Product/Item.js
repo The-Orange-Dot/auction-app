@@ -1,7 +1,8 @@
 import React from "react";
 import "./Product.css";
+import TicketBuy from "./TicketBuy";
 
-const Item = ({ product, isBig }) => {
+const Item = ({ product, isBig, setProducts }) => {
   function numberWithCommas(price) {
     const pricePerTicket = price.price / price.tickets;
     return Math.floor(pricePerTicket)
@@ -10,7 +11,12 @@ const Item = ({ product, isBig }) => {
   }
   return (
     <>
-      <img className="product-image" src={product.images[0]} alt="" />
+      <img
+        style={{ maxWidth: isBig ? "500px" : "300px" }}
+        className="product-image"
+        src={product.images}
+        alt=""
+      />
       <h3 className="product-name">{product.name}</h3>
       <p className="product-desc-prev">
         {isBig ? product.description : product.descriptionPreview}
@@ -19,11 +25,22 @@ const Item = ({ product, isBig }) => {
         <strong>Points per ticket:</strong>
       </div>
       <div> {numberWithCommas(product)} Points</div>
+      {product.tickets === product.ticketsBought ? (
+        <p>FINISHED</p>
+      ) : (
+        <>
+          <div>
+            <strong>Tickets Bought:</strong>
+          </div>
+          <div>
+            {product.ticketsBought}/{product.tickets}
+          </div>{" "}
+        </>
+      )}
       <div>
-        <strong>Tickets Remaining:</strong>
-      </div>
-      <div>
-        {product.ticketsRemaining}/{product.tickets}
+        {isBig ? (
+          <TicketBuy product={product} setProducts={setProducts} />
+        ) : null}
       </div>
     </>
   );
