@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Product.css";
 import TicketBuy from "./TicketBuy";
+import DeleteButton from "./DeleteButton";
 
-const Item = ({ product, isBig, setProducts }) => {
-  function numberWithCommas(price) {
+const Item = ({ user, product, isBig, setProducts, products, setUser }) => {
+  const [tickets, setTickets] = useState(product.ticketsRemaining);
+  const numberWithCommas = (price) => {
     const pricePerTicket = price.price / price.tickets;
     return Math.floor(pricePerTicket)
       .toString()
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  };
   return (
     <>
       <img
@@ -25,22 +27,38 @@ const Item = ({ product, isBig, setProducts }) => {
         <strong>Points per ticket:</strong>
       </div>
       <div> {numberWithCommas(product)} Points</div>
-      {product.tickets === product.ticketsBought ? (
-        <p>FINISHED</p>
+      {product.ticketsRemaining <= 0 ? (
+        <h3>
+          <strong>FINISHED</strong>
+        </h3>
       ) : (
         <>
           <div>
-            <strong>Tickets Bought:</strong>
+            <strong>Tickets Remaining:</strong>
           </div>
           <div>
-            {product.ticketsBought}/{product.tickets}
+            {tickets}/{product.tickets}
           </div>{" "}
         </>
       )}
       <div>
         {isBig ? (
-          <TicketBuy product={product} setProducts={setProducts} />
+          <TicketBuy
+            user={user}
+            product={product}
+            setProducts={setProducts}
+            setTickets={setTickets}
+            setUser={setUser}
+          />
         ) : null}
+      </div>
+      <div>
+        <DeleteButton
+          isBig={isBig}
+          product={product}
+          setProducts={setProducts}
+          products={products}
+        />
       </div>
     </>
   );

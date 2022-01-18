@@ -6,7 +6,7 @@ const SearchBar = ({ searchHandler }) => {
     <form action="">
       <input
         type="text"
-        name="seach"
+        name="search"
         id="search"
         placeholder="What are you lookin' for?"
         onChange={searchHandler}

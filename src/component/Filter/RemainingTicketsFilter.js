@@ -2,7 +2,11 @@ import React from "react";
 
 const RemainingTicketsFilter = () => {
   return (
-    <select name="remaining-tickets" id="remaining-tickets">
+    <select
+      name="remaining-tickets"
+      id="remaining-tickets"
+      className="filter-selector"
+    >
       <option value="">--Tickets Remaining--</option>
       <option value="50">50</option>
       <option value="25-49">25-49</option>

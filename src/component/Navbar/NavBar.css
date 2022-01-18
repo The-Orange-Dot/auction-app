@@ -25,7 +25,7 @@
   border: 1px solid black;
 }
 
-#submit {
+/* #submit {
   margin-left: 10px;
   width: 6em;
   height: 1.5rem;
@@ -34,7 +34,7 @@
   border-radius: 0.5em;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
-}
+} */
 
 .points,
 sell {
@@ -77,14 +77,24 @@ sell {
   position: absolute;
   width: 900px;
   height: 500px;
-  background-color: white;
+  background-image: url("../../database/images/fill_up.jpg");
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 30%);
   border-radius: 10px;
-  margin-right: 25%;
+  margin-right: 15%;
   margin-top: 45%;
   z-index: 5;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
+  border: 15px dashed #f26867;
+  padding: 20px 50px;
+}
+
+.charge-container > h1 {
+  position: inherit;
+  top: 40px;
+  font-size: 4rem;
+  font-weight: bolder;
 }
 
 .charge {
@@ -96,9 +106,9 @@ sell {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   color: white;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  margin-bottom: 50px;
 }
 .charge p {
   margin: 0;
@@ -110,7 +120,7 @@ sell {
   margin-bottom: 5%;
 }
 
-h2 {
+.nav-button {
   color: white;
   margin: 0 30px 0 0;
 }

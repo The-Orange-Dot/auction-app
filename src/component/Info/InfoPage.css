@@ -15,4 +15,11 @@
 
 .info-description {
   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.info-description p {
+  margin-bottom: 150px;
+  height: 300px;
 }

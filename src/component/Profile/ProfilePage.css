@@ -1,7 +1,114 @@
-.profile-page-continer {
-  padding-top: 5%;
+.profile-page-container {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-info-container {
+  padding-top: 8%;
+  background-color: blue;
+  width: 1500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
   margin: 0;
+  color: black;
+}
+
+.profile-nav-bar-category-selector-container {
+  width: 1000px;
+  height: 30px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.profile-nav-bar-category-selector-container span {
+  height: 30px;
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.profile-nav-bar-category-selector-container span:hover {
+  background-color: black;
+  opacity: 70%;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* .profile-page-navbar-background {
+  position: absolute;
+  width: 1000px;
+  height: 30px;
+  background-color: white;
+  opacity: 25%;
+} */
+
+.profile-card-container {
+  width: 90%;
+  height: 700px;
+  border: 1px solid black;
+  display: flex;
+}
+
+.profile-card-user-picture {
+  border-radius: 50%;
+  width: 250px;
+  margin: 50px 0px 30px 0px;
+}
+
+.profile-card-user-container {
+  display: flex;
+  width: 35%;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+}
+
+.profile-card-user-info {
+  height: 60%;
+}
+
+.bid-items-container {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card-user-info p {
+  min-height: auto;
+}
+
+.bid-items-container {
+  display: block;
+}
+
+.bid-items-container > div {
+  display: block;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.bid-items-container > div::-webkit-scrollbar {
+  display: none;
+}
+
+.seller-item-card {
+  background-color: white;
+  justify-self: center;
+  width: 100%;
+  height: 100px;
+  margin: 10px;
 }

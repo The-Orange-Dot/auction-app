@@ -1,7 +1,40 @@
 .sell-form-container {
-  padding-top: 20%;
+  top: 12%;
+  left: 35%;
+  position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  background-color: white;
+  padding: 3rem 10rem;
+  width: 20rem;
+  border: 10px dashed #f26867;
+}
+
+.sell-form-container > form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sell-form-container label {
+  display: inherit;
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: start;
+}
+
+.sell-submit-button {
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 3rem;
+}
+
+.sell-background {
+  height: 100vh;
+  background-image: url("../../database/images/sell-background.png");
 }

@@ -2,6 +2,15 @@ body {
   margin: 0;
 }
 
+*::-webkit-scrollbar {
+  width: 6px;
+  opacity: 0;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: black;
+}
+
 .App {
   text-align: center;
 }
@@ -44,7 +53,7 @@ body {
 html,
 body {
   max-width: 100%;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 .hide-gray {

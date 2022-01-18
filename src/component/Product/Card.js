@@ -1,9 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import Fuse from "fuse.js";
-import FilterBackground from "../Filter/FilterBackground";
-
-const Card = ({ products, search, filterHandler, setProducts }) => {
+const Card = ({ products, search, user, setProducts, setUser }) => {
   //logic here will affect ALL cards at the same time
 
   //FUSE.JS Library search function
@@ -26,11 +24,13 @@ const Card = ({ products, search, filterHandler, setProducts }) => {
   return searchFilter.map((product) => {
     return (
       <>
-        <FilterBackground />
         <ProductCard
           key={product?.item?.id || product.id}
           product={product?.item || product}
           setProducts={setProducts}
+          products={products}
+          user={user}
+          setUser={setUser}
         />
       </>
     );

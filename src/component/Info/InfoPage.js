@@ -18,7 +18,7 @@ const InfoPage = () => {
         </p>
         <p>
           Once all the tickets are purchased, one of the tickets, chosen
-          randomly, is selected and the holder of that ticket receive the item!
+          randomly, is selected and the holder of that ticket receives the item!
         </p>
       </div>
     </div>

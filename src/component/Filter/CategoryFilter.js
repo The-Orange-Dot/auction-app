@@ -5,7 +5,7 @@ const CategoryFilter = ({ formSubmit }) => {
     <select
       name="category"
       id="category"
-      className="category-selector"
+      className="filter-selector"
       onChange={formSubmit}
     >
       <option value="">--Category--</option>

@@ -1,10 +1,15 @@
 import React from "react";
 import "./ProfilePage.css";
+import ProfileNavBar from "./ProfileNavBar";
+import ProfileCard from "./ProfileCard";
 
-const ProfilePage = () => {
+const ProfilePage = ({ user }) => {
   return (
     <div className="profile-page-container">
-      <h1>test</h1>
+      <div className="profile-info-container">
+        <ProfileNavBar />
+        <ProfileCard user={user} />
+      </div>
     </div>
   );
 };
