@@ -14,13 +14,14 @@
   border-radius: 0.5em;
 }
 
-h3 {
+.big-card h3,
+.card h3 {
   margin: 0.5em;
   max-height: 40px;
   min-height: 40px;
 }
 
-p {
+.card p {
   min-height: 40px;
   max-height: 40px;
 }

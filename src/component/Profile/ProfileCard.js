@@ -11,12 +11,9 @@ const ProfileCard = ({ user }) => {
   return (
     <div className="profile-card-container">
       <span className="profile-card-user-container">
-        <div>
-          <img
-            src={user.picture}
-            alt=""
-            className="profile-card-user-picture"
-          />
+        <div className="profile-card-user-picture">
+          <div className="profile-picture-overlay" />
+          <img src={user.picture} alt="profile" />
         </div>
         <div className="profile-card-user-info">
           <h1>Points: {numberWithCommas(user)}</h1>
@@ -31,11 +28,11 @@ const ProfileCard = ({ user }) => {
         </div>
       </span>
       <span className="bid-items-container">
-        <div>
+        <div className="hidden">
           <h1>Tickets Being Held!</h1>
         </div>
-        <div>
-          <h1>Your listing</h1>
+        <div className="">
+          <h1>Your listings</h1>
           <SellerItemsCard user={user} />
         </div>
       </span>

@@ -60,6 +60,8 @@ sell {
 
 .user-photo {
   height: 50px;
+  width: 50px;
+  object-fit: cover;
   border-radius: 50%;
 }
 

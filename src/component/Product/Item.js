@@ -11,6 +11,7 @@ const Item = ({ user, product, isBig, setProducts, products, setUser }) => {
       .toString()
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
+
   return (
     <>
       <img
@@ -42,7 +43,7 @@ const Item = ({ user, product, isBig, setProducts, products, setUser }) => {
         </>
       )}
       <div>
-        {isBig ? (
+        {isBig && product.user_id !== user.id ? (
           <TicketBuy
             user={user}
             product={product}
@@ -50,15 +51,15 @@ const Item = ({ user, product, isBig, setProducts, products, setUser }) => {
             setTickets={setTickets}
             setUser={setUser}
           />
-        ) : null}
-      </div>
-      <div>
-        <DeleteButton
-          isBig={isBig}
-          product={product}
-          setProducts={setProducts}
-          products={products}
-        />
+        ) : (
+          <DeleteButton
+            isBig={isBig}
+            product={product}
+            setProducts={setProducts}
+            products={products}
+            user={user}
+          />
+        )}
       </div>
     </>
   );
