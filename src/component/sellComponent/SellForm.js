@@ -136,6 +136,18 @@ const SellForm = ({ products, setProducts }) => {
               style={{ resize: "none" }}
             />
           </div>
+          <div>
+            <label htmlFor="keywords">Keywords: </label>
+            <textarea
+              type="keywords"
+              name="keywords"
+              placeholder='Seperate keywords with ","'
+              onChange={(e) => inputHandler(e)}
+              maxLength="100"
+              cols="55"
+              style={{ resize: "none" }}
+            />
+          </div>
 
           <input
             type="submit"

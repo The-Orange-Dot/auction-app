@@ -87,7 +87,7 @@ sell {
   z-index: 5;
   display: flex;
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: center;
   border: 15px dashed #f26867;
   padding: 20px 50px;
 }
@@ -103,15 +103,15 @@ sell {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background-color: red;
+  background-color: #f26867;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  margin-bottom: 50px;
 }
+
 .charge p {
   margin: 0;
   font-size: 2rem;
