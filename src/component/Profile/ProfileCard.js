@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../App";
 import SellerItemsCard from "./SellerItemsCard";
+import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 
-const ProfileCard = ({ user }) => {
-  const numberWithCommas = (user) => {
-    return Math.floor(user.points)
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
+const ProfileCard = () => {
+  const user = useContext(UserContext);
 
   return (
     <div className="profile-card-container">
@@ -16,7 +14,7 @@ const ProfileCard = ({ user }) => {
           <img src={user.picture} alt="profile" />
         </div>
         <div className="profile-card-user-info">
-          <h1>Points: {numberWithCommas(user)}</h1>
+          <h1>Points: {numberWithCommas(user.points)}</h1>
           <h3>{user.username}</h3>
           <h3>
             {user.firstName} {user.lastName}

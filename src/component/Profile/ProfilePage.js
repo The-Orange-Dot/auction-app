@@ -3,12 +3,12 @@ import "./ProfilePage.css";
 import ProfileNavBar from "./ProfileNavBar";
 import ProfileCard from "./ProfileCard";
 
-const ProfilePage = ({ user }) => {
+const ProfilePage = () => {
   return (
     <div className="profile-page-container">
       <div className="profile-info-container">
         <ProfileNavBar />
-        <ProfileCard user={user} />
+        <ProfileCard />
       </div>
     </div>
   );

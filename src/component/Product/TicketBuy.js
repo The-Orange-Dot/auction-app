@@ -1,16 +1,11 @@
 import React from "react";
 import ticket from "../../database/images/Ticket.png";
+import { subtractPoints } from "../BaseComponents/SubtractUserPoints";
 
 const TicketBuy = ({ user, product, setTickets, setUser }) => {
   const buyHandler = (item) => {
-    //WHY NO WORK!?
-    // const pointsPerTicket = item.price / item.tickets;
-    // fetch(`http://localhost:3000/users/change_points/${user.id}`, {
-    //   method: "PATCH",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ points: user.points - pointsPerTicket }),
-    // });
-
+    const value = item.price / item.tickets;
+    subtractPoints(user, value);
     fetch(`http://localhost:3000/products/take_ticket/${item.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },

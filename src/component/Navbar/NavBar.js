@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import UserPreview from "./UserPreview";
 import { NavLink } from "react-router-dom";
 
-const NavBar = ({ searchHandler, user, pageLoaded }) => {
+const NavBar = ({ searchHandler, pageLoaded }) => {
   //All the NavBar logic can go in here!!!
 
   return (
@@ -15,7 +15,7 @@ const NavBar = ({ searchHandler, user, pageLoaded }) => {
       </NavLink>
       <SearchBar searchHandler={searchHandler} />
 
-      <UserPreview user={user} pageLoaded={pageLoaded} />
+      <UserPreview pageLoaded={pageLoaded} />
     </div>
   );
 };

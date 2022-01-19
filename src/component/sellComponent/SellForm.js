@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Sell.css";
 import { useHistory } from "react-router-dom";
+import { ProductContext } from "../../App";
 
-const SellForm = ({ products, setProducts }) => {
+const SellForm = ({ setProducts }) => {
+  const products = useContext(ProductContext);
   const history = useHistory();
   const [newItem, setNewItem] = useState({
     name: "",

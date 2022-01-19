@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import "./App.css";
 import NavBar from "./component/Navbar/NavBar";
 import Card from "./component/Product/Card";
@@ -8,6 +8,9 @@ import ProfilePage from "./component/Profile/ProfilePage";
 import WelcomePage from "./component/Welcome/WelcomePage";
 import FilterBar from "./component/Filter/FilterBar";
 import FilterBackground from "./component/Filter/FilterBackground";
+
+export const UserContext = createContext();
+export const ProductContext = createContext();
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -19,27 +22,25 @@ function App() {
     picture: "loading",
     email: "loading",
     address: "loading",
-    products: ["loading"],
+    products: [],
   });
   const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
-    const API = process.env.REACT_APP_API_URL;
-    fetch(API)
+    const Product_API = process.env.REACT_APP_API_URL;
+    fetch(Product_API)
       .then((res) => res.json())
       .then((products) => {
         setProducts(products);
-
-        fetch("http://localhost:3000/users")
-          .then((r) => r.json())
-          .then((userData) => {
-            setUser(userData[18]);
-            setPageLoaded(true);
-          });
+      });
+    fetch("http://localhost:3000/users")
+      .then((r) => r.json())
+      .then((userData) => {
+        setUser(userData[18]);
+        setPageLoaded(true);
       });
   }, []);
 
-  console.log(user);
   const searchHandler = (event) => {
     setSearch(event.target.value);
     //WHY NO WORK!? stores typed search in local host
@@ -63,40 +64,37 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar
-        searchHandler={searchHandler}
-        user={user}
-        pageLoaded={pageLoaded}
-      />
+      <UserContext.Provider value={user}>
+        <ProductContext.Provider value={products}>
+          <NavBar searchHandler={searchHandler} pageLoaded={pageLoaded} />
 
-      <Switch>
-        <Route path="/sell">
-          <SellForm products={products} setProducts={setProducts} />
-        </Route>
+          <Switch>
+            <Route path="/sell">
+              <SellForm setProducts={setProducts} />
+            </Route>
 
-        <Route exact path="/profile">
-          <ProfilePage user={user} />
-        </Route>
+            <Route exact path="/profile">
+              <ProfilePage />
+            </Route>
 
-        <Route path="/browse">
-          <FilterBackground />
-          <span className="product-container">
-            <Card
-              products={products}
-              search={search}
-              filterHandler={filterHandler}
-              setProducts={setProducts}
-              user={user}
-              setUser={setUser}
-            />
-            <FilterBar filterHandler={filterHandler} />
-          </span>
-        </Route>
+            <Route path="/browse">
+              <FilterBackground />
+              <span className="product-container">
+                <Card
+                  search={search}
+                  filterHandler={filterHandler}
+                  setProducts={setProducts}
+                />
+                <FilterBar filterHandler={filterHandler} />
+              </span>
+            </Route>
 
-        <Route path="/">
-          <WelcomePage />
-        </Route>
-      </Switch>
+            <Route path="/">
+              <WelcomePage />
+            </Route>
+          </Switch>
+        </ProductContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }

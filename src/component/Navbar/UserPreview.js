@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./NavBar.css";
 import { users as userDefault } from "../../userDb";
 import ChargePoints from "./ChargePoints";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../../App";
+import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 
-const UserPreview = ({ user, pageLoaded }) => {
+const UserPreview = ({ pageLoaded }) => {
   const [grayIsOn, setGrayIsOn] = useState(true);
+  const user = useContext(UserContext);
 
   //This stops scrolling when gray screen is up
   document.body.style.overflow = grayIsOn ? "" : "hidden";
@@ -23,7 +26,10 @@ const UserPreview = ({ user, pageLoaded }) => {
           <img src={user.picture} alt="selfie" className="user-photo" />
         </NavLink>
         <small className="points" onClick={() => setGrayIsOn(!grayIsOn)}>
-          Points: {pageLoaded ? user.points : userDefault.points}
+          Points:{" "}
+          {pageLoaded
+            ? numberWithCommas(user.points)
+            : numberWithCommas(userDefault.points)}
         </small>
       </div>
 

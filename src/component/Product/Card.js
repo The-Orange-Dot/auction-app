@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import ProductCard from "./ProductCard";
 import Fuse from "fuse.js";
-const Card = ({ products, search, user, setProducts, setUser }) => {
-  //logic here will affect ALL cards at the same time
+import { ProductContext } from "../../App";
+
+const Card = ({ search, setProducts }) => {
+  const products = useContext(ProductContext);
 
   //FUSE.JS Library search function
   const option = {
@@ -29,8 +31,6 @@ const Card = ({ products, search, user, setProducts, setUser }) => {
           product={product?.item || product}
           setProducts={setProducts}
           products={products}
-          user={user}
-          setUser={setUser}
         />
       </>
     );

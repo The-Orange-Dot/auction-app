@@ -1,5 +1,6 @@
 import React from "react";
 import "./ProfilePage.css";
+import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 
 const SellerItems = ({ product }) => {
   const backgroundImageStyling = {
@@ -10,12 +11,6 @@ const SellerItems = ({ product }) => {
     height: "100%",
     backgroundRepeat: "no-repeat",
     overflow: "hidden",
-  };
-
-  const numberWithCommas = (num) => {
-    return Math.floor(num)
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
   return (

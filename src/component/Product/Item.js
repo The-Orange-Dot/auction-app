@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Product.css";
 import TicketBuy from "./TicketBuy";
 import DeleteButton from "./DeleteButton";
+import { UserContext } from "../../App";
+import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 
-const Item = ({ user, product, isBig, setProducts, products, setUser }) => {
+const Item = ({ product, isBig, setProducts, products, setUser }) => {
+  const user = useContext(UserContext);
   const [tickets, setTickets] = useState(product.ticketsRemaining);
-  const numberWithCommas = (price) => {
-    const pricePerTicket = price.price / price.tickets;
-    return Math.floor(pricePerTicket)
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
+  const pricePerTicket = product.price / product.tickets;
 
   return (
     <>
@@ -27,7 +25,7 @@ const Item = ({ user, product, isBig, setProducts, products, setUser }) => {
       <div>
         <strong>Points per ticket:</strong>
       </div>
-      <div> {numberWithCommas(product)} Points</div>
+      <div> {numberWithCommas(pricePerTicket)} Points</div>
       {product.ticketsRemaining <= 0 ? (
         <h3>
           <strong>FINISHED</strong>
