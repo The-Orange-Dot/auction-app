@@ -177,3 +177,8 @@ h1 {
 .profile-picture-overlay {
   opacity: 1;
 }
+
+.hidden-card {
+  opacity: 0;
+  display: none;
+}

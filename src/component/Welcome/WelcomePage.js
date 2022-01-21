@@ -66,7 +66,7 @@ const WelcomePage = () => {
           <NavLink to="/browse">
             <button>Start Searching</button>
           </NavLink>
-          <button onClick={() => scrollHandler(950)}>More Info</button>
+          <button onClick={() => scrollHandler(800)}>More Info</button>
         </div>
       </div>
       <InfoPage />

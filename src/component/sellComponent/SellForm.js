@@ -2,8 +2,10 @@ import React, { useState, useContext } from "react";
 import "./Sell.css";
 import { useHistory } from "react-router-dom";
 import { ProductContext } from "../../App";
+import { UserContext } from "../../App";
 
-const SellForm = ({ setProducts }) => {
+const SellForm = ({ setProducts, setUser }) => {
+  const user = useContext(UserContext);
   const products = useContext(ProductContext);
   const history = useHistory();
   const [newItem, setNewItem] = useState({
@@ -15,6 +17,7 @@ const SellForm = ({ setProducts }) => {
     price: 0,
     ticketsRemining: 0,
     tickets: 0,
+    user_id: null,
   });
 
   const sellSubmitHandler = (event) => {
@@ -31,6 +34,7 @@ const SellForm = ({ setProducts }) => {
 
   const inputHandler = (e) => {
     const numberData = { ...newItem };
+    numberData.user_id = user.id;
     if (e.target.name === "price") {
       const price = parseInt(e.target.value);
       setNewItem({ ...numberData, [e.target.name]: price });

@@ -2,10 +2,11 @@
   left: 20%;
   padding-top: 100vh;
   position: absolute;
-  height: 300vh;
+  height: 255vh;
   width: 100%;
   display: block;
   z-index: -1;
+  overflow: hidden;
 }
 
 .info-page-container h1 {
@@ -30,30 +31,75 @@
   height: 650px;
   position: absolute;
   left: 33%;
-  top: 28%;
+  top: 900px;
   opacity: 0;
 }
 
 .dollar-sign {
   height: 120px;
   position: absolute;
-  top: 35%;
+  top: 1000px;
   left: 57%;
   opacity: 0;
 }
 
 .info-page-how-it-works {
   position: absolute;
-  top: 750px;
+  top: 700px;
   transform: translate(370px, 0px);
+  opacity: 0;
 }
 
 .info-1 {
   position: absolute;
   top: 1000px;
+  opacity: 0;
 }
 
 .info-2 {
-  top: 1700px;
+  top: 1400px;
   position: absolute;
+  opacity: 0;
+}
+
+.info-3 {
+  top: 1900px;
+  position: absolute;
+  opacity: 0;
+}
+
+.ticket-info-group {
+  top: 1800px;
+  position: absolute;
+  transform: scale(50%);
+}
+
+.take-ticket-f {
+  position: absolute;
+  top: 2000px;
+  transform: scale(150%);
+  z-index: -1;
+}
+
+.info-4 {
+  top: 2600px;
+  position: absolute;
+  opacity: 0;
+}
+
+.happy-girl {
+  position: absolute;
+  top: 2750px;
+  transform: scale(180%);
+}
+
+.box {
+  position: absolute;
+  top: 2430px;
+  transform: scale(35%);
+}
+
+.start {
+  position: absolute;
+  top: 3200px;
 }

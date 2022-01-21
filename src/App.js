@@ -2,7 +2,7 @@ import React, { useState, useEffect, createContext } from "react";
 import "./App.css";
 import NavBar from "./component/Navbar/NavBar";
 import Card from "./component/Product/Card";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import SellForm from "./component/sellComponent/SellForm";
 import ProfilePage from "./component/Profile/ProfilePage";
 import WelcomePage from "./component/Welcome/WelcomePage";
@@ -16,10 +16,12 @@ function App() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [user, setUser] = useState({
+    id: 0,
     firstName: "loading",
     lastName: "loading",
-    points: 99999,
-    picture: "loading",
+    points: 0,
+    picture:
+      "https://www.peachridgeglass.com/wp-content/uploads/2013/07/MoxieAd1.jpg",
     email: "loading",
     address: "loading",
     products: [],
@@ -36,7 +38,7 @@ function App() {
     fetch("http://localhost:3000/users")
       .then((r) => r.json())
       .then((userData) => {
-        setUser(userData[18]);
+        setUser(userData[7]);
         setPageLoaded(true);
       });
   }, []);
@@ -63,39 +65,46 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <UserContext.Provider value={user}>
-        <ProductContext.Provider value={products}>
-          <NavBar searchHandler={searchHandler} pageLoaded={pageLoaded} />
+    <Router>
+      <div className="App">
+        <UserContext.Provider value={user}>
+          <ProductContext.Provider value={products}>
+            <NavBar
+              searchHandler={searchHandler}
+              pageLoaded={pageLoaded}
+              setUser={setUser}
+            />
 
-          <Switch>
-            <Route path="/sell">
-              <SellForm setProducts={setProducts} />
-            </Route>
+            <Switch>
+              <Route path="/sell">
+                <SellForm setProducts={setProducts} setUser={setUser} />
+              </Route>
 
-            <Route exact path="/profile">
-              <ProfilePage />
-            </Route>
+              <Route exact path="/profile">
+                <ProfilePage />
+              </Route>
 
-            <Route path="/browse">
-              <FilterBackground />
-              <span className="product-container">
-                <Card
-                  search={search}
-                  filterHandler={filterHandler}
-                  setProducts={setProducts}
-                />
-                <FilterBar filterHandler={filterHandler} />
-              </span>
-            </Route>
+              <Route path="/browse">
+                <FilterBackground />
+                <span className="product-container">
+                  <Card
+                    search={search}
+                    filterHandler={filterHandler}
+                    setProducts={setProducts}
+                    setUser={setUser}
+                  />
+                  <FilterBar filterHandler={filterHandler} />
+                </span>
+              </Route>
 
-            <Route path="/">
-              <WelcomePage />
-            </Route>
-          </Switch>
-        </ProductContext.Provider>
-      </UserContext.Provider>
-    </div>
+              <Route exact path="/">
+                <WelcomePage />
+              </Route>
+            </Switch>
+          </ProductContext.Provider>
+        </UserContext.Provider>
+      </div>
+    </Router>
   );
 }
 

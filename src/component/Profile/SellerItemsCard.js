@@ -5,7 +5,7 @@ const SellerItemsCard = ({ user }) => {
   if (user.products.length > 0) {
     return user.products.map((product) => {
       return (
-        <div className="seller-item-card">
+        <div className="seller-item-card" key={product.id}>
           <SellerItems product={product} />
         </div>
       );

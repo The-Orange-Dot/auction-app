@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { UserContext } from "../../App";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 
-const UserPreview = ({ pageLoaded }) => {
+const UserPreview = ({ pageLoaded, setUser }) => {
   const [grayIsOn, setGrayIsOn] = useState(true);
   const user = useContext(UserContext);
 
@@ -15,7 +15,7 @@ const UserPreview = ({ pageLoaded }) => {
 
   return (
     <span className="user-info-container">
-      {grayIsOn ? null : <ChargePoints />}
+      {grayIsOn ? null : <ChargePoints setUser={setUser} />}
       <div
         className={grayIsOn ? "hide-gray" : "show-gray"}
         onClick={() => setGrayIsOn(!grayIsOn)}
@@ -26,7 +26,7 @@ const UserPreview = ({ pageLoaded }) => {
           <img src={user.picture} alt="selfie" className="user-photo" />
         </NavLink>
         <small className="points" onClick={() => setGrayIsOn(!grayIsOn)}>
-          Points:{" "}
+          Points:
           {pageLoaded
             ? numberWithCommas(user.points)
             : numberWithCommas(userDefault.points)}

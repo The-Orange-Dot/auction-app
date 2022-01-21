@@ -4,19 +4,24 @@ import Item from "./Item";
 import { gsap } from "gsap";
 import { scrollHandler } from "../BaseComponents/ScrollHandler";
 
-const ProductCard = ({ product, setProducts, products }) => {
+const ProductCard = ({ product, setProducts, products, setUser }) => {
   const [isBig, setIsBig] = useState(false);
   const [grayIsOn, setGrayIsOn] = useState(true);
 
   useEffect(() => {
     scrollHandler(-10000);
-    gsap.timeline().to(".card", {
-      opacity: 1,
-      stagger: 0.2,
-      duration: 0.2,
-      y: -20,
-      ease: "Power2.out",
-    });
+    gsap.timeline().fromTo(
+      ".card",
+      { opacity: 0, y: 70 },
+      {
+        opacity: 1,
+        stagger: 0.2,
+        duration: 0.1,
+        y: -20,
+        ease: "back",
+        delay: 0.3,
+      }
+    );
   }, []);
 
   document.body.style.position = isBig ? "fixed" : "";
@@ -37,7 +42,6 @@ const ProductCard = ({ product, setProducts, products }) => {
       />
       <span
         className={isBig ? "big-card" : "card"}
-        key={product.id}
         onClick={
           isBig
             ? null
@@ -52,6 +56,7 @@ const ProductCard = ({ product, setProducts, products }) => {
           setIsBig={setIsBig}
           setProducts={setProducts}
           products={products}
+          setUser={setUser}
         />
       </span>
     </>

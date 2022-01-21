@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { UserContext } from "../../App";
 import SellerItemsCard from "./SellerItemsCard";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
+import BuyingItemsCard from "./BuyingItemsCard";
+import "./ProfilePage.css";
 
-const ProfileCard = () => {
+const ProfileCard = ({ sellSelected }) => {
   const user = useContext(UserContext);
 
   return (
@@ -25,13 +27,15 @@ const ProfileCard = () => {
           </div>
         </div>
       </span>
+
       <span className="bid-items-container">
-        <div className="hidden">
-          <h1>Tickets Being Held!</h1>
-        </div>
         <div className="">
-          <h1>Your listings</h1>
-          <SellerItemsCard user={user} />
+          <h1>Your List</h1>
+          {sellSelected ? (
+            <SellerItemsCard user={user} />
+          ) : (
+            <BuyingItemsCard user={user} />
+          )}
         </div>
       </span>
     </div>
