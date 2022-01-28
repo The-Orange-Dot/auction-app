@@ -30,9 +30,9 @@ const WelcomePage = () => {
       .fromTo(
         ".ticket",
         {
-          x: 0,
+          x: 1000,
         },
-        { x: -1300, stagger: 0.25, ease: "Power4.easeout", duration: 0.3 }
+        { x: 0, stagger: 0.25, ease: "Power4.easeout", duration: 0.3 }
       );
   }, []);
 

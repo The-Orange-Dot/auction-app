@@ -16,9 +16,9 @@ const SellerInfo = ({ seller, isBig }) => {
     setTween(tween);
   }, []);
 
-  if (isBig) {
-    tween.play(0);
-  }
+  // if (isBig) {
+  //   tween.play(0);
+  // }
 
   return (
     <div className="seller-info-container">

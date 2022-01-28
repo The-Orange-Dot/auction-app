@@ -38,21 +38,21 @@
   position: absolute;
   transform: rotate(40deg) scale(115%);
   top: 40%;
-  right: -50%;
+  left: 60%;
 }
 
 .welcome-ticket-image-2 {
   position: absolute;
   transform: rotate(25deg) scale(115%);
   top: 43%;
-  right: -50%;
+  left: 60%;
 }
 
 .welcome-ticket-image-3 {
   position: absolute;
   transform: rotate(10deg) scale(115%);
   top: 46%;
-  right: -50%;
+  left: 60%;
 }
 
 .welcome-page-background {
