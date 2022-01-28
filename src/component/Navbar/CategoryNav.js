@@ -1,0 +1,29 @@
+import React from "react";
+
+const CategoryNav = ({ filterHandler }) => {
+  const formSubmit = (event) => {
+    if (event.target.textContent === "Video Games") {
+      filterHandler(event.target.textContent.split(" ")[1].toLowerCase());
+    } else if (event.target.textContent === "Newest") {
+      filterHandler("");
+    } else {
+      filterHandler(event.target.textContent.toLowerCase());
+    }
+  };
+
+  return (
+    <div className="category-nav-bar">
+      <span onClick={formSubmit}>Newest</span>
+      <span onClick={formSubmit}>Clothing</span>
+      <span onClick={formSubmit}>Electronics</span>
+      <span onClick={formSubmit}>Video Games</span>
+      <span onClick={formSubmit}>Music</span>
+      <span onClick={formSubmit}>Vintage</span>
+      <span onClick={formSubmit}>Beauty</span>
+      <span onClick={formSubmit}>Sports</span>
+      <span onClick={formSubmit}>Food/Drink</span>
+    </div>
+  );
+};
+
+export default CategoryNav;

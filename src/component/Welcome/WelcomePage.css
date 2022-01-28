@@ -36,36 +36,24 @@
 
 .welcome-ticket-image-1 {
   position: absolute;
-  transform: translate(420px, -400px) rotate(30deg) scale(115%);
-  transition: 0.2s;
+  transform: rotate(40deg) scale(115%);
+  top: 40%;
+  right: -50%;
 }
-
-/* .welcome-ticket-image-1:hover {
-  transform: translate(420px, -405px) rotate(31deg) scale(115%);
-  transition: 0.2s;
-} */
 
 .welcome-ticket-image-2 {
   position: absolute;
-  transform: translate(420px, -350px) rotate(20deg) scale(115%);
-  transition: 0.2s;
+  transform: rotate(25deg) scale(115%);
+  top: 43%;
+  right: -50%;
 }
-/* 
-.welcome-ticket-image-2:hover {
-  transform: translate(420px, -355px) rotate(21deg) scale(115%);
-  transition: 0.2s;
-} */
 
 .welcome-ticket-image-3 {
   position: absolute;
-  transform: translate(420px, -300px) rotate(10deg) scale(115%);
-  transition: 0.2s;
+  transform: rotate(10deg) scale(115%);
+  top: 46%;
+  right: -50%;
 }
-/* 
-.welcome-ticket-image-3:hover {
-  transform: translate(420px, -305px) rotate(11deg) scale(115%);
-  transition: 0.2s;
-} */
 
 .welcome-page-background {
   background-image: url(../../database/images/circus-wallpaper.jpeg);
@@ -74,7 +62,7 @@
   position: absolute;
   z-index: -1;
   left: 0%;
-  transform: rotate(20deg) translate(10px, -250px) scale(110%);
+  transform: scale(120%);
   overflow-x: hidden;
   opacity: 90%;
 }

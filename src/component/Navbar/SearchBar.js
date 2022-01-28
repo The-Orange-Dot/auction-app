@@ -3,15 +3,17 @@ import "./NavBar.css";
 
 const SearchBar = ({ searchHandler }) => {
   return (
-    <form action="">
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="What are you lookin' for?"
-        onChange={searchHandler}
-      />
-    </form>
+    <div className="search-bar">
+      <form action="">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Whatcha lookin' for?"
+          onChange={searchHandler}
+        />
+      </form>
+    </div>
   );
 };
 

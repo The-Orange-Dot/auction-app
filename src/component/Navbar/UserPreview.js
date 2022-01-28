@@ -22,7 +22,7 @@ const UserPreview = ({ pageLoaded, setUser }) => {
       />
 
       <div className="profile-container">
-        <NavLink to="/profile">
+        <NavLink to="/profile/info">
           <img src={user.picture} alt="selfie" className="user-photo" />
         </NavLink>
         <small className="points" onClick={() => setGrayIsOn(!grayIsOn)}>

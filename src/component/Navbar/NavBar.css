@@ -1,12 +1,10 @@
 .navbar {
-  width: 95%;
+  width: 100%;
   height: 75px;
   background-color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 15%;
-  padding-left: 30px;
   z-index: 1;
   position: fixed;
 }
@@ -14,6 +12,7 @@
 .logo {
   color: white;
   font-size: 3rem;
+  margin-left: 20%;
 }
 
 #search {
@@ -23,6 +22,13 @@
   font-size: 1.2em;
   text-align: center;
   border: 1px solid black;
+}
+
+.search-bar {
+  position: fixed;
+  left: 40%;
+  top: 2.5%;
+  z-index: 1;
 }
 
 /* #submit {
@@ -69,6 +75,7 @@ sell {
   display: inline-flex;
   flex-direction: row-reverse;
   align-items: center;
+  margin-right: 2%;
 }
 
 .points {
@@ -132,4 +139,26 @@ sell {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.category-nav-bar {
+  top: 9%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 0.5%;
+  border-bottom: 1px solid black;
+}
+
+.category-nav-bar span {
+  font-size: large;
+  margin: 0px 5px 0px 5px;
+  font-weight: 300;
 }

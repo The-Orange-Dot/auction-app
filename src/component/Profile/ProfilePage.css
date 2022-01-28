@@ -6,8 +6,13 @@
 .profile-info-container {
   padding-top: 6%;
   /* background-color: blue; */
-  width: 1500px;
-  height: 100vh;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-info-container > span {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,29 +25,29 @@ h1 {
 
 .profile-nav-bar-category-selector-container {
   width: 1000px;
-  height: 30px;
   border: 1px solid black;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 50px;
 }
 
-.profile-nav-bar-category-selector-container span {
+/* .profile-nav-bar-category-selector-container span {
   height: 30px;
   width: 33.3%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-}
+} */
 
-.profile-nav-bar-category-selector-container span:hover {
+/* .profile-nav-bar-category-selector-container span:hover {
   background-color: black;
   opacity: 100%;
   color: white;
   font-size: 1.3rem;
   font-weight: bold;
-}
+} */
 
 /* .profile-page-navbar-background {
   position: absolute;
@@ -53,10 +58,15 @@ h1 {
 } */
 
 .profile-card-container {
-  width: 90%;
+  max-width: 1500px;
   height: 700px;
   border: 1px solid black;
   display: flex;
+}
+
+.profile-card-user-picture {
+  display: flex;
+  justify-content: center;
 }
 
 .profile-card-user-picture > img {
@@ -69,7 +79,7 @@ h1 {
 
 .profile-card-user-container {
   display: flex;
-  width: 35%;
+  min-width: 33%;
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid black;
@@ -79,14 +89,15 @@ h1 {
 
 .profile-card-user-info {
   height: 60%;
+  text-align: center;
 }
 
 .bid-items-container {
-  width: 65%;
   display: flex;
   justify-content: center;
   align-items: center;
   display: block;
+  width: 800px;
 }
 
 .bid-items-container > div {
@@ -96,6 +107,51 @@ h1 {
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+}
+
+.account-container {
+  width: 800px;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.account-container p {
+  font-size: 1.2rem;
+}
+
+.verified {
+  padding: 0 30px;
+  border-radius: 1rem;
+  background-color: #f26867;
+  color: white;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.profile-info-container-tab {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.user-ratings {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profile-info-container-tab p {
+  font-size: 1.2rem;
 }
 
 .bid-items-container > div::-webkit-scrollbar {
@@ -181,4 +237,9 @@ h1 {
 .hidden-card {
   opacity: 0;
   display: none;
+}
+
+.ranking {
+  display: flex;
+  justify-content: space-around;
 }

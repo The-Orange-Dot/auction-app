@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./ProfilePage.css";
-import ProfileNavBar from "./ProfileNavBar";
 import ProfileCard from "./ProfileCard";
 import {
   useRouteMatch,
@@ -10,8 +9,11 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import Profile from "./Profile";
+import Account from "./Account";
+import SellerItemsCard from "./SellerItemsCard";
+import BuyingItemsCard from "./BuyingItemsCard";
 
-const ProfilePage = () => {
+const ProfilePage = ({ user }) => {
   const [sellSelected, setSellSelected] = useState(false);
   const { path, url } = useRouteMatch();
 
@@ -20,6 +22,10 @@ const ProfilePage = () => {
     textDecoration: "none",
     width: "100%",
     textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "1.2rem",
   };
 
   const activeLink = {
@@ -33,36 +39,55 @@ const ProfilePage = () => {
     <Router>
       <div className="profile-page-container">
         <div className="profile-info-container">
-          <span className="profile-nav-bar-category-selector-container">
-            <NavLink
-              to={`${url}/info`}
-              style={linkStyling}
-              activeStyle={activeLink}
-            >
-              <span>Profile</span>
-            </NavLink>
-            <NavLink
-              to={`${url}/account`}
-              style={linkStyling}
-              activeStyle={activeLink}
-            >
-              <span>Account</span>
-            </NavLink>
-            <NavLink
-              to={`${url}/tickets`}
-              style={linkStyling}
-              activeStyle={activeLink}
-            >
-              <span>Tickets</span>
-            </NavLink>
+          <span>
+            <div className="profile-nav-bar-category-selector-container">
+              <NavLink
+                exact
+                to={`${url}/info`}
+                style={linkStyling}
+                activeStyle={activeLink}
+              >
+                <span className="profile-link-text">Profile</span>
+              </NavLink>
+              <NavLink
+                to={`${url}/account`}
+                style={linkStyling}
+                activeStyle={activeLink}
+              >
+                <span className="profile-link-text">Account</span>
+              </NavLink>
+              <NavLink
+                exact
+                to={`${url}/tickets`}
+                style={linkStyling}
+                activeStyle={activeLink}
+              >
+                <span className="profile-link-text">Tickets</span>
+              </NavLink>
+            </div>
+            <div>
+              <ProfileCard setSellSelected={sellSelected}>
+                <Switch>
+                  <Route path={`${path}/tickets`}>
+                    <span className="bid-items-container">
+                      <div>
+                        <h1>Your List</h1>
+                        {sellSelected ? (
+                          <SellerItemsCard user={user} />
+                        ) : (
+                          <BuyingItemsCard user={user} />
+                        )}
+                      </div>
+                    </span>
+                  </Route>
+                  <Route path={`${path}/account`}>
+                    <Account />
+                  </Route>
+                  <Route path={`${path}/info`} component={Profile} />
+                </Switch>
+              </ProfileCard>
+            </div>
           </span>
-
-          <Switch>
-            <Route path={`${path}/info`} component={Profile} />
-            <Route path={`${path}/tickets`}>
-              <ProfileCard setSellSelected={sellSelected} />
-            </Route>
-          </Switch>
         </div>
       </div>
     </Router>

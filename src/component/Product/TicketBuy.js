@@ -1,8 +1,17 @@
 import React from "react";
 import ticket from "../../database/images/Ticket.png";
+import ChargePoints from "../Navbar/ChargePoints";
+import "../Navbar/NavBar.css";
 // import { subtractPoints } from "../BaseComponents/SubtractUserPoints";
 
-const TicketBuy = ({ user, product, setTickets, setUser }) => {
+const TicketBuy = ({
+  user,
+  product,
+  setTickets,
+  setUser,
+  setGrayIsOn,
+  grayIsOn,
+}) => {
   const ticketPrice = product.price / product.tickets;
 
   const buyTicket = (item, value) => {
@@ -32,6 +41,7 @@ const TicketBuy = ({ user, product, setTickets, setUser }) => {
 
   return (
     <div className="buy-ticket-container">
+      {grayIsOn ? null : <ChargePoints />}
       {product.ticketsRemaining <= 0 ? null : (
         <img
           onClick={() => buyHandler(product, ticketPrice)}

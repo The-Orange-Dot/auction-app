@@ -15,7 +15,7 @@ const ProductCard = ({ product, setProducts, products, setUser }) => {
       { opacity: 0, y: 70 },
       {
         opacity: 1,
-        stagger: 0.2,
+        stagger: 0.1,
         duration: 0.1,
         y: -20,
         ease: "back",
@@ -50,14 +50,16 @@ const ProductCard = ({ product, setProducts, products, setUser }) => {
               }
         }
       >
-        <Item
-          product={product}
-          isBig={isBig}
-          setIsBig={setIsBig}
-          setProducts={setProducts}
-          products={products}
-          setUser={setUser}
-        />
+        <span className="product-image-container">
+          <Item
+            product={product}
+            isBig={isBig}
+            setIsBig={setIsBig}
+            setProducts={setProducts}
+            products={products}
+            setUser={setUser}
+          />
+        </span>
       </span>
     </>
   );

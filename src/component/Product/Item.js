@@ -1,17 +1,28 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./Product.css";
 import TicketBuy from "./TicketBuy";
 import DeleteButton from "./DeleteButton";
 import { UserContext } from "../../App";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
+import SellerInfo from "./SellerInfo";
 
 const Item = ({ product, isBig, setProducts, products, setUser }) => {
   const user = useContext(UserContext);
+  const [grayIsOn, setGrayIsOn] = useState(true);
+  const [seller, setSeller] = useState("");
+
   const [tickets, setTickets] = useState(product.ticketsRemaining);
   const pricePerTicket = product.price / product.tickets;
+  document.body.style.overflow = grayIsOn ? "" : "hidden";
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/products/seller/${product.id}`)
+      .then((r) => r.json())
+      .then((seller) => setSeller(seller));
+  }, [product.id]);
 
   return (
-    <>
+    <div className="card-content">
       <img
         style={{ maxWidth: isBig ? "500px" : "300px" }}
         className="product-image"
@@ -37,9 +48,10 @@ const Item = ({ product, isBig, setProducts, products, setUser }) => {
           </div>
           <div>
             {tickets}/{product.tickets}
-          </div>{" "}
+          </div>
         </>
       )}
+      {isBig ? <SellerInfo seller={seller} isBig={isBig} /> : null}
       <div>
         {isBig && product.user_id !== user.id ? (
           <TicketBuy
@@ -48,6 +60,8 @@ const Item = ({ product, isBig, setProducts, products, setUser }) => {
             setProducts={setProducts}
             setTickets={setTickets}
             setUser={setUser}
+            grayIsOn={grayIsOn}
+            setGrayIsOn={setGrayIsOn}
           />
         ) : (
           <DeleteButton
@@ -59,7 +73,7 @@ const Item = ({ product, isBig, setProducts, products, setUser }) => {
           />
         )}
       </div>
-    </>
+    </div>
   );
 };
 

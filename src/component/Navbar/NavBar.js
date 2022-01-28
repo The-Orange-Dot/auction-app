@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
 import "./NavBar.css";
-import SearchBar from "./SearchBar";
 import UserPreview from "./UserPreview";
 import { NavLink } from "react-router-dom";
 
@@ -9,13 +8,14 @@ const NavBar = ({ searchHandler, pageLoaded, setUser }) => {
   //All the NavBar logic can go in here!!!
 
   return (
-    <div className="navbar">
-      <NavLink to="/" style={{ textDecoration: "none" }}>
-        <Logo />
-      </NavLink>
-      <SearchBar searchHandler={searchHandler} />
+    <div className="navbar-container">
+      <div className="navbar">
+        <NavLink to="/" style={{ textDecoration: "none" }}>
+          <Logo />
+        </NavLink>
 
-      <UserPreview pageLoaded={pageLoaded} setUser={setUser} />
+        <UserPreview pageLoaded={pageLoaded} setUser={setUser} />
+      </div>
     </div>
   );
 };

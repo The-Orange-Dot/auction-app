@@ -6,8 +6,11 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import SellForm from "./component/sellComponent/SellForm";
 import ProfilePage from "./component/Profile/ProfilePage";
 import WelcomePage from "./component/Welcome/WelcomePage";
-import FilterBar from "./component/Filter/FilterBar";
-import FilterBackground from "./component/Filter/FilterBackground";
+// import FilterBar from "./component/Filter/FilterBar";
+// import FilterBackground from "./component/Filter/FilterBackground";
+import ProductPage from "./component/Product/ProductPage";
+import CategoryNav from "./component/Navbar/CategoryNav";
+import SearchBar from "./component/Navbar/SearchBar";
 
 export const UserContext = createContext();
 export const ProductContext = createContext();
@@ -69,31 +72,30 @@ function App() {
       <div className="App">
         <UserContext.Provider value={user}>
           <ProductContext.Provider value={products}>
-            <NavBar
-              searchHandler={searchHandler}
-              pageLoaded={pageLoaded}
-              setUser={setUser}
-            />
+            <NavBar pageLoaded={pageLoaded} setUser={setUser} />
 
             <Switch>
               <Route path="/sell">
                 <SellForm setProducts={setProducts} setUser={setUser} />
               </Route>
 
-              <Route exact path="/profile">
-                <ProfilePage />
+              <Route path="/profile">
+                <ProfilePage user={user} />
               </Route>
-
               <Route path="/browse">
-                <FilterBackground />
                 <span className="product-container">
-                  <Card
-                    search={search}
-                    filterHandler={filterHandler}
-                    setProducts={setProducts}
-                    setUser={setUser}
-                  />
-                  <FilterBar filterHandler={filterHandler} />
+                  <ProductPage>
+                    <CategoryNav filterHandler={filterHandler} />
+                    <SearchBar searchHandler={searchHandler} />
+                    <Card
+                      search={search}
+                      filterHandler={filterHandler}
+                      setProducts={setProducts}
+                      setUser={setUser}
+                    />
+                  </ProductPage>
+                  {/* <FilterBackground />
+                  <FilterBar filterHandler={filterHandler} /> */}
                 </span>
               </Route>
 

@@ -64,7 +64,7 @@ const InfoPage = () => {
       .timeline({
         scrollTrigger: {
           start: "110% top",
-          end: "140% top",
+          end: "110% top",
           scrub: 2,
           setAction: "play none none reverse",
         },
@@ -209,8 +209,8 @@ const InfoPage = () => {
             className="boy-with-lighter"
           />
           <p className="info-1">
-            Sellers put items on the site and list their price just like any
-            other e-commerce website.
+            Just like any other e-commerce website, sellers put what they want
+            to sell on the site, write a description, and list their price.
           </p>
           <img src={dollar} alt="dollar sign" className="dollar-sign" />
         </div>

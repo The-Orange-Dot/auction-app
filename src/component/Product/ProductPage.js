@@ -1,10 +1,7 @@
 import React from "react";
-import Card from "./ProductCard";
 
-const ProductPage = ({ products, search, filterHandler }) => {
-  return (
-    <Card products={products} search={search} filterHandler={filterHandler} />
-  );
+const ProductPage = ({ children }) => {
+  return <div>{children}</div>;
 };
 
 export default ProductPage;
