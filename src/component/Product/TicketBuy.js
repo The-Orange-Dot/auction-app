@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProductContext } from "../../App";
 import ticket from "../../database/images/Ticket.png";
 import ChargePoints from "../Navbar/ChargePoints";
 import "../Navbar/NavBar.css";
@@ -9,8 +10,8 @@ const TicketBuy = ({
   product,
   setTickets,
   setUser,
-  setGrayIsOn,
   grayIsOn,
+  setProducts,
 }) => {
   const ticketPrice = product.price / product.tickets;
 
@@ -22,15 +23,19 @@ const TicketBuy = ({
         points: user.points,
         product_id: item.id,
       }),
-    }).then(() => {
-      //Updates Points
-      const finalValue = user.points - value;
-      const updatedUser = { ...user, points: finalValue };
-      setUser(updatedUser);
+    })
+      .then((r) => r.json())
+      .then((boughtProduct) => {
+        //Updates Points
+        const finalValue = user.points - value;
+        const updatedUser = { ...user, points: finalValue };
+        setUser(updatedUser);
 
-      //Updates Tickets remaining
-      setTickets((product.ticketsRemaining = product.ticketsRemaining - 1));
-    });
+        //Updates Tickets remaining
+        setTickets((product.ticketsRemaining = product.ticketsRemaining - 1));
+
+        setProducts([...boughtProduct]);
+      });
   };
 
   const buyHandler = (product, value) => {

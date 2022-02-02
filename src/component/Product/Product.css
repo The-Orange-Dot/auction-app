@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-top: 10%;
+  padding-top: 5%;
   width: 100%;
 }
 .product-container > div {
@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .product-image {
@@ -17,6 +18,14 @@
   width: auto;
   object-fit: cover;
   border-radius: 0.5em;
+}
+
+.card-container {
+  margin-top: 3%;
+  width: 100%;
+  display: flex;
+  flex-wrap: inherit;
+  justify-content: center;
 }
 
 .big-card h3,
@@ -137,25 +146,31 @@ p {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  left: 2%;
-  top: 10%;
+  right: 2%;
+  top: 5%;
   background-color: white;
   padding: 20px;
-  border: 5px solid#f26867;
-  height: 500px;
+  height: 300px;
   width: 250px;
   opacity: 1;
+  z-index: 200;
 }
-.seller-info-container p {
+
+.seller-username {
   line-height: 0px;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1rem;
+}
+
+.seller-info-rating {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .seller-profile-picture {
-  width: 180px;
-  max-height: 180px;
+  width: 120px;
+  max-height: 120px;
   object-fit: cover;
   border-radius: 50%;
-  z-index: 122;
 }

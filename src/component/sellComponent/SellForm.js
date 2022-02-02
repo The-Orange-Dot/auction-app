@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
 import "./Sell.css";
 import { useHistory } from "react-router-dom";
-import { UserContext } from "../../App";
+import { ProductContext, UserContext } from "../../App";
 import SellBackgroundTween from "./SellBackgroundTween";
 
 const SellForm = ({ setProducts, setUser }) => {
   const user = useContext(UserContext);
+  const products = useContext(ProductContext);
   const history = useHistory();
   const [newItem, setNewItem] = useState({
     name: "",
@@ -28,7 +29,9 @@ const SellForm = ({ setProducts, setUser }) => {
       body: JSON.stringify(newItem),
     })
       .then((r) => r.json())
-      .then((newItem) => setProducts(newItem));
+      .then((newProduct) => {
+        setProducts([...products, newProduct]);
+      });
   };
 
   const inputHandler = (e) => {
@@ -71,6 +74,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 name="category"
                 id="category"
                 onChange={(e) => inputHandler(e)}
+                required
               >
                 <option value="" defaultChecked>
                   --Select a category--
@@ -106,6 +110,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 placeholder="Total target points for listing"
                 onChange={(e) => inputHandler(e)}
                 required
+                min="1000"
               />
             </div>
             <div>
@@ -117,6 +122,8 @@ const SellForm = ({ setProducts, setUser }) => {
                 placeholder="How many tickets for the listing"
                 onChange={(e) => inputHandler(e)}
                 required
+                min="5"
+                max="25"
               />
             </div>
             <div>
@@ -154,7 +161,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 name="keywords"
                 placeholder='Seperate keywords with ","'
                 onChange={(e) => inputHandler(e)}
-                maxLength="100"
+                maxLength="50"
                 cols="55"
                 style={{ resize: "none" }}
               />

@@ -4,7 +4,7 @@ const CategoryNav = ({ filterHandler }) => {
   const formSubmit = (event) => {
     if (event.target.textContent === "Video Games") {
       filterHandler(event.target.textContent.split(" ")[1].toLowerCase());
-    } else if (event.target.textContent === "Newest") {
+    } else if (event.target.textContent === "All") {
       filterHandler("");
     } else {
       filterHandler(event.target.textContent.toLowerCase());
@@ -13,7 +13,7 @@ const CategoryNav = ({ filterHandler }) => {
 
   return (
     <div className="category-nav-bar">
-      <span onClick={formSubmit}>Newest</span>
+      <span onClick={formSubmit}>All</span>
       <span onClick={formSubmit}>Clothing</span>
       <span onClick={formSubmit}>Electronics</span>
       <span onClick={formSubmit}>Video Games</span>

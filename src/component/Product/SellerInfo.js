@@ -1,35 +1,20 @@
 import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 
-const SellerInfo = ({ seller, isBig }) => {
-  const [tween, setTween] = useState();
-
-  useEffect(() => {
-    const tween = gsap
-      .timeline({ paused: true })
-      .fromTo(
-        ".seller-info-container",
-        { opacity: 0, display: "none" },
-        { opacity: 1, display: "flex" }
-      );
-
-    setTween(tween);
-  }, []);
-
-  // if (isBig) {
-  //   tween.play(0);
-  // }
-
+const SellerInfo = ({ seller }) => {
+  console.log(seller);
   return (
     <div className="seller-info-container">
+      <p>Seller</p>
       <img
         src={seller.picture}
         alt="seller"
         className="seller-profile-picture"
       />
-      <p>{seller.username}</p>
-      <p>Seller Rating:</p>
-      <p>{seller.seller_rating}</p>
+      <p className="seller-username">{seller.username}</p>
+      <br />
+      <p className="seller-info-rating">Seller Rating:</p>
+      <p className="seller-info-rating">{seller.seller_rating}</p>
       {seller.verified ? <p>Verified Seller</p> : null}
     </div>
   );

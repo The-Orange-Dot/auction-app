@@ -12,10 +12,27 @@ import Profile from "./Profile";
 import Account from "./Account";
 import SellerItemsCard from "./SellerItemsCard";
 import BuyingItemsCard from "./BuyingItemsCard";
+import BuyerSellerSelector from "./BuyerSellerSelector";
 
 const ProfilePage = ({ user }) => {
   const [sellSelected, setSellSelected] = useState(false);
   const { path, url } = useRouteMatch();
+
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const user_month = month[parseInt(String(user.created_at).slice(5, 7)) - 1];
 
   const linkStyling = {
     color: "black",
@@ -71,7 +88,11 @@ const ProfilePage = ({ user }) => {
                   <Route path={`${path}/tickets`}>
                     <span className="bid-items-container">
                       <div>
-                        <h1>Your List</h1>
+                        <BuyerSellerSelector
+                          setSellSelected={setSellSelected}
+                        />
+
+                        <h1>Your {sellSelected ? "Sell" : "Buy"} List</h1>
                         {sellSelected ? (
                           <SellerItemsCard user={user} />
                         ) : (
@@ -81,9 +102,11 @@ const ProfilePage = ({ user }) => {
                     </span>
                   </Route>
                   <Route path={`${path}/account`}>
-                    <Account />
+                    <Account user_month={user_month} />
                   </Route>
-                  <Route path={`${path}/info`} component={Profile} />
+                  <Route path={`${path}/info`}>
+                    <Profile user_month={user_month} />
+                  </Route>
                 </Switch>
               </ProfileCard>
             </div>

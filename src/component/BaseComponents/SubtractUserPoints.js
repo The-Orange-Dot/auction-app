@@ -4,5 +4,4 @@ export const subtractPoints = (user, value) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ points: user.points - value }),
   });
-  console.log(user);
 };

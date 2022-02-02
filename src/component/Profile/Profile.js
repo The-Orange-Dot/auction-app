@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../App";
 
-const Profile = () => {
+const Profile = ({ user_month }) => {
   const user = useContext(UserContext);
 
   return (
     <div className="profile-info-container-tab">
-      <h1>Profile test</h1>
+      <h1>Public Profile</h1>
       <div>
         <span>
           <h2>Username</h2>
@@ -14,14 +14,8 @@ const Profile = () => {
         </span>
       </div>
       <div>
-        <span>
-          <h2>First Name</h2>
-          <p>{user.firstName}</p>
-        </span>
-        <span>
-          <h2>Last Name</h2>
-          <p>{user.lastName}</p>
-        </span>
+        <h2>Account Created:</h2>
+        <p>{`${user_month} ${String(user.created_at).slice(0, 4)}`}</p>
       </div>
       <div className="user-ratings">
         <span>

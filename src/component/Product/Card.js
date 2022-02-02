@@ -8,24 +8,28 @@ const Card = ({ search, setProducts, setUser }) => {
 
   //FUSE.JS Library search function
   const option = {
-    keys: ["name", "keywords"],
-    threshold: 0.4,
+    keys: ["name", "keywords", "category"],
+    threshold: 0.2,
     minMatchCharLength: 2,
   };
   const fuseFilter = new Fuse(products, option);
   const searchFilter = search.length > 1 ? fuseFilter.search(search) : products;
 
-  return searchFilter.map((product) => {
-    return (
-      <ProductCard
-        key={product.id}
-        product={product?.item || product}
-        setProducts={setProducts}
-        products={products}
-        setUser={setUser}
-      />
-    );
-  });
+  return (
+    <div className="card-container">
+      {searchFilter.map((product) => {
+        return (
+          <ProductCard
+            key={product.id}
+            product={product?.item || product}
+            setProducts={setProducts}
+            products={products}
+            setUser={setUser}
+          />
+        );
+      })}
+    </div>
+  );
 };
 
 export default Card;

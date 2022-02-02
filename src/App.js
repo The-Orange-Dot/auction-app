@@ -41,7 +41,7 @@ function App() {
     fetch("http://localhost:3000/users")
       .then((r) => r.json())
       .then((userData) => {
-        setUser(userData[7]);
+        setUser(userData[0]);
         setPageLoaded(true);
       });
   }, []);

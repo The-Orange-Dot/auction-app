@@ -9,17 +9,10 @@ import SellerInfo from "./SellerInfo";
 const Item = ({ product, isBig, setProducts, products, setUser }) => {
   const user = useContext(UserContext);
   const [grayIsOn, setGrayIsOn] = useState(true);
-  const [seller, setSeller] = useState("");
 
   const [tickets, setTickets] = useState(product.ticketsRemaining);
   const pricePerTicket = product.price / product.tickets;
   document.body.style.overflow = grayIsOn ? "" : "hidden";
-
-  useEffect(() => {
-    fetch(`http://localhost:3000/products/seller/${product.id}`)
-      .then((r) => r.json())
-      .then((seller) => setSeller(seller));
-  }, [product.id]);
 
   return (
     <div className="card-content">
@@ -51,7 +44,7 @@ const Item = ({ product, isBig, setProducts, products, setUser }) => {
           </div>
         </>
       )}
-      {isBig ? <SellerInfo seller={seller} isBig={isBig} /> : null}
+      {isBig ? <SellerInfo seller={product.user} isBig={isBig} /> : null}
       <div>
         {isBig && product.user_id !== user.id ? (
           <TicketBuy

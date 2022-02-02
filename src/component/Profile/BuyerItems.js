@@ -13,6 +13,10 @@ const BuyerItems = ({ product }) => {
     overflow: "hidden",
   };
 
+  const ticketsHeld = product.buyers
+    .split(", ")
+    .filter((num) => (num = String(product.user.id))).length;
+
   return (
     <div className="seller-product-preview">
       <span className="seller-product-title">
@@ -28,7 +32,10 @@ const BuyerItems = ({ product }) => {
           <p>
             Tickets Remaining: {product.ticketsRemaining} / {product.tickets}
           </p>
-          <p>Created on: {String(product.created_at).slice(0, 10)}</p>
+          <p>
+            You're holding {ticketsHeld}{" "}
+            {ticketsHeld > 1 ? "tickets" : "ticket"}!
+          </p>
         </div>
       </span>
     </div>
