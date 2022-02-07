@@ -1,16 +1,17 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./Product.css";
 import TicketBuy from "./TicketBuy";
-import DeleteButton from "./DeleteButton";
-import { UserContext } from "../../App";
+import { LoginContext, UserContext } from "../../App";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 import SellerInfo from "./SellerInfo";
 
-const Item = ({ product, isBig, setProducts, products, setUser }) => {
+const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
+  const loggedIn = useContext(LoginContext);
   const user = useContext(UserContext);
   const [grayIsOn, setGrayIsOn] = useState(true);
-
   const [tickets, setTickets] = useState(product.ticketsRemaining);
+
+  //Prevents scrolling when gray overlay is up
   const pricePerTicket = product.price / product.tickets;
   document.body.style.overflow = grayIsOn ? "" : "hidden";
 
@@ -46,7 +47,7 @@ const Item = ({ product, isBig, setProducts, products, setUser }) => {
       )}
       {isBig ? <SellerInfo seller={product.user} isBig={isBig} /> : null}
       <div>
-        {isBig && product.user_id !== user.id ? (
+        {isBig && product.user_id !== user.id && loggedIn === true ? (
           <TicketBuy
             user={user}
             product={product}
@@ -54,17 +55,9 @@ const Item = ({ product, isBig, setProducts, products, setUser }) => {
             setTickets={setTickets}
             setUser={setUser}
             grayIsOn={grayIsOn}
-            setGrayIsOn={setGrayIsOn}
+            setNotEnoughPoints={setNotEnoughPoints}
           />
-        ) : (
-          <DeleteButton
-            isBig={isBig}
-            product={product}
-            setProducts={setProducts}
-            products={products}
-            user={user}
-          />
-        )}
+        ) : null}
       </div>
     </div>
   );

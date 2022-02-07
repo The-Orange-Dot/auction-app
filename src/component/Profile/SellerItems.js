@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ProfilePage.css";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
+import gsap from "gsap";
 
-const SellerItems = ({ product }) => {
+const SellerItems = ({ product, setProducts, products }) => {
+  const [delButtonTween, setDelButtonTween] = useState();
+  const [clicked, setClicked] = useState(false);
+  const el = useRef();
+
   const backgroundImageStyling = {
     backgroundImage: `url(${product.images})`,
     backgroundPosition: "right",
@@ -13,8 +18,40 @@ const SellerItems = ({ product }) => {
     overflow: "hidden",
   };
 
+  useEffect(() => {
+    const deleteButton = gsap
+      .timeline({ paused: true })
+      .fromTo(
+        el.current,
+        { display: "none", x: 300 },
+        { display: "block", x: 0 }
+      );
+    setDelButtonTween(deleteButton);
+  }, []);
+
+  const deleteHandler = () => {
+    fetch(`http://localhost:3000/products/${product.id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((r) => r.json())
+      .then((deletedItem) =>
+        setProducts(
+          products.filter((item) => {
+            return item.id !== deletedItem.id;
+          })
+        )
+      );
+  };
+
   return (
-    <div className="seller-product-preview">
+    <div
+      className="seller-product-preview"
+      onClick={() => {
+        clicked ? delButtonTween.reverse(0) : delButtonTween.play(0);
+        setClicked(!clicked);
+      }}
+    >
       <span className="seller-product-title">
         <h3>{product.name}</h3>
       </span>
@@ -31,6 +68,13 @@ const SellerItems = ({ product }) => {
           <p>Created on: {String(product.created_at).slice(0, 10)}</p>
         </div>
       </span>
+      <button
+        onClick={deleteHandler}
+        className="seller-page-delete-product"
+        ref={el}
+      >
+        Delete
+      </button>
     </div>
   );
 };

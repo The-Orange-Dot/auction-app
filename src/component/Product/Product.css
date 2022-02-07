@@ -55,7 +55,7 @@ span.card {
   align-items: center;
   padding: 1rem;
   width: 300px;
-  height: 400px;
+  height: 420px;
   opacity: 0;
   transition: 0.5s;
   background-color: white;
@@ -148,7 +148,6 @@ p {
   align-items: center;
   right: 2%;
   top: 5%;
-  background-color: white;
   padding: 20px;
   height: 300px;
   width: 250px;
@@ -173,4 +172,12 @@ p {
   max-height: 120px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.not-enough-points-img {
+  position: absolute;
+  left: 0%;
+  bottom: -5%;
+  z-index: 2;
+  transform: scale(130%);
 }

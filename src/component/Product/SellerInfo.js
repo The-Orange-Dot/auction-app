@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import gsap from "gsap";
+import React from "react";
 
 const SellerInfo = ({ seller }) => {
-  console.log(seller);
+  // console.log(seller);
   return (
     <div className="seller-info-container">
       <p>Seller</p>

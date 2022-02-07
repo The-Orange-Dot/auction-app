@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./ProfilePage.css";
 import ProfileCard from "./ProfileCard";
 import {
@@ -13,8 +13,10 @@ import Account from "./Account";
 import SellerItemsCard from "./SellerItemsCard";
 import BuyingItemsCard from "./BuyingItemsCard";
 import BuyerSellerSelector from "./BuyerSellerSelector";
+import { UserContext } from "../../App";
 
-const ProfilePage = ({ user }) => {
+const ProfilePage = ({ setProducts, setUser }) => {
+  const user = useContext(UserContext);
   const [sellSelected, setSellSelected] = useState(false);
   const { path, url } = useRouteMatch();
 
@@ -94,7 +96,11 @@ const ProfilePage = ({ user }) => {
 
                         <h1>Your {sellSelected ? "Sell" : "Buy"} List</h1>
                         {sellSelected ? (
-                          <SellerItemsCard user={user} />
+                          <SellerItemsCard
+                            user={user}
+                            setProducts={setProducts}
+                            setUser={setUser}
+                          />
                         ) : (
                           <BuyingItemsCard user={user} />
                         )}

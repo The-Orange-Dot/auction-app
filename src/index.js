@@ -4,8 +4,8 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 
-//This stops scrolling
-// document.body.style.overflow = "hidden";
+// This stops scrolling
+document.body.style.overflowY = "hidden";
 
 ReactDOM.render(
   <Router>

@@ -9,6 +9,7 @@
   padding: 3rem 10rem;
   width: 20rem;
   border: 10px dashed #f26867;
+  opacity: 0;
 }
 
 .sell-form-container > form {

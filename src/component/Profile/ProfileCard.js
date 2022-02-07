@@ -1,10 +1,24 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router";
 import { UserContext } from "../../App";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 import "./ProfilePage.css";
 
-const ProfileCard = ({ sellSelected, children }) => {
+const ProfileCard = ({ children }) => {
   const user = useContext(UserContext);
+  const history = useHistory();
+
+  const refresh = () => {
+    history.push("/browse");
+    window.location.reload();
+  };
+
+  const logOutHandler = () => {
+    fetch("http://localhost:3000/logout", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    }).then(refresh());
+  };
 
   return (
     <div className="profile-card-container">
@@ -23,6 +37,9 @@ const ProfileCard = ({ sellSelected, children }) => {
           <div>
             <p>{user.address}</p>
           </div>
+          <button onClick={logOutHandler} className="log-out-button">
+            Log out
+          </button>
         </div>
       </span>
       {children}

@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import { ProductContext } from "../../App";
+import React from "react";
 import ticket from "../../database/images/Ticket.png";
 import ChargePoints from "../Navbar/ChargePoints";
 import "../Navbar/NavBar.css";
-// import { subtractPoints } from "../BaseComponents/SubtractUserPoints";
 
 const TicketBuy = ({
   user,
@@ -12,6 +10,7 @@ const TicketBuy = ({
   setUser,
   grayIsOn,
   setProducts,
+  setNotEnoughPoints,
 }) => {
   const ticketPrice = product.price / product.tickets;
 
@@ -38,10 +37,13 @@ const TicketBuy = ({
       });
   };
 
+  const notEnoughPoints = () => {
+    console.log("Not enough points");
+    setNotEnoughPoints(true);
+  };
+
   const buyHandler = (product, value) => {
-    user.points > ticketPrice
-      ? buyTicket(product, value)
-      : console.log("Not enough points");
+    user.points > ticketPrice ? buyTicket(product, value) : notEnoughPoints();
   };
 
   return (

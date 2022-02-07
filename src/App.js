@@ -6,31 +6,31 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import SellForm from "./component/sellComponent/SellForm";
 import ProfilePage from "./component/Profile/ProfilePage";
 import WelcomePage from "./component/Welcome/WelcomePage";
-// import FilterBar from "./component/Filter/FilterBar";
-// import FilterBackground from "./component/Filter/FilterBackground";
 import ProductPage from "./component/Product/ProductPage";
 import CategoryNav from "./component/Navbar/CategoryNav";
 import SearchBar from "./component/Navbar/SearchBar";
+import Login from "./component/Login/Login";
 
 export const UserContext = createContext();
 export const ProductContext = createContext();
+export const LoginContext = createContext();
 
 function App() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState({
     id: 0,
-    firstName: "loading",
-    lastName: "loading",
+    firstName: "",
+    lastName: "",
     points: 0,
     picture:
       "https://www.peachridgeglass.com/wp-content/uploads/2013/07/MoxieAd1.jpg",
-    email: "loading",
-    address: "loading",
+    email: "",
+    address: "",
     products: [],
   });
   const [pageLoaded, setPageLoaded] = useState(false);
-
   useEffect(() => {
     const Product_API = process.env.REACT_APP_API_URL;
     fetch(Product_API)
@@ -38,18 +38,20 @@ function App() {
       .then((products) => {
         setProducts(products);
       });
-    fetch("http://localhost:3000/users")
-      .then((r) => r.json())
-      .then((userData) => {
-        setUser(userData[0]);
-        setPageLoaded(true);
-      });
+    fetch("http://localhost:3000/user").then((r) => {
+      if (r.ok) {
+        r.json().then((userData) => {
+          setUser(userData);
+          setPageLoaded(true);
+        });
+      }
+    });
   }, []);
+
+  console.log(user);
 
   const searchHandler = (event) => {
     setSearch(event.target.value);
-    //WHY NO WORK!? stores typed search in local host
-    // localStorage.setItem("text", searchText);
   };
 
   const filterHandler = (category) => {
@@ -72,37 +74,46 @@ function App() {
       <div className="App">
         <UserContext.Provider value={user}>
           <ProductContext.Provider value={products}>
-            <NavBar pageLoaded={pageLoaded} setUser={setUser} />
+            <LoginContext.Provider value={loggedIn}>
+              <NavBar pageLoaded={pageLoaded} setUser={setUser} />
 
-            <Switch>
-              <Route path="/sell">
-                <SellForm setProducts={setProducts} setUser={setUser} />
-              </Route>
+              <Switch>
+                <Route path="/sell">
+                  <SellForm setProducts={setProducts} setUser={setUser} />
+                </Route>
 
-              <Route path="/profile">
-                <ProfilePage user={user} />
-              </Route>
-              <Route path="/browse">
-                <span className="product-container">
-                  <ProductPage>
-                    <CategoryNav filterHandler={filterHandler} />
-                    <SearchBar searchHandler={searchHandler} />
-                    <Card
-                      search={search}
-                      filterHandler={filterHandler}
-                      setProducts={setProducts}
-                      setUser={setUser}
-                    />
-                  </ProductPage>
-                  {/* <FilterBackground />
+                <Route path="/profile">
+                  <ProfilePage
+                    user={user}
+                    setProducts={setProducts}
+                    setUser={setUser}
+                  />
+                </Route>
+                <Route path="/browse">
+                  <span className="product-container">
+                    <ProductPage>
+                      <CategoryNav filterHandler={filterHandler} />
+                      <SearchBar searchHandler={searchHandler} />
+                      <Card
+                        search={search}
+                        filterHandler={filterHandler}
+                        setProducts={setProducts}
+                        setUser={setUser}
+                      />
+                    </ProductPage>
+                    {/* <FilterBackground />
                   <FilterBar filterHandler={filterHandler} /> */}
-                </span>
-              </Route>
+                  </span>
+                </Route>
+                <Route path="/login">
+                  <Login setUser={setUser} setLoggedIn={setLoggedIn} />
+                </Route>
 
-              <Route exact path="/">
-                <WelcomePage />
-              </Route>
-            </Switch>
+                <Route exact path="/">
+                  <WelcomePage />
+                </Route>
+              </Switch>
+            </LoginContext.Provider>
           </ProductContext.Provider>
         </UserContext.Provider>
       </div>

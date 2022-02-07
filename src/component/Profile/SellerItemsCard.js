@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import SellerItems from "./SellerItems";
+import { ProductContext } from "../../App";
 
-const SellerItemsCard = ({ user }) => {
-  if (user.products.length > 0) {
-    return user.products.map((product) => {
+const SellerItemsCard = ({ user, setProducts, setUser }) => {
+  const products = useContext(ProductContext);
+
+  const userProducts = products.filter((product) => {
+    return product.user_id === user.id;
+  });
+
+  if (userProducts.length > 0) {
+    return userProducts.map((product) => {
       return (
         <div className="seller-item-card" key={product.id}>
-          <SellerItems product={product} />
+          <SellerItems
+            product={product}
+            setProducts={setProducts}
+            products={products}
+          />
         </div>
       );
     });

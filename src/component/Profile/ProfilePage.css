@@ -87,6 +87,16 @@ h1 {
   /* border: 1px solid black; */
 }
 
+.log-out-button {
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 3rem;
+  font-weight: bold;
+}
+
 .profile-card-user-info {
   height: 60%;
   text-align: center;
@@ -185,8 +195,9 @@ h1 {
 }
 
 .seller-product-preview:hover {
-  transform: scale(1.02) translate(3px, 0px);
+  transform: scale(1.02);
   transition: 0.2s;
+  border-bottom: 3px solid #f26867;
 }
 
 .seller-product-title {
@@ -216,7 +227,7 @@ h1 {
   height: 100px;
   background-color: white;
   position: relative;
-  opacity: 60%;
+  opacity: 70%;
 }
 
 .seller-product-description-text {
@@ -272,4 +283,14 @@ h1 {
   font-size: large;
   margin: 0px 5px 0px 5px;
   font-weight: 300;
+}
+
+.seller-page-delete-product {
+  width: 80px;
+  height: 100px;
+  border: 1px solid #f26867;
+  background-color: #f26867;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }

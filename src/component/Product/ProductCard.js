@@ -3,10 +3,15 @@ import { useState } from "react/cjs/react.development";
 import Item from "./Item";
 import { gsap } from "gsap";
 import { scrollHandler } from "../BaseComponents/ScrollHandler";
+import shocked from "../../database/images/shocked.png";
 
 const ProductCard = ({ product, setProducts, products, setUser }) => {
   const [isBig, setIsBig] = useState(false);
   const [grayIsOn, setGrayIsOn] = useState(true);
+  const [notEnoughPoints, setNotEnoughPoints] = useState(false);
+
+  // document.html.style.overflowY = "hidden";
+  document.documentElement.style.overflowY = grayIsOn ? "" : "hidden";
 
   useEffect(() => {
     scrollHandler(-10000);
@@ -32,6 +37,7 @@ const ProductCard = ({ product, setProducts, products, setUser }) => {
     } else {
       setIsBig(false);
       setGrayIsOn(true);
+      setNotEnoughPoints(false);
     }
   };
   return (
@@ -58,9 +64,18 @@ const ProductCard = ({ product, setProducts, products, setUser }) => {
             setProducts={setProducts}
             products={products}
             setUser={setUser}
+            notEnoughPoints={notEnoughPoints}
+            setNotEnoughPoints={setNotEnoughPoints}
           />
         </span>
       </span>
+      {notEnoughPoints ? (
+        <img
+          src={shocked}
+          alt="not enough points"
+          className="not-enough-points-img"
+        />
+      ) : null}
     </>
   );
 };
