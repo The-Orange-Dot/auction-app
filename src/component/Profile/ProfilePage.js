@@ -15,7 +15,7 @@ import BuyingItemsCard from "./BuyingItemsCard";
 import BuyerSellerSelector from "./BuyerSellerSelector";
 import { UserContext } from "../../App";
 
-const ProfilePage = ({ setProducts, setUser }) => {
+const ProfilePage = ({ setProducts, setUser, setLoggedIn }) => {
   const user = useContext(UserContext);
   const [sellSelected, setSellSelected] = useState(false);
   const { path, url } = useRouteMatch();
@@ -85,7 +85,7 @@ const ProfilePage = ({ setProducts, setUser }) => {
               </NavLink>
             </div>
             <div>
-              <ProfileCard setSellSelected={sellSelected}>
+              <ProfileCard setLoggedIn={setLoggedIn}>
                 <Switch>
                   <Route path={`${path}/tickets`}>
                     <span className="bid-items-container">

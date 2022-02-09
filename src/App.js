@@ -10,6 +10,7 @@ import ProductPage from "./component/Product/ProductPage";
 import CategoryNav from "./component/Navbar/CategoryNav";
 import SearchBar from "./component/Navbar/SearchBar";
 import Login from "./component/Login/Login";
+import RegisterNewUser from "./component/Login/RegisterNewUser";
 
 export const UserContext = createContext();
 export const ProductContext = createContext();
@@ -31,6 +32,9 @@ function App() {
     products: [],
   });
   const [pageLoaded, setPageLoaded] = useState(false);
+
+  console.log(user);
+
   useEffect(() => {
     const Product_API = process.env.REACT_APP_API_URL;
     fetch(Product_API)
@@ -38,17 +42,22 @@ function App() {
       .then((products) => {
         setProducts(products);
       });
-    fetch("http://localhost:3000/user").then((r) => {
+    fetch("http://localhost:3000/user", {
+      headers: {
+        user_id: localStorage.getItem("user_id"),
+      },
+    }).then((r) => {
       if (r.ok) {
         r.json().then((userData) => {
           setUser(userData);
           setPageLoaded(true);
+          setLoggedIn(true);
         });
+      } else {
+        setLoggedIn(false);
       }
     });
   }, []);
-
-  console.log(user);
 
   const searchHandler = (event) => {
     setSearch(event.target.value);
@@ -87,8 +96,10 @@ function App() {
                     user={user}
                     setProducts={setProducts}
                     setUser={setUser}
+                    setLoggedIn={setLoggedIn}
                   />
                 </Route>
+
                 <Route path="/browse">
                   <span className="product-container">
                     <ProductPage>
@@ -105,8 +116,17 @@ function App() {
                   <FilterBar filterHandler={filterHandler} /> */}
                   </span>
                 </Route>
+
                 <Route path="/login">
-                  <Login setUser={setUser} setLoggedIn={setLoggedIn} />
+                  <Login
+                    setUser={setUser}
+                    setLoggedIn={setLoggedIn}
+                    setPageLoaded={setPageLoaded}
+                  />
+                </Route>
+
+                <Route path="/register">
+                  <RegisterNewUser />
                 </Route>
 
                 <Route exact path="/">

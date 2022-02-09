@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
-const Login = ({ setUser, setLoggedIn }) => {
+const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
   const history = useHistory();
   const [input, setInput] = useState({
     username: "",
@@ -15,17 +16,35 @@ const Login = ({ setUser, setLoggedIn }) => {
     e.preventDefault();
     fetch("http://localhost:3000/login", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "same-origin",
       body: JSON.stringify(input),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => {
-          setUser(user);
-          setLoggedIn(true);
-          setFailedLogin(false);
-          history.push("/browse");
-          console.log(user);
+        r.json().then((resp) => {
+          localStorage.setItem("user_id", resp.session.user_id);
+          fetch("http://localhost:3000/user", {
+            //THIS HEADER IS A TEMP FIX FOR LOGIN RENDER!!!
+            headers: {
+              user_id: localStorage.getItem("user_id"),
+            },
+          }).then((r) => {
+            if (r.ok) {
+              r.json().then((userData) => {
+                setUser(userData);
+                setLoggedIn(true);
+                setFailedLogin(false);
+                setPageLoaded(true);
+                console.log(userData);
+              });
+            } else {
+              setLoggedIn(false);
+            }
+          });
         });
+        history.push("/browse");
       } else {
         r.json().then((error) => setLoginError(Object.values(error)));
         setFailedLogin(true);
@@ -58,7 +77,9 @@ const Login = ({ setUser, setLoggedIn }) => {
           />
           <input type="submit" className="login-btn" />
         </form>
-        <button className="login-btn">Register new account</button>
+        <Link to="/register">
+          <button className="login-btn">Register new account</button>
+        </Link>
         {failedLogin ? (
           <div style={{ color: "red" }} className="login-error-message">
             <h5>{loginError}</h5>

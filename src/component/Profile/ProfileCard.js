@@ -4,13 +4,15 @@ import { UserContext } from "../../App";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 import "./ProfilePage.css";
 
-const ProfileCard = ({ children }) => {
+const ProfileCard = ({ children, setLoggedIn }) => {
   const user = useContext(UserContext);
   const history = useHistory();
 
   const refresh = () => {
     history.push("/browse");
     window.location.reload();
+    localStorage.removeItem("user_id");
+    setLoggedIn(false);
   };
 
   const logOutHandler = () => {

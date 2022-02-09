@@ -22,6 +22,7 @@ const TicketBuy = ({
         points: user.points,
         product_id: item.id,
       }),
+      credentials: "same-origin",
     })
       .then((r) => r.json())
       .then((boughtProduct) => {
