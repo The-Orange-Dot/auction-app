@@ -43,6 +43,9 @@ const Account = ({ user_month }) => {
         <h2>Payment Info</h2>
         <p>*****************</p>
       </div>
+      <div>
+        <button className="log-out-button"> Edit info</button>
+      </div>
     </div>
   );
 };

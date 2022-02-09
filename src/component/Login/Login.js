@@ -14,7 +14,7 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch("https://boiling-forest-19458.herokuapp.com/login", {
       method: "POST",
 
       headers: {
@@ -26,7 +26,7 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
       if (r.ok) {
         r.json().then((resp) => {
           localStorage.setItem("user_id", resp.session.user_id);
-          fetch("http://localhost:3000/user", {
+          fetch("https://boiling-forest-19458.herokuapp.com/user", {
             //THIS HEADER IS A TEMP FIX FOR LOGIN RENDER!!!
             headers: {
               user_id: localStorage.getItem("user_id"),

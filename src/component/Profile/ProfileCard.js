@@ -16,7 +16,7 @@ const ProfileCard = ({ children, setLoggedIn }) => {
   };
 
   const logOutHandler = () => {
-    fetch("http://localhost:3000/logout", {
+    fetch("https://boiling-forest-19458.herokuapp.com/logout", {
       method: "DELETE",
 
       headers: { "Content-Type": "application/json" },

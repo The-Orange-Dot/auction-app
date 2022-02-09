@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import defaultProfilePic from "../../database/images/default-profile-pic.jpeg";
 
 const RegisterNewUser = () => {
+  const history = useHistory();
   const [input, setInput] = useState({
     username: "",
     password: "",
     email: "",
+    picture: defaultProfilePic,
     firstName: "",
     lastName: "",
     dob: "",
@@ -12,32 +16,86 @@ const RegisterNewUser = () => {
 
   const inputHandler = (e) => {
     console.log(`${e.target.name}: ${e.target.value}`);
-    setInput({ [e.target.name]: e.target.value });
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const newUserSubmit = () => {
-    fetch("http://localhost:3000/users", {
+  const newUserSubmit = (e) => {
+    e.preventDefault();
+    fetch("https://boiling-forest-19458.herokuapp.com/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(input),
-    });
+    })
+      .then((r) => r.json())
+      .then((newUser) => {
+        history.push("/login");
+        console.log(newUser);
+      });
   };
 
   return (
-    <div>
-      <form action="" onSubmit={newUserSubmit}>
-        <input type="text" name="username" onChange={inputHandler} required />
-        <input
-          type="password"
-          name="password"
-          onChange={inputHandler}
-          required
-        />
-        <input type="text" name="email" onChange={inputHandler} required />
-        <input type="text" name="firstName" onChange={inputHandler} required />
-        <input type="text" name="lastName" onChange={inputHandler} required />
-        <input type="text" name="dob" onChange={inputHandler} required />
-      </form>
+    <div className="registration-page-container">
+      <div className="registration-form-container">
+        <h1>Register with MOXIE!</h1>
+        <form action="" onSubmit={newUserSubmit} className="registration-form">
+          <div>
+            <label htmlFor="username">*Username: </label>
+            <input
+              type="text"
+              name="username"
+              onChange={inputHandler}
+              placeholder="5-15 characters"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password">*Password: </label>
+            <input
+              type="password"
+              name="password"
+              onChange={inputHandler}
+              placeholder="8 characters minimum"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="email">*Email: </label>
+            <input
+              type="email"
+              name="email"
+              onChange={inputHandler}
+              placeholder="E.g. moxie@gmail.com"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="firstName">First Name: </label>
+            <input
+              type="text"
+              name="firstName"
+              onChange={inputHandler}
+              placeholder="E.g. Julie"
+            />
+          </div>
+          <div>
+            <label htmlFor="lastName">Last Name: </label>
+            <input
+              type="text"
+              name="lastName"
+              onChange={inputHandler}
+              placeholder="E.g. Moxieson"
+            />
+          </div>
+          <div>
+            <label htmlFor="dob">*Date of Birth: </label>
+            <input type="date" name="dob" onChange={inputHandler} required />
+          </div>
+          <div className="submit-btn">
+            <input type="submit" className="login-btn" />
+          </div>
+        </form>
+        <small>* required fields</small>
+      </div>
     </div>
   );
 };

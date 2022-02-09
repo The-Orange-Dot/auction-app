@@ -23,7 +23,7 @@ const SellForm = ({ setProducts, setUser }) => {
   const sellSubmitHandler = (event) => {
     event.preventDefault();
     history.push("/browse");
-    fetch("http://localhost:3000/products", {
+    fetch("https://boiling-forest-19458.herokuapp.com/products", {
       method: "POST",
 
       headers: { "Content-Type": "application/json" },

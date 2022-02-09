@@ -5,15 +5,17 @@ const ChargePoints = ({ grayIsOn, setUser }) => {
   const user = useContext(UserContext);
 
   const chargePoints = (value, id) => {
-    fetch(`http://localhost:3000/users/charge_points/${user.id}`, {
-      method: "PATCH",
-
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        charge: value,
-        points_id: id,
-      }),
-    }).then(() => {
+    fetch(
+      `https://boiling-forest-19458.herokuapp.com/users/charge_points/${user.id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          charge: value,
+          points_id: id,
+        }),
+      }
+    ).then(() => {
       //Updates Points
       const finalValue = user.points + value;
       const updatedUser = { ...user, points: finalValue };

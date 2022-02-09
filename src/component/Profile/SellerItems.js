@@ -30,7 +30,7 @@ const SellerItems = ({ product, setProducts, products }) => {
   }, []);
 
   const deleteHandler = () => {
-    fetch(`http://localhost:3000/products/${product.id}`, {
+    fetch(`https://boiling-forest-19458.herokuapp.com/products/${product.id}`, {
       method: "DELETE",
 
       headers: { "Content-Type": "application/json" },

@@ -37,3 +37,36 @@
   text-align: center;
   position: absolute;
 }
+
+.registration-page-container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6%;
+}
+
+.registration-form-container {
+  display: inherit;
+  flex-direction: column;
+}
+
+.registration-form-container > h1 {
+  margin-bottom: 1rem;
+}
+
+.registration-form {
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.registration-form div {
+  margin: 0.5rem 2rem 0.5rem 0rem;
+}
+
+.submit-btn {
+  align-self: center;
+}

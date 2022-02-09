@@ -36,13 +36,13 @@ function App() {
   console.log(user);
 
   useEffect(() => {
-    const Product_API = process.env.REACT_APP_API_URL;
-    fetch("http://localhost:3000/products")
+    // const Product_API = process.env.REACT_APP_API_URL;
+    fetch("https://boiling-forest-19458.herokuapp.com/products")
       .then((res) => res.json())
       .then((products) => {
         setProducts(products);
       });
-    fetch("http://localhost:3000/user", {
+    fetch("https://boiling-forest-19458.herokuapp.com/user", {
       headers: {
         user_id: localStorage.getItem("user_id"),
       },
@@ -141,7 +141,7 @@ function App() {
   );
 }
 
-//http://localhost:3000/
-//http://localhost:3000/
+//https://boiling-forest-19458.herokuapp.com/
+//https://boiling-forest-19458.herokuapp.com/
 
 export default App;

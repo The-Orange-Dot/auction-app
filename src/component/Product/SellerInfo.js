@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../App";
 
 const SellerInfo = ({ seller }) => {
+  const user = useContext(UserContext);
   // console.log(seller);
   return (
     <div className="seller-info-container">
-      <p>Seller</p>
+      {user.id === seller.id ? <h4>You are the seller</h4> : <h4>Seller</h4>}
       <img
         src={seller.picture}
         alt="seller"

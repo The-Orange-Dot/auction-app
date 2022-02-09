@@ -15,21 +15,30 @@ const TicketBuy = ({
   const ticketPrice = product.price / product.tickets;
 
   const buyTicket = (item, value) => {
-    fetch(`http://localhost:3000/users/buy_ticket/${user.id}`, {
-      method: "PATCH",
+    fetch(
+      `https://boiling-forest-19458.herokuapp.com/users/buy_ticket/${user.id}`,
+      {
+        method: "PATCH",
 
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        points: user.points,
-        product_id: item.id,
-      }),
-    })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          points: user.points,
+          product_id: item.id,
+        }),
+      }
+    )
       .then((r) => r.json())
       .then((boughtProduct) => {
         console.log(boughtProduct);
         //Updates Points
+        console.log(user);
         const finalValue = user.points - value;
-        const updatedUser = { ...user, points: finalValue };
+        const ticketsBought = user.tickets_bought + 1;
+        const updatedUser = {
+          ...user,
+          points: finalValue,
+          tickets_bought: ticketsBought,
+        };
         setUser(updatedUser);
 
         //Updates Tickets remaining
