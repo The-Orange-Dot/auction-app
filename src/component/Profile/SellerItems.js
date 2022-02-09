@@ -32,6 +32,7 @@ const SellerItems = ({ product, setProducts, products }) => {
   const deleteHandler = () => {
     fetch(`http://localhost:3000/products/${product.id}`, {
       method: "DELETE",
+
       headers: { "Content-Type": "application/json" },
     })
       .then((r) => r.json())

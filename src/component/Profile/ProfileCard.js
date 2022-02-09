@@ -18,6 +18,7 @@ const ProfileCard = ({ children, setLoggedIn }) => {
   const logOutHandler = () => {
     fetch("http://localhost:3000/logout", {
       method: "DELETE",
+
       headers: { "Content-Type": "application/json" },
     }).then(refresh());
   };

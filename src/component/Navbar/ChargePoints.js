@@ -7,6 +7,7 @@ const ChargePoints = ({ grayIsOn, setUser }) => {
   const chargePoints = (value, id) => {
     fetch(`http://localhost:3000/users/charge_points/${user.id}`, {
       method: "PATCH",
+
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         charge: value,

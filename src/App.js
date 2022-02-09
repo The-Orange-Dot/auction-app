@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
     const Product_API = process.env.REACT_APP_API_URL;
-    fetch(Product_API)
+    fetch("http://localhost:3000/products")
       .then((res) => res.json())
       .then((products) => {
         setProducts(products);
@@ -65,7 +65,7 @@ function App() {
 
   const filterHandler = (category) => {
     const API = process.env.REACT_APP_API_URL;
-    fetch(API)
+    fetch(API, { mode: "no-cors" })
       .then((res) => res.json())
       .then((products) => {
         const categoryFiltered =
@@ -140,5 +140,8 @@ function App() {
     </Router>
   );
 }
+
+//http://localhost:3000/
+//http://localhost:3000/
 
 export default App;

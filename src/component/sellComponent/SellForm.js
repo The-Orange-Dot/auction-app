@@ -25,6 +25,7 @@ const SellForm = ({ setProducts, setUser }) => {
     history.push("/browse");
     fetch("http://localhost:3000/products", {
       method: "POST",
+
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newItem),
     })

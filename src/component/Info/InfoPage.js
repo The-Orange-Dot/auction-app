@@ -174,7 +174,7 @@ const InfoPage = () => {
       .timeline({
         scrollTrigger: {
           start: "315% top",
-          end: "320% top",
+          end: "317% top",
           scrub: 1,
           setAction: "play restart none reverse",
         },

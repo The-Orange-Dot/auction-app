@@ -17,15 +17,16 @@ const TicketBuy = ({
   const buyTicket = (item, value) => {
     fetch(`http://localhost:3000/users/buy_ticket/${user.id}`, {
       method: "PATCH",
+
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         points: user.points,
         product_id: item.id,
       }),
-      credentials: "same-origin",
     })
       .then((r) => r.json())
       .then((boughtProduct) => {
+        console.log(boughtProduct);
         //Updates Points
         const finalValue = user.points - value;
         const updatedUser = { ...user, points: finalValue };
