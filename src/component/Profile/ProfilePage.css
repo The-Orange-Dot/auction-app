@@ -5,7 +5,6 @@
 
 .profile-info-container {
   padding-top: 6%;
-  /* background-color: blue; */
   max-width: 1500px;
   display: flex;
   flex-direction: column;
@@ -31,31 +30,6 @@ h1 {
   align-items: center;
   margin-bottom: 50px;
 }
-
-/* .profile-nav-bar-category-selector-container span {
-  height: 30px;
-  width: 33.3%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-} */
-
-/* .profile-nav-bar-category-selector-container span:hover {
-  background-color: black;
-  opacity: 100%;
-  color: white;
-  font-size: 1.3rem;
-  font-weight: bold;
-} */
-
-/* .profile-page-navbar-background {
-  position: absolute;
-  width: 1000px;
-  height: 30px;
-  background-color: white;
-  opacity: 25%;
-} */
 
 .profile-card-container {
   max-width: 1500px;
@@ -128,6 +102,7 @@ h1 {
   justify-content: flex-start;
   margin-top: 10px;
   text-align: center;
+  overflow-y: scroll;
 }
 
 .account-container p {
@@ -168,6 +143,10 @@ h1 {
   display: none;
 }
 
+.account-container::-webkit-scrollbar {
+  display: none;
+}
+
 .seller-item-card {
   /* background-color: white; */
   justify-self: center;
@@ -195,7 +174,6 @@ h1 {
 }
 
 .seller-product-preview:hover {
-  transform: scale(1.02);
   transition: 0.2s;
   border-bottom: 3px solid #f26867;
 }

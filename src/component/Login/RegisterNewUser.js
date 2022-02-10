@@ -13,9 +13,10 @@ const RegisterNewUser = () => {
     lastName: "",
     dob: "",
   });
+  const [errors, setErrors] = useState([]);
 
   const inputHandler = (e) => {
-    console.log(`${e.target.name}: ${e.target.value}`);
+    // console.log(`${e.target.name}: ${e.target.value}`);
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
@@ -25,12 +26,19 @@ const RegisterNewUser = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(input),
-    })
-      .then((r) => r.json())
-      .then((newUser) => {
-        history.push("/login");
-        console.log(newUser);
-      });
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((newUser) => {
+          history.push("/login");
+          console.log(newUser);
+        });
+      } else {
+        r.json().then((res) => {
+          console.log(res.errors);
+          setErrors(res.errors);
+        });
+      }
+    });
   };
 
   return (
@@ -45,6 +53,7 @@ const RegisterNewUser = () => {
               name="username"
               onChange={inputHandler}
               placeholder="5-15 characters"
+              maxlength="15"
               required
             />
           </div>
@@ -75,6 +84,7 @@ const RegisterNewUser = () => {
               name="firstName"
               onChange={inputHandler}
               placeholder="E.g. Julie"
+              maxlength="20"
             />
           </div>
           <div>
@@ -84,6 +94,7 @@ const RegisterNewUser = () => {
               name="lastName"
               onChange={inputHandler}
               placeholder="E.g. Moxieson"
+              maxlength="20"
             />
           </div>
           <div>
@@ -95,6 +106,11 @@ const RegisterNewUser = () => {
           </div>
         </form>
         <small>* required fields</small>
+        <div className="register-errors">
+          {errors.map((error) => {
+            return <small key={errors.length}>{error}</small>;
+          })}
+        </div>
       </div>
     </div>
   );

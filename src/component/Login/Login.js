@@ -16,7 +16,6 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
     e.preventDefault();
     fetch("https://boiling-forest-19458.herokuapp.com/login", {
       method: "POST",
-
       headers: {
         "Content-Type": "application/json",
       },

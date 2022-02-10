@@ -108,7 +108,6 @@ const SellForm = ({ setProducts, setUser }) => {
                 type="number"
                 name="price"
                 id="price"
-                placeholder="Total target points for listing"
                 onChange={(e) => inputHandler(e)}
                 required
                 min="1000"
@@ -120,11 +119,10 @@ const SellForm = ({ setProducts, setUser }) => {
                 type="number"
                 name="tickets"
                 id="tickets"
-                placeholder="How many tickets for the listing"
                 onChange={(e) => inputHandler(e)}
                 required
-                min="5"
-                max="25"
+                min="3"
+                max="50"
               />
             </div>
             <div>

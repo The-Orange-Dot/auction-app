@@ -65,7 +65,7 @@ function App() {
 
   const filterHandler = (category) => {
     const API = process.env.REACT_APP_API_URL;
-    fetch(API, { mode: "no-cors" })
+    fetch(API)
       .then((res) => res.json())
       .then((products) => {
         const categoryFiltered =
@@ -140,8 +140,5 @@ function App() {
     </Router>
   );
 }
-
-//https://boiling-forest-19458.herokuapp.com/
-//https://boiling-forest-19458.herokuapp.com/
 
 export default App;
