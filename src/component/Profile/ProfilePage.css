@@ -200,7 +200,7 @@ h1 {
   overflow: hidden;
 }
 
-.seller-product-description > .overlay {
+.overlay {
   width: 100%;
   height: 100px;
   background-color: white;
