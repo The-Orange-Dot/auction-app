@@ -24,11 +24,11 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
     }).then((r) => {
       if (r.ok) {
         r.json().then((resp) => {
-          localStorage.setItem("user_id", resp.session.user_id);
+          localStorage.setItem("user", resp.cookies.user);
           fetch("https://boiling-forest-19458.herokuapp.com/user", {
             //THIS HEADER IS A TEMP FIX FOR LOGIN RENDER!!!
             headers: {
-              user_id: localStorage.getItem("user_id"),
+              user: localStorage.getItem("user"),
             },
           }).then((r) => {
             if (r.ok) {
@@ -37,7 +37,6 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
                 setLoggedIn(true);
                 setFailedLogin(false);
                 setPageLoaded(true);
-                console.log(userData);
               });
             } else {
               setLoggedIn(false);
@@ -54,7 +53,7 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
 
   const inputHandler = (e) => {
     // console.log(`${e.target.name}: ${e.target.value}`);
-    setInput({ [e.target.name]: e.target.value });
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   return (
@@ -72,7 +71,7 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
           <input
             type="password"
             name="password"
-            placeholder="Password (not implemented)"
+            placeholder="Password"
             onChange={inputHandler}
           />
           <input type="submit" className="login-btn" />

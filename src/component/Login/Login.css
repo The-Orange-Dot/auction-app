@@ -9,7 +9,7 @@
 
 .login-form-container {
   text-align: center;
-  width: 200px;
+  width: 250px;
 }
 
 .login-form-container form {
@@ -35,7 +35,6 @@
 
 .login-error-message {
   text-align: center;
-  position: absolute;
 }
 
 .registration-page-container {

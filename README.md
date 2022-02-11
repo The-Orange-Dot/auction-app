@@ -19,8 +19,8 @@ Tools and libraries used:
 Working functionalities of this build for the Front-end:
 
 - Basic CRUD functionality
-- Landing page animation
-- Search bar will perform a fuzzy search from products' title, category, and keywords all at the same time and return filtered items dynamically
+- Landing page animation using GSAP
+- Search bar will perform a fuzzy search from products' title, category, and keywords all at the same time and return filtered items dynamically using FUSE.JS
 - Category selector which will work with the search bar for further filtering
 - Products on browse page will expand for more information when clicked
 - You can only buy tickets if you are logged in and you have enough points and if you are not the seller of said item

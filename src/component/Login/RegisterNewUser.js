@@ -7,6 +7,7 @@ const RegisterNewUser = () => {
   const [input, setInput] = useState({
     username: "",
     password: "",
+    password_confirmation: "",
     email: "",
     picture: defaultProfilePic,
     firstName: "",
@@ -53,7 +54,7 @@ const RegisterNewUser = () => {
               name="username"
               onChange={inputHandler}
               placeholder="5-15 characters"
-              maxlength="15"
+              maxLength="15"
               required
             />
           </div>
@@ -62,6 +63,18 @@ const RegisterNewUser = () => {
             <input
               type="password"
               name="password"
+              onChange={inputHandler}
+              placeholder="8 characters minimum"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password_confirmation">
+              *Password-Confirmation:
+            </label>
+            <input
+              type="password"
+              name="password_confirmation"
               onChange={inputHandler}
               placeholder="8 characters minimum"
               required
@@ -84,7 +97,7 @@ const RegisterNewUser = () => {
               name="firstName"
               onChange={inputHandler}
               placeholder="E.g. Julie"
-              maxlength="20"
+              maxLength="20"
             />
           </div>
           <div>
@@ -94,7 +107,7 @@ const RegisterNewUser = () => {
               name="lastName"
               onChange={inputHandler}
               placeholder="E.g. Moxieson"
-              maxlength="20"
+              maxLength="20"
             />
           </div>
           <div>

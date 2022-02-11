@@ -56,6 +56,7 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
             setUser={setUser}
             grayIsOn={grayIsOn}
             setNotEnoughPoints={setNotEnoughPoints}
+            setGrayIsOn={setGrayIsOn}
           />
         ) : null}
       </div>

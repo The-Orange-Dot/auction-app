@@ -11,7 +11,7 @@ const ProfileCard = ({ children, setLoggedIn }) => {
   const refresh = () => {
     history.push("/browse");
     window.location.reload();
-    localStorage.removeItem("user_id");
+    localStorage.removeItem("user");
     setLoggedIn(false);
   };
 
