@@ -105,13 +105,20 @@ function App() {
                     <ProductPage>
                       <CategoryNav filterHandler={filterHandler} />
                       <SearchBar searchHandler={searchHandler} />
-                      <Card
-                        search={search}
-                        filterHandler={filterHandler}
-                        setProducts={setProducts}
-                        setUser={setUser}
-                      />
+                      {products.length > 0 ? (
+                        <Card
+                          search={search}
+                          filterHandler={filterHandler}
+                          setProducts={setProducts}
+                          setUser={setUser}
+                        />
+                      ) : (
+                        <h3 className="loading-products">
+                          Loading Products...
+                        </h3>
+                      )}
                     </ProductPage>
+
                     {/* <FilterBackground />
                   <FilterBar filterHandler={filterHandler} /> */}
                   </span>
