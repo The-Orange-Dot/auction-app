@@ -108,7 +108,7 @@ const ProfilePage = ({ setProducts, setUser, setLoggedIn }) => {
                     </span>
                   </Route>
                   <Route path={`${path}/account`}>
-                    <Account user_month={user_month} />
+                    <Account user_month={user_month} setUser={setUser} />
                   </Route>
                   <Route path={`${path}/info`}>
                     <Profile user_month={user_month} />

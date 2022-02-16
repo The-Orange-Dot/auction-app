@@ -80,7 +80,7 @@ const InfoPage = () => {
       )
       .to(".dollar-sign", {
         y: 600,
-        x: -500,
+        x: -400,
         ease: "Power2.out",
       });
 

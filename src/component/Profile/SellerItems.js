@@ -60,14 +60,19 @@ const SellerItems = ({ product, setProducts, products }) => {
         className="seller-product-description"
         style={backgroundImageStyling}
       >
-        <div className="overlay" />
-        <div className="seller-product-description-text">
-          <p>Total price: {numberWithCommas(product.price)}</p>
-          <p>
-            Tickets Remaining: {product.ticketsRemaining} / {product.tickets}
-          </p>
-          <p>Created on: {String(product.created_at).slice(0, 10)}</p>
-        </div>
+        {product.finished ? (
+          <div className="winner-loser-text">
+            <h1>Finished!</h1>
+          </div>
+        ) : (
+          <div className="seller-product-description-text">
+            <p>Total price: {numberWithCommas(product.price)}</p>
+            <p>
+              Tickets Remaining: {product.ticketsRemaining} / {product.tickets}
+            </p>
+            <p>Created on: {String(product.created_at).slice(0, 10)}</p>
+          </div>
+        )}
       </span>
       <button
         onClick={deleteHandler}

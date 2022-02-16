@@ -112,10 +112,12 @@ function App() {
                           setProducts={setProducts}
                           setUser={setUser}
                         />
-                      ) : (
+                      ) : pageLoaded === false ? (
                         <h3 className="loading-products">
                           Loading Products...
                         </h3>
+                      ) : (
+                        <h3 className="loading-products">No products found</h3>
                       )}
                     </ProductPage>
 

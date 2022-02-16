@@ -31,12 +31,12 @@ const BuyerItems = ({ product }) => {
       >
         {product.finished ? (
           product.winner === user.id ? (
-            <div className="winner-loser-text">
+            <div className="winner-text">
               <h1>You're a winner!</h1>
             </div>
           ) : (
-            <div className="winner-loser-text">
-              <h1>Try again next time!</h1>
+            <div className="loser-text">
+              <h1>Better luck next time!</h1>
             </div>
           )
         ) : (
