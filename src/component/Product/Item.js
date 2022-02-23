@@ -26,9 +26,11 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
         />
       </span>
       <h3 className="product-name">{product.name}</h3>
-      <p className="product-desc-prev">
-        {isBig ? product.description : product.descriptionPreview}
-      </p>
+      {isBig ? (
+        <p className="product-desc">{product.description}</p>
+      ) : (
+        <p className="product-desc-prev">{product.descriptionPreview}</p>
+      )}
       <div>
         <strong>Points per ticket:</strong>
       </div>

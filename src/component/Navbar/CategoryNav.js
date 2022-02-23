@@ -14,7 +14,7 @@ const CategoryNav = ({ filterHandler }) => {
   return (
     <div className="category-nav-bar">
       <span onClick={formSubmit}>All</span>
-      <span onClick={formSubmit}>Clothing</span>
+      <span onClick={formSubmit}>Clothing/Fashion</span>
       <span onClick={formSubmit}>Electronics</span>
       <span onClick={formSubmit}>Video Games</span>
       <span onClick={formSubmit}>Music</span>

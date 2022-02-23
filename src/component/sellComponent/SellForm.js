@@ -80,7 +80,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 <option value="" defaultChecked>
                   --Select a category--
                 </option>
-                <option value="clothing">Clothing</option>
+                <option value="clothing">Clothing/Fashion</option>
                 <option value="electronics">Electronics</option>
                 <option value="games">Video-Games</option>
                 <option value="instruments">Instruments</option>
@@ -104,7 +104,7 @@ const SellForm = ({ setProducts, setUser }) => {
               />
             </div>
             <div>
-              <label htmlFor="price">Total Price: </label>
+              <label htmlFor="price">Total Points: </label>
               <input
                 type="number"
                 name="price"
