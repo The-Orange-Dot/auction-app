@@ -17,12 +17,14 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
 
   return (
     <div className="card-content">
-      <img
-        style={{ maxWidth: isBig ? "500px" : "300px" }}
-        className="product-image"
-        src={product.images}
-        alt=""
-      />
+      <span>
+        <img
+          style={{ maxWidth: isBig ? "500px" : "300px" }}
+          className="product-image"
+          src={product.images}
+          alt=""
+        />
+      </span>
       <h3 className="product-name">{product.name}</h3>
       <p className="product-desc-prev">
         {isBig ? product.description : product.descriptionPreview}
@@ -56,6 +58,7 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
             setUser={setUser}
             grayIsOn={grayIsOn}
             setNotEnoughPoints={setNotEnoughPoints}
+            setGrayIsOn={setGrayIsOn}
           />
         ) : null}
       </div>

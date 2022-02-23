@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import React, { useEffect, useState } from "react";
 import Item from "./Item";
 import { gsap } from "gsap";
 import { scrollHandler } from "../BaseComponents/ScrollHandler";

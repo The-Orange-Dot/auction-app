@@ -32,9 +32,6 @@ function App() {
     products: [],
   });
   const [pageLoaded, setPageLoaded] = useState(false);
-
-  console.log(user);
-
   useEffect(() => {
     // const Product_API = process.env.REACT_APP_API_URL;
     fetch("https://boiling-forest-19458.herokuapp.com/products")
@@ -42,21 +39,24 @@ function App() {
       .then((products) => {
         setProducts(products);
       });
-    fetch("https://boiling-forest-19458.herokuapp.com/user", {
-      headers: {
-        user_id: localStorage.getItem("user_id"),
-      },
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((userData) => {
-          setUser(userData);
-          setPageLoaded(true);
-          setLoggedIn(true);
-        });
-      } else {
-        setLoggedIn(false);
-      }
-    });
+
+    if (localStorage.getItem("user")) {
+      fetch("https://boiling-forest-19458.herokuapp.com/user", {
+        headers: {
+          user: localStorage.getItem("user"),
+        },
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((userData) => {
+            setUser(userData);
+            setPageLoaded(true);
+            setLoggedIn(true);
+          });
+        } else {
+          setLoggedIn(false);
+        }
+      });
+    }
   }, []);
 
   const searchHandler = (event) => {
@@ -105,13 +105,22 @@ function App() {
                     <ProductPage>
                       <CategoryNav filterHandler={filterHandler} />
                       <SearchBar searchHandler={searchHandler} />
-                      <Card
-                        search={search}
-                        filterHandler={filterHandler}
-                        setProducts={setProducts}
-                        setUser={setUser}
-                      />
+                      {products.length > 0 ? (
+                        <Card
+                          search={search}
+                          filterHandler={filterHandler}
+                          setProducts={setProducts}
+                          setUser={setUser}
+                        />
+                      ) : pageLoaded === false ? (
+                        <h3 className="loading-products">
+                          Loading Products...
+                        </h3>
+                      ) : (
+                        <h3 className="loading-products">No products found</h3>
+                      )}
                     </ProductPage>
+
                     {/* <FilterBackground />
                   <FilterBar filterHandler={filterHandler} /> */}
                   </span>

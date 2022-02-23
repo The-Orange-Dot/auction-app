@@ -11,7 +11,7 @@ const ProfileCard = ({ children, setLoggedIn }) => {
   const refresh = () => {
     history.push("/browse");
     window.location.reload();
-    localStorage.removeItem("user_id");
+    localStorage.removeItem("user");
     setLoggedIn(false);
   };
 
@@ -34,7 +34,12 @@ const ProfileCard = ({ children, setLoggedIn }) => {
           <h1>Points: {numberWithCommas(user.points)}</h1>
           <h3>{user.username}</h3>
           <h3>
-            {user.firstName} {user.lastName}
+            {user.firstName
+              ? user.firstName[0].toUpperCase() + user.firstName.slice(1)
+              : ""}{" "}
+            {user.lastName
+              ? user.lastName[0].toUpperCase() + user.lastName.slice(1)
+              : ""}
           </h3>
           <p>{user.email}</p>
           <div>

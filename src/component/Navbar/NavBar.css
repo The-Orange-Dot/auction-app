@@ -148,10 +148,10 @@ sell {
 }
 
 .category-nav-bar {
-  left: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
+  padding-top: 0.5%;
   padding-bottom: 0.5%;
   border-bottom: 1px solid black;
 }
