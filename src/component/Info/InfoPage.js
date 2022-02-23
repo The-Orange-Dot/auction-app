@@ -81,7 +81,7 @@ const InfoPage = () => {
       )
       .to(".dollar-sign", {
         y: 600,
-        xPercent: -770,
+        xPercent: -850,
         ease: "Power2.out",
       });
 

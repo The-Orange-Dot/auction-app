@@ -18,7 +18,7 @@ const TicketBuy = ({
     fetch(
       `https://boiling-forest-19458.herokuapp.com/users/buy_ticket/${user.id}`,
       {
-        method: "PATCH",
+        method: "POST",
 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

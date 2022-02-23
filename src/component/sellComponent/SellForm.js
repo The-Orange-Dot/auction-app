@@ -66,6 +66,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 placeholder="Name of Product"
                 onChange={(e) => inputHandler(e)}
                 size="66"
+                max="35"
                 required
               />
             </div>
@@ -109,6 +110,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 type="number"
                 name="price"
                 id="price"
+                placeholder="Min: 2,000"
                 onChange={(e) => inputHandler(e)}
                 required
                 min="1000"
@@ -120,13 +122,14 @@ const SellForm = ({ setProducts, setUser }) => {
                 type="number"
                 name="tickets"
                 id="tickets"
+                placeholder="Min: 5"
                 onChange={(e) => inputHandler(e)}
                 required
                 min="3"
                 max="50"
               />
             </div>
-            <div>
+            {/* <div>
               <label htmlFor="descriptionPreview">Short Description: </label>
               <textarea
                 type="textArea"
@@ -139,7 +142,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 maxLength="40"
                 style={{ resize: "none" }}
               />
-            </div>
+            </div> */}
             <div>
               <label htmlFor="description">Full Description: </label>
               <textarea
@@ -148,8 +151,8 @@ const SellForm = ({ setProducts, setUser }) => {
                 placeholder="Product Full Desciption"
                 onChange={(e) => inputHandler(e)}
                 required
-                maxLength="200"
-                rows="5"
+                maxLength="1000"
+                rows="15"
                 cols="55"
                 style={{ resize: "none" }}
               />

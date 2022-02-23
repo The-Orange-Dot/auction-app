@@ -26,29 +26,31 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
         />
       </span>
       <h3 className="product-name">{product.name}</h3>
-      {isBig ? (
-        <p className="product-desc">{product.description}</p>
-      ) : (
-        <p className="product-desc-prev">{product.descriptionPreview}</p>
-      )}
-      <div>
-        <strong>Points per ticket:</strong>
+      {isBig ? <p className="product-desc">{product.description}</p> : null}
+      <div className="ticket-info">
+        {product.finished && !isBig ? null : (
+          <div style={{ textAlign: "center" }}>
+            <div>
+              <strong>Points per ticket:</strong>
+            </div>
+            <div> {numberWithCommas(pricePerTicket)} Points</div>
+          </div>
+        )}
+        {product.ticketsRemaining <= 0 ? (
+          <h3 className={`${isBig ? "big-finished" : "finished"}`}>
+            <strong>FINISHED</strong>
+          </h3>
+        ) : (
+          <div style={{ textAlign: "center" }}>
+            <div>
+              <strong>Tickets Remaining:</strong>
+            </div>
+            <div>
+              {tickets}/{product.tickets}
+            </div>
+          </div>
+        )}
       </div>
-      <div> {numberWithCommas(pricePerTicket)} Points</div>
-      {product.ticketsRemaining <= 0 ? (
-        <h3>
-          <strong>FINISHED</strong>
-        </h3>
-      ) : (
-        <>
-          <div>
-            <strong>Tickets Remaining:</strong>
-          </div>
-          <div>
-            {tickets}/{product.tickets}
-          </div>
-        </>
-      )}
       {isBig ? <SellerInfo seller={product.user} isBig={isBig} /> : null}
       <div>
         {isBig && product.user_id !== user.id && loggedIn === true ? (

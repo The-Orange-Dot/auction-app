@@ -2,7 +2,7 @@
   left: 20%;
   padding-top: 100vh;
   position: absolute;
-  height: 250vh;
+  height: 260vh;
   width: 70%;
   display: block;
   z-index: -1;
@@ -64,7 +64,7 @@
 }
 
 .ticket-info-group {
-  top: 52%;
+  top: 52.5%;
   left: 0%;
   position: absolute;
   transform: scale(50%);

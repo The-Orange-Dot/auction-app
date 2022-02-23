@@ -10,19 +10,13 @@ const Profile = ({ user_month }) => {
       <div>
         <div>
           <span>
-            {/* <h2>Username</h2> */}
-            <p>
-              <strong>Username: </strong>
-              {user.username}
-            </p>
+            <h2>Username</h2>
+            <p>{user.username}</p>
           </span>
         </div>
         <div>
-          {/* <h2>Account Created:</h2> */}
-          <p>
-            <strong>Account Created:</strong>
-            {` ${user_month} ${String(user.created_at).slice(0, 4)}`}
-          </p>
+          <h2>Account Created:</h2>
+          <p>{`${user_month} ${String(user.created_at).slice(0, 4)}`}</p>
         </div>
         <div className="user-ratings">
           <span>

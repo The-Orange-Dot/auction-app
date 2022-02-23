@@ -135,9 +135,17 @@ span.card:hover {
 
 .card-content {
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+
+.ticket-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .card-content h3,
@@ -189,6 +197,10 @@ p {
 
 .product-desc {
   width: 100%;
-  height: 80px;
+  height: 900px;
   overflow-y: scroll;
+}
+
+.finished {
+  font-size: 1.5rem;
 }

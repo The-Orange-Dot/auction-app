@@ -10,14 +10,15 @@ const Account = ({ user_month, setUser }) => {
     setUserInput({ ...userInput, [e.target.name]: e.target.value });
   };
 
-  console.log(userInput);
-
   const submitHandler = () => {
-    fetch(`https://boiling-forest-19458.herokuapp.com/users/${user.id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userInput),
-    })
+    fetch(
+      `https://boiling-forest-19458.herokuapp.com/users/edit_info/${user.id}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userInput),
+      }
+    )
       .then((r) => r.json())
       .then((updatedUser) => setUser(updatedUser));
     setEditInfo(false);
@@ -29,9 +30,11 @@ const Account = ({ user_month, setUser }) => {
       <div>
         <div>
           <span>
-            <h2>Name</h2>
             {editInfo ? (
-              <span>
+              <div className="edit-info">
+                <p>
+                  <strong>Name: </strong>
+                </p>
                 <input
                   onChange={inputHandler}
                   type="text"
@@ -44,96 +47,137 @@ const Account = ({ user_month, setUser }) => {
                   name="lastName"
                   placeholder="Last Name"
                 />
-              </span>
+              </div>
             ) : user.firstName.length === 0 && user.lastName.length === 0 ? (
-              <p>You haven't added your name!</p>
+              <p>
+                <strong>Name: </strong>You haven't added your name!
+              </p>
             ) : (
-              <p>{`${
-                user.firstName
-                  ? user.firstName[0].toUpperCase() + user.firstName.slice(1)
-                  : ""
-              } ${
-                user.lastName
-                  ? user.lastName[0].toUpperCase() + user.lastName.slice(1)
-                  : ""
-              }`}</p>
+              <p>
+                <strong>Name: </strong>
+                {`${
+                  user.firstName
+                    ? user.firstName[0].toUpperCase() + user.firstName.slice(1)
+                    : ""
+                } ${
+                  user.lastName
+                    ? user.lastName[0].toUpperCase() + user.lastName.slice(1)
+                    : ""
+                }`}
+              </p>
             )}
           </span>
         </div>
         <div>
           <span>
-            <h2>Date of Birth</h2>
+            {/* <h2>Date of Birth</h2> */}
             <p>
-              <p>{`${user_month} ${String(user.created_at).slice(
-                8,
-                10
-              )} , ${String(user.created_at).slice(0, 4)}`}</p>
+              <p>
+                <strong>Date of Birth: </strong>
+                {`${user_month} ${String(user.created_at).slice(
+                  8,
+                  10
+                )} , ${String(user.created_at).slice(0, 4)}`}
+              </p>
             </p>
           </span>
         </div>
         <div>
           <span>
-            <h2>Email</h2>
+            {/* <h2>Email</h2> */}
             {editInfo ? (
-              <input
-                onChange={inputHandler}
-                type="text"
-                name="email"
-                placeholder={user.email}
-              />
+              <div className="edit-info">
+                <p>
+                  <strong>Email: </strong>
+                </p>
+                <input
+                  onChange={inputHandler}
+                  type="text"
+                  name="email"
+                  placeholder={user.email}
+                />
+              </div>
             ) : (
-              <p>{user.email}</p>
+              <p>
+                <strong>Email: </strong>
+                {user.email}
+              </p>
             )}
           </span>
         </div>
         <div>
           <span>
-            <h2>Shipping Address</h2>
+            {/* <h2>Shipping Address</h2> */}
 
             {editInfo ? (
-              <input
-                onChange={inputHandler}
-                type="text"
-                name="address"
-                placeholder={user.address ? user.address : "Shipping Address"}
-              />
+              <div className="edit-info">
+                <p>
+                  <strong>Shipping Address: </strong>
+                </p>
+                <input
+                  onChange={inputHandler}
+                  type="text"
+                  name="address"
+                  placeholder={user.address ? user.address : "Shipping Address"}
+                />
+              </div>
             ) : user.address ? (
-              <p>Shipping address hasn't been added yet</p>
+              <p>
+                <strong>Shipping Address: </strong>Shipping address hasn't been
+                added yet
+              </p>
             ) : (
-              <p>{user.address}</p>
+              <p>
+                <strong>Shipping Address: </strong>
+                {user.address}
+              </p>
             )}
           </span>
+        </div>
+        <div>
           <span>
-            <h2>Billing Address</h2>
+            {/* <h2>Billing Address</h2> */}
             {editInfo ? (
-              <input
-                onChange={inputHandler}
-                type="text"
-                name="billing_address"
-                placeholder={
-                  user.billing_address
-                    ? user.billing_address
-                    : "Billing Address"
-                }
-              />
+              <div className="edit-info">
+                <p>
+                  <strong>Shipping Address: </strong>
+                </p>
+                <input
+                  onChange={inputHandler}
+                  type="text"
+                  name="billing_address"
+                  placeholder={
+                    user.billing_address
+                      ? user.billing_address
+                      : "Billing Address"
+                  }
+                />
+              </div>
             ) : user.billing_address ? (
-              <p>{user.billing_address}</p>
+              <p>
+                <strong>Billing Address: </strong>
+                {user.billing_address}
+              </p>
             ) : (
-              <p>Billing address hasn't been added yet</p>
+              <p>
+                <strong>Billing Address: </strong>Billing address hasn't been
+                added yet
+              </p>
             )}
           </span>
         </div>
         <div>
-          <h2>Payment Info</h2>
-          <p>*****************</p>
+          {/* <h2>Payment Info</h2> */}
+          <p>
+            <strong>Payment Info: </strong>*****************
+          </p>
         </div>
-        <div>
+        <div className="edit-info-button">
           <button
             className="log-out-button"
             onClick={() => (editInfo ? submitHandler() : setEditInfo(true))}
           >
-            {" "}
-            Edit info
+            {editInfo ? "Submit" : "Edit info"}
           </button>
           {editInfo ? (
             <button

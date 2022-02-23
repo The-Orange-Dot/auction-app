@@ -8,7 +8,7 @@ const ChargePoints = ({ grayIsOn, setUser }) => {
     fetch(
       `https://boiling-forest-19458.herokuapp.com/users/charge_points/${user.id}`,
       {
-        method: "PATCH",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           charge: value,
