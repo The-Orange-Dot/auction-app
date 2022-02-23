@@ -1,13 +1,12 @@
 .sell-form-container {
-  top: 12%;
+  top: 15%;
   left: 35%;
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
-  padding: 3rem 10rem;
-  width: 20rem;
+  max-width: 50%;
   border: 10px dashed #f26867;
   opacity: 0;
 }
@@ -16,6 +15,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 20px;
+  width: 80%;
+}
+
+.sell-form-container div {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
 }
 
 .sell-form-container label {
