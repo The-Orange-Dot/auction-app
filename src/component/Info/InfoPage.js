@@ -10,6 +10,7 @@ import ticket from "../../database/images/Ticket.png";
 import takeTicketF from "../../database/images/take-ticket-female.png";
 import happy from "../../database/images/happy.png";
 import present from "../../database/images/present.png";
+import Copyright from "./Copyright";
 
 const InfoPage = () => {
   const el = useRef();
@@ -19,8 +20,9 @@ const InfoPage = () => {
     gsap
       .timeline({
         scrollTrigger: {
-          start: "65% top",
-          end: "100% top",
+          trigger: ".info-page-how-it-works",
+          start: "top center",
+          end: "+=230",
           setAction: "play none none reverse",
           stagger: 10,
           scrub: 1,
@@ -48,7 +50,6 @@ const InfoPage = () => {
         { opacity: 0 },
         {
           opacity: 1,
-          x: -100,
         }
       )
       .fromTo(
@@ -56,16 +57,16 @@ const InfoPage = () => {
         { opacity: 0 },
         {
           opacity: 1,
-          delay: 1,
         }
       );
 
     gsap
       .timeline({
         scrollTrigger: {
-          start: "110% top",
-          end: "110% top",
-          scrub: 2,
+          trigger: ".info-2",
+          start: "top center",
+          end: "+=100",
+          scrub: 1,
           setAction: "play none none reverse",
         },
       })
@@ -80,15 +81,16 @@ const InfoPage = () => {
       )
       .to(".dollar-sign", {
         y: 600,
-        x: -500,
+        xPercent: -770,
         ease: "Power2.out",
       });
 
     gsap
       .timeline({
         scrollTrigger: {
-          start: "155% top",
-          end: "190% top",
+          trigger: ".info-2",
+          start: "bottom center",
+          end: "+=20",
           scrub: 1,
           setAction: "play none none reverse",
         },
@@ -99,9 +101,8 @@ const InfoPage = () => {
           opacity: 0,
           rotate: "+90",
           x: 0,
-          y: -600,
         },
-        { opacity: 1, x: -400, y: 0, rotate: "+90", scale: 1 }
+        { opacity: 1, x: -400, y: 0 }
       )
       .fromTo(
         ".ticket-info-2",
@@ -109,9 +110,8 @@ const InfoPage = () => {
           opacity: 0,
           rotate: "+90",
           x: -400,
-          y: -600,
         },
-        { opacity: 1, x: -400, y: 0, rotate: "+90" }
+        { opacity: 1, x: -400, y: 0 }
       )
       .fromTo(
         ".ticket-info-3",
@@ -119,16 +119,16 @@ const InfoPage = () => {
           opacity: 0,
           rotate: "+90",
           x: -800,
-          y: -600,
         },
-        { opacity: 1, x: -400, y: 0, rotate: "+90" }
+        { opacity: 1, x: -400, y: 0 }
       );
 
     gsap
       .timeline({
         scrollTrigger: {
-          start: "190% top",
-          end: "210% top",
+          trigger: ".take-ticket-f",
+          start: "20% center",
+          end: "+=100",
           scrub: 1,
           setAction: "play none none reverse",
         },
@@ -137,12 +137,10 @@ const InfoPage = () => {
         ".info-3",
         {
           opacity: 0,
-          x: 800,
-          y: 200,
         },
-        { opacity: 1, x: 600, y: 200, ease: "back" }
+        { opacity: 1, ease: "back" }
       )
-      .to(".ticket-info-1", { scale: 0.3, x: -380, y: 130, rotate: "+=15" })
+      .to(".ticket-info-1", { scale: 0.3, x: -380, y: 50, rotate: "+=15" })
       .fromTo(
         ".take-ticket-f",
         {
@@ -155,8 +153,9 @@ const InfoPage = () => {
     gsap
       .timeline({
         scrollTrigger: {
-          start: "280% top",
-          end: "300% top",
+          trigger: ".info-4",
+          start: "top center",
+          end: "+=100",
           scrub: 1,
           setAction: "play restart none reverse",
         },
@@ -173,8 +172,9 @@ const InfoPage = () => {
     gsap
       .timeline({
         scrollTrigger: {
-          start: "315% top",
-          end: "317% top",
+          trigger: ".info-4",
+          start: "bottom center",
+          end: "+=50",
           scrub: 1,
           setAction: "play restart none reverse",
         },
@@ -188,10 +188,9 @@ const InfoPage = () => {
       .fromTo(
         ".happy-girl",
         {
-          x: 900,
           opacity: 0,
         },
-        { opacity: 1, x: 800 }
+        { opacity: 1, x: -100 }
       )
       .fromTo(".start", { opacity: 0, x: 300 }, { opacity: 1, x: 300 });
   }, []);
@@ -253,6 +252,7 @@ const InfoPage = () => {
           </NavLink>
         </div>
       </div>
+      <Copyright />
     </div>
   );
 };

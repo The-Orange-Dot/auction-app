@@ -2,8 +2,8 @@
   left: 20%;
   padding-top: 100vh;
   position: absolute;
-  height: 255vh;
-  width: 100%;
+  height: 250vh;
+  width: 70%;
   display: block;
   z-index: -1;
   overflow: hidden;
@@ -30,48 +30,46 @@
 .boy-with-lighter {
   height: 650px;
   position: absolute;
-  left: 33%;
+  right: 0%;
   top: 900px;
-  opacity: 0;
 }
 
 .dollar-sign {
   height: 120px;
   position: absolute;
   top: 1000px;
-  left: 57.5%;
-  opacity: 0;
+  right: 6%;
 }
 
 .info-page-how-it-works {
   position: absolute;
   top: 700px;
   transform: translate(370px, 0px);
-  opacity: 0;
 }
 
 .info-1 {
   position: absolute;
-  top: 1000px;
-  opacity: 0;
+  top: 30%;
 }
 
 .info-2 {
-  top: 1500px;
+  top: 45%;
   position: absolute;
-  opacity: 0;
 }
 
 .info-3 {
-  top: 1900px;
+  top: 63%;
   position: absolute;
-  opacity: 0;
+  right: 10%;
 }
 
 .ticket-info-group {
-  top: 1800px;
+  top: 52%;
+  left: 0%;
   position: absolute;
   transform: scale(50%);
+  display: flex;
+  flex-direction: row;
 }
 
 .take-ticket-f {
@@ -84,13 +82,13 @@
 .info-4 {
   top: 2600px;
   position: absolute;
-  opacity: 0;
 }
 
 .happy-girl {
   position: absolute;
   top: 2750px;
   transform: scale(180%);
+  right: 0%;
 }
 
 .box {
@@ -102,4 +100,21 @@
 .start {
   position: absolute;
   top: 3200px;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 2px;
+}
+
+.copyright > p {
+  font-size: small;
+  color: gray;
 }
