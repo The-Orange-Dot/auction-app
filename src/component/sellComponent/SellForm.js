@@ -89,6 +89,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 <option value="beauty">Beauty</option>
                 <option value="sports">Sports</option>
                 <option value="food/drink">Food/Drinks</option>
+                <option value="hobbies">Hobbies</option>
               </select>
             </div>
             <div>
@@ -135,7 +136,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 required
                 cols="55"
                 rows="5"
-                maxLength="120"
+                maxLength="40"
                 style={{ resize: "none" }}
               />
             </div>
@@ -147,7 +148,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 placeholder="Product Full Desciption"
                 onChange={(e) => inputHandler(e)}
                 required
-                maxLength="300"
+                maxLength="200"
                 rows="10"
                 cols="55"
                 style={{ resize: "none" }}

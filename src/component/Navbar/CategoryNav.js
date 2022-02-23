@@ -22,6 +22,7 @@ const CategoryNav = ({ filterHandler }) => {
       <span onClick={formSubmit}>Beauty</span>
       <span onClick={formSubmit}>Sports</span>
       <span onClick={formSubmit}>Food/Drink</span>
+      <span onClick={formSubmit}>Hobbies</span>
     </div>
   );
 };
