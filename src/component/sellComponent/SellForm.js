@@ -135,7 +135,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 onChange={(e) => inputHandler(e)}
                 required
                 cols="55"
-                rows="5"
+                rows="3"
                 maxLength="40"
                 style={{ resize: "none" }}
               />
@@ -149,7 +149,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 onChange={(e) => inputHandler(e)}
                 required
                 maxLength="200"
-                rows="10"
+                rows="5"
                 cols="55"
                 style={{ resize: "none" }}
               />
