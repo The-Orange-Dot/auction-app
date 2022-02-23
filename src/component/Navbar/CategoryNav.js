@@ -6,6 +6,8 @@ const CategoryNav = ({ filterHandler }) => {
       filterHandler(event.target.textContent.split(" ")[1].toLowerCase());
     } else if (event.target.textContent === "All") {
       filterHandler("");
+    } else if (event.target.textContent === "Clothing/Fashion") {
+      filterHandler("clothing");
     } else {
       filterHandler(event.target.textContent.toLowerCase());
     }

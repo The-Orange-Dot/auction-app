@@ -20,7 +20,7 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
       <span>
         <img
           style={{ maxWidth: isBig ? "500px" : "300px" }}
-          className="product-image"
+          className={isBig ? "big-product-image" : "product-image"}
           src={product.images}
           alt=""
         />
