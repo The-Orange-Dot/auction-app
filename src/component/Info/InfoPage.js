@@ -30,10 +30,9 @@ const InfoPage = () => {
       })
       .fromTo(
         ".info-page-how-it-works",
-        { opacity: 0, x: 400 },
+        { opacity: 0 },
         {
           opacity: 1,
-          x: 400,
         }
       )
       .fromTo(
@@ -79,27 +78,22 @@ const InfoPage = () => {
           ease: "back",
         }
       )
-      .to(".dollar-sign", {
-        y: 600,
-        xPercent: -850,
-        ease: "Power2.out",
-      });
+      .fromTo(".dollar-sign2", { opacity: 0, y: -30 }, { opacity: 1, y: 0 });
 
     gsap
       .timeline({
         scrollTrigger: {
           trigger: ".info-2",
           start: "bottom center",
-          end: "+=20",
+          end: "+=50",
           scrub: 1,
-          setAction: "play none none reverse",
+          setAction: "play restart none reverse",
         },
       })
       .fromTo(
         ".ticket-info-1",
         {
           opacity: 0,
-          rotate: "+90",
           x: 0,
         },
         { opacity: 1, x: -400, y: 0 }
@@ -108,20 +102,16 @@ const InfoPage = () => {
         ".ticket-info-2",
         {
           opacity: 0,
-          rotate: "+90",
           x: -400,
         },
         { opacity: 1, x: -400, y: 0 }
       )
       .fromTo(
         ".ticket-info-3",
-        {
-          opacity: 0,
-          rotate: "+90",
-          x: -800,
-        },
-        { opacity: 1, x: -400, y: 0 }
-      );
+        { opacity: 0, x: -800 },
+        { x: -400, y: 0, opacity: 1 }
+      )
+      .to(".ticket-info-3", { opacity: 0, delay: 0.5 });
 
     gsap
       .timeline({
@@ -140,7 +130,6 @@ const InfoPage = () => {
         },
         { opacity: 1, ease: "back" }
       )
-      .to(".ticket-info-1", { scale: 0.3, x: -380, y: 50, rotate: "+=15" })
       .fromTo(
         ".take-ticket-f",
         {
@@ -148,7 +137,8 @@ const InfoPage = () => {
           x: 20,
         },
         { opacity: 1, x: 60 }
-      );
+      )
+      .fromTo(".ticket-info-4", { opacity: 0 }, { opacity: 1 });
 
     gsap
       .timeline({
@@ -167,7 +157,7 @@ const InfoPage = () => {
         },
         { opacity: 1 }
       )
-      .to(".ticket-info-1", { scale: 1.2, x: -700, y: 2100, rotate: "-= 60" });
+      .to(".ticket-info-4", { scale: 0.7, x: -70, y: 950, rotate: "-= 60" });
 
     gsap
       .timeline({
@@ -179,7 +169,6 @@ const InfoPage = () => {
           setAction: "play restart none reverse",
         },
       })
-      .to(".ticket-info-1", { opacity: 0, x: -600, y: 2070 })
       .fromTo(
         ".box",
         { opacity: 0, x: 50, y: 0, rotate: "+=10" },
@@ -220,6 +209,7 @@ const InfoPage = () => {
             Each ticket is worth the total price divided by the total number of
             tickets.
           </p>
+          <img src={dollar} alt="dollar sign" className="dollar-sign2" />
           <div className="ticket-info-group">
             <img src={ticket} alt="ticket" className="ticket-info-1" />
             <img src={ticket} alt="ticket" className="ticket-info-2" />
@@ -238,6 +228,7 @@ const InfoPage = () => {
             alt="woman taking ticket"
             className="take-ticket-f"
           />
+          <img src={ticket} alt="ticket" className="ticket-info-4" />
         </div>
         <div className="section-four">
           <p className="info-4" ref={el}>

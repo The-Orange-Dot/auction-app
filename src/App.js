@@ -11,6 +11,7 @@ import CategoryNav from "./component/Navbar/CategoryNav";
 import SearchBar from "./component/Navbar/SearchBar";
 import Login from "./component/Login/Login";
 import RegisterNewUser from "./component/Login/RegisterNewUser";
+import gsap from "gsap/all";
 
 export const UserContext = createContext();
 export const ProductContext = createContext();
@@ -32,8 +33,18 @@ function App() {
     products: [],
   });
   const [pageLoaded, setPageLoaded] = useState(false);
+
+  gsap.to(".loading-logo", {
+    opacity: 0.5,
+    yoyo: true,
+    repeat: -1,
+    duration: 1,
+    y: -10,
+    ease: "power.out",
+  });
+
   useEffect(() => {
-    // const Product_API = process.env.REACT_APP_API_URL;
+    const Product_API = process.env.REACT_APP_API_URL;
     fetch("https://boiling-forest-19458.herokuapp.com/products")
       .then((res) => res.json())
       .then((products) => {
@@ -49,8 +60,8 @@ function App() {
         if (r.ok) {
           r.json().then((userData) => {
             setUser(userData);
-            setPageLoaded(true);
             setLoggedIn(true);
+            setPageLoaded(true);
           });
         } else {
           setLoggedIn(false);
@@ -113,16 +124,14 @@ function App() {
                           setUser={setUser}
                         />
                       ) : pageLoaded === false ? (
-                        <h3 className="loading-products">
-                          Loading Products...
-                        </h3>
+                        <div className="loading-products">
+                          <h1 className="loading-logo">M</h1>
+                          <h3>Loading Products...</h3>
+                        </div>
                       ) : (
                         <h3 className="loading-products">No products found</h3>
                       )}
                     </ProductPage>
-
-                    {/* <FilterBackground />
-                  <FilterBar filterHandler={filterHandler} /> */}
                   </span>
                 </Route>
 

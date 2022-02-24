@@ -15,9 +15,13 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
   const pricePerTicket = product.price / product.tickets;
   document.body.style.overflow = grayIsOn ? "" : "hidden";
 
+  const newProduct =
+    parseInt(Date().slice(7, 10) - product.created_at.slice(8, 10)) <= 3;
+
   return (
     <div className="card-content">
       <span>
+        {!isBig && newProduct ? <p className="new-banner">NEW</p> : null}
         <img
           style={{ maxWidth: isBig ? "500px" : "300px" }}
           className={isBig ? "big-product-image" : "product-image"}
@@ -26,6 +30,9 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
         />
       </span>
       <h3 className="product-name">{product.name}</h3>
+      {!isBig && product.user.verified ? (
+        <small className="verified-mark">Verified Seller</small>
+      ) : null}
       {isBig ? <p className="product-desc">{product.description}</p> : null}
       <div className="ticket-info">
         {product.finished && !isBig ? null : (
@@ -37,7 +44,7 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
           </div>
         )}
         {product.ticketsRemaining <= 0 ? (
-          <h3 className={`${isBig ? "big-finished" : "finished"}`}>
+          <h3 className={`${isBig ? "" : "finished"}`}>
             <strong>FINISHED</strong>
           </h3>
         ) : (

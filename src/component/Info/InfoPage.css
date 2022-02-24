@@ -10,7 +10,7 @@
 }
 
 .info-page-container h1 {
-  left: -20%;
+  left: 0%;
   width: 100%;
   margin-bottom: 50px;
 }
@@ -41,10 +41,16 @@
   right: 6%;
 }
 
+.dollar-sign2 {
+  height: 120px;
+  position: absolute;
+  top: 1700px;
+  left: 50%;
+}
+
 .info-page-how-it-works {
   position: absolute;
   top: 700px;
-  transform: translate(370px, 0px);
 }
 
 .info-1 {
@@ -64,12 +70,15 @@
 }
 
 .ticket-info-group {
-  top: 52.5%;
-  left: 0%;
+  top: 40%;
+  left: 38%;
   position: absolute;
-  transform: scale(50%);
-  display: flex;
-  flex-direction: row;
+  transform: scale(50%) rotate(90deg);
+  width: 30%;
+}
+
+.ticket-info-group img {
+  margin: 100px;
 }
 
 .take-ticket-f {
@@ -117,4 +126,11 @@
 .copyright > p {
   font-size: small;
   color: gray;
+}
+
+.ticket-info-4 {
+  position: absolute;
+  transform: rotate(115deg) scale(0.15);
+  top: 49.8%;
+  left: 70px;
 }

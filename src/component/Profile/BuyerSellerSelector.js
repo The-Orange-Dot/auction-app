@@ -1,4 +1,3 @@
-import { selector } from "gsap/all";
 import React, { useState } from "react";
 
 const BuyerSellerSelector = ({ setSellSelected }) => {
