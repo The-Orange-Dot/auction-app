@@ -35,6 +35,12 @@ const Profile = ({ user_month }) => {
         <div className="verified">
           {user.verified ? <h2>Verified Seller</h2> : <h3>Not Verified</h3>}
         </div>
+        <div className="review-container">
+          <h2>Buyer reviews:</h2>
+          <div className="reviews">
+            <p>You currently don't have any reviews</p>
+          </div>
+        </div>
       </div>
     </div>
   );

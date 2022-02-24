@@ -17,6 +17,14 @@ const InfoPage = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
+    let scroll = gsap
+      .timeline({ repeat: -1, yoyo: true, ease: "Power.easeOut" })
+      .to(".scroll-down", {
+        y: 1,
+        duration: 1,
+      });
+
     gsap
       .timeline({
         scrollTrigger: {
@@ -28,6 +36,11 @@ const InfoPage = () => {
           scrub: 1,
         },
       })
+      .fromTo(
+        ".scroll-down",
+        { opacity: 1 },
+        { opacity: 0, onComplete: scroll.pause() }
+      )
       .fromTo(
         ".info-page-how-it-works",
         { opacity: 0 },
@@ -63,7 +76,7 @@ const InfoPage = () => {
       .timeline({
         scrollTrigger: {
           trigger: ".info-2",
-          start: "top center",
+          start: "top 65%",
           end: "+=100",
           scrub: 1,
           setAction: "play none none reverse",
@@ -163,8 +176,8 @@ const InfoPage = () => {
       .timeline({
         scrollTrigger: {
           trigger: ".info-4",
-          start: "bottom center",
-          end: "+=50",
+          start: "center center",
+          end: "+=10",
           scrub: 1,
           setAction: "play restart none reverse",
         },

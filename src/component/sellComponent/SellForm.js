@@ -63,7 +63,7 @@ const SellForm = ({ setProducts, setUser }) => {
               <input
                 type="text"
                 name="name"
-                placeholder="Name of Product"
+                placeholder="Name of Product (Max: 35 chars)"
                 onChange={(e) => inputHandler(e)}
                 size="66"
                 max="35"
@@ -148,7 +148,7 @@ const SellForm = ({ setProducts, setUser }) => {
               <textarea
                 type="textArea"
                 name="description"
-                placeholder="Product Full Desciption"
+                placeholder="Product Full Desciption (Max: 1000 characters)"
                 onChange={(e) => inputHandler(e)}
                 required
                 maxLength="1000"
@@ -162,7 +162,7 @@ const SellForm = ({ setProducts, setUser }) => {
               <textarea
                 type="keywords"
                 name="keywords"
-                placeholder='Seperate keywords with ","'
+                placeholder='Seperate keywords with "," (Max: 50 chars)'
                 onChange={(e) => inputHandler(e)}
                 maxLength="50"
                 cols="55"

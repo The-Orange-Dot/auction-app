@@ -140,7 +140,7 @@ const Account = ({ user_month, setUser }) => {
             {editInfo ? (
               <div className="edit-info">
                 <p>
-                  <strong>Shipping Address: </strong>
+                  <strong>Billing Address: </strong>
                 </p>
                 <input
                   onChange={inputHandler}

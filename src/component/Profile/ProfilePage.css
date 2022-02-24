@@ -158,13 +158,12 @@ h1 {
 
 .profile-info-container-tab > div {
   width: 100%;
-  height: 80%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10%;
-  margin: 10%;
+  margin: 7%;
 }
 
 .profile-info-container-tab h2 {
@@ -350,4 +349,13 @@ h1 {
   color: white;
   font-weight: bold;
   cursor: pointer;
+}
+
+.review-container {
+  margin-top: 20px;
+}
+
+.reviews {
+  width: 100%;
+  height: 100px;
 }

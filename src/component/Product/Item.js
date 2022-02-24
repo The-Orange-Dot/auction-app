@@ -30,7 +30,9 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
         />
       </span>
       <h3 className="product-name">{product.name}</h3>
-      {!isBig && product.user.verified ? (
+      {!isBig && product.user.id === user.id ? (
+        <small className="user-listing">Your listing</small>
+      ) : !isBig && product.user.verified ? (
         <small className="verified-mark">Verified Seller</small>
       ) : null}
       {isBig ? <p className="product-desc">{product.description}</p> : null}

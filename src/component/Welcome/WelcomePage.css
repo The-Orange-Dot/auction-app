@@ -66,3 +66,9 @@
   overflow-x: hidden;
   opacity: 90%;
 }
+
+.scroll-down {
+  position: fixed;
+  left: 45%;
+  bottom: 0%;
+}
