@@ -31,6 +31,8 @@ function App() {
     email: "",
     address: "",
     products: [],
+    buyer_reviews: [],
+    seller_reviews: [],
   });
   const [pageLoaded, setPageLoaded] = useState(false);
 

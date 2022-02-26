@@ -121,12 +121,13 @@ span.card {
   align-items: center;
   padding: 1rem;
   width: 300px;
-  height: 420px;
+  height: 410px;
   opacity: 0;
   transition: 0.5s;
   background-color: white;
   border: 0.01px solid rgb(241, 241, 241);
   overflow: hidden;
+  cursor: pointer;
 }
 
 span.card:hover {
@@ -238,6 +239,16 @@ p {
   display: flex;
   flex-direction: column;
   height: 50%;
+  align-items: center;
+}
+
+.seller-info-profile-rating > small {
+  display: flex;
+  flex-direction: column;
+}
+
+.star-rating > p {
+  line-height: 0;
 }
 
 .seller-info-profile-username {

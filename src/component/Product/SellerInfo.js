@@ -20,11 +20,13 @@ const SellerInfo = ({ seller }) => {
             <p className="seller-username">{seller.username}</p>
           </div>
           <div className="seller-info-profile-rating">
-            {seller.verified ? <p className="verified-mark">Verified</p> : null}
+            {seller.verified ? (
+              <small className="verified-mark">Verified</small>
+            ) : null}
 
             <p className="seller-info-rating">Seller Rating:</p>
             {/* <p className="seller-info-rating">{seller.seller_rating}</p> */}
-            {StarRating(seller)}
+            {StarRating(seller.seller_rating)}
           </div>
         </div>
       )}

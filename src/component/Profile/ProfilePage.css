@@ -145,6 +145,7 @@ h1 {
   color: white;
   font-size: large;
   font-weight: bolder;
+  line-height: 0;
 }
 
 .profile-info-container-tab {
@@ -158,7 +159,7 @@ h1 {
 
 .profile-info-container-tab > div {
   width: 100%;
-  height: 70%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -176,6 +177,10 @@ h1 {
   justify-content: space-around;
   align-items: center;
   align-self: center;
+}
+
+.star-rating p {
+  line-height: 20px;
 }
 
 .verified {
@@ -357,5 +362,17 @@ h1 {
 
 .reviews {
   width: 100%;
-  height: 100px;
+  min-height: 185px;
+  margin-right: 16px;
+  overflow-y: scroll;
+  border-top: 1px solid black;
+}
+
+.review-cards {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
 }

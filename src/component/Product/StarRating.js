@@ -1,7 +1,7 @@
 import React from "react";
 
-export const StarRating = (seller) => {
-  const userRating = seller.seller_rating;
+export const StarRating = (sellerRating) => {
+  const userRating = sellerRating;
   let rating = null;
 
   if (userRating < 1) {
@@ -19,7 +19,7 @@ export const StarRating = (seller) => {
   }
 
   return (
-    <div>
+    <div className="star-rating">
       <p>{rating}</p>
     </div>
   );

@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../App";
+import { StarRating } from "../Product/StarRating";
 
 const Profile = ({ user_month }) => {
   const user = useContext(UserContext);
+
+  console.log(user);
 
   return (
     <div className="profile-info-container-tab">
@@ -21,11 +24,11 @@ const Profile = ({ user_month }) => {
         <div className="user-ratings">
           <span>
             <h2>Buyer Rating</h2>
-            <p>{user.buyer_rating}</p>
+            <p className="star-rating">{StarRating(user.buyer_rating)}</p>
           </span>
           <span>
             <h2>Seller Rating</h2>
-            <p>{user.seller_rating}</p>
+            <p className="star-rating">{StarRating(user.seller_rating)}</p>
           </span>
         </div>
         <div>
@@ -37,9 +40,20 @@ const Profile = ({ user_month }) => {
         </div>
         <div className="review-container">
           <h2>Buyer reviews:</h2>
-          <div className="reviews">
+        </div>
+        <div className="reviews">
+          {user.buyer_reviews.length === 0 || null ? (
             <p>You currently don't have any reviews</p>
-          </div>
+          ) : (
+            user.buyer_reviews.map((review) => {
+              return (
+                <div className="review-cards">
+                  <p>{review.review}</p>
+                  <p>{StarRating(review.rating)}</p>
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </div>

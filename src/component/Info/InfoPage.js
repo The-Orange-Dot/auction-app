@@ -151,7 +151,7 @@ const InfoPage = () => {
         },
         { opacity: 1, x: 60 }
       )
-      .fromTo(".ticket-info-4", { opacity: 0 }, { opacity: 1 });
+      .fromTo(".ticket-info-4", { opacity: 0 }, { opacity: 1, y: 50 });
 
     gsap
       .timeline({
