@@ -59,8 +59,8 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
             </div>
           </div>
         )}
+        {isBig ? <SellerInfo seller={product.user} isBig={isBig} /> : null}
       </div>
-      {isBig ? <SellerInfo seller={product.user} isBig={isBig} /> : null}
       <div>
         {isBig && product.user_id !== user.id && loggedIn === true ? (
           <TicketBuy

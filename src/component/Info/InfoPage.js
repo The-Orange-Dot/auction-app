@@ -18,7 +18,7 @@ const InfoPage = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    let scroll = gsap
+    const scroll = gsap
       .timeline({ repeat: -1, yoyo: true, ease: "Power.easeOut" })
       .to(".scroll-down", {
         y: 1,
@@ -91,25 +91,15 @@ const InfoPage = () => {
           ease: "back",
         }
       )
-      .fromTo(".dollar-sign2", { opacity: 0, y: -30 }, { opacity: 1, y: 0 });
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".info-2",
-          start: "bottom center",
-          end: "+=50",
-          scrub: 1,
-          setAction: "play restart none reverse",
-        },
-      })
+      .fromTo(".dollar-sign2", { opacity: 0, y: -30 }, { opacity: 1, y: 0 })
       .fromTo(
         ".ticket-info-1",
         {
           opacity: 0,
           x: 0,
         },
-        { opacity: 1, x: -400, y: 0 }
+        { opacity: 1, x: -400, y: 0, delay: 1 },
+        1
       )
       .fromTo(
         ".ticket-info-2",
@@ -123,7 +113,18 @@ const InfoPage = () => {
         ".ticket-info-3",
         { opacity: 0, x: -800 },
         { x: -400, y: 0, opacity: 1 }
-      )
+      );
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".info-2",
+          start: "bottom center",
+          end: "+=50",
+          scrub: 1,
+          setAction: "play restart none reverse",
+        },
+      })
       .to(".ticket-info-3", { opacity: 0, delay: 0.5 });
 
     gsap

@@ -35,6 +35,7 @@ function App() {
     seller_reviews: [],
   });
   const [pageLoaded, setPageLoaded] = useState(false);
+  const [category, setCategory] = useState("");
 
   gsap.to(".loading-logo", {
     opacity: 0.5,
@@ -46,11 +47,11 @@ function App() {
   });
 
   useEffect(() => {
-    const Product_API = process.env.REACT_APP_API_URL;
     fetch("https://boiling-forest-19458.herokuapp.com/products")
       .then((res) => res.json())
       .then((products) => {
         setProducts(products);
+        setPageLoaded(true);
       });
 
     if (localStorage.getItem("user")) {
@@ -63,7 +64,6 @@ function App() {
           r.json().then((userData) => {
             setUser(userData);
             setLoggedIn(true);
-            setPageLoaded(true);
           });
         } else {
           setLoggedIn(false);
@@ -77,6 +77,7 @@ function App() {
   };
 
   const filterHandler = (category) => {
+    setPageLoaded(false);
     const API = process.env.REACT_APP_API_URL;
     fetch(API)
       .then((res) => res.json())
@@ -88,6 +89,8 @@ function App() {
                 return product.category === category;
               });
         setProducts(categoryFiltered);
+        setCategory(category);
+        setPageLoaded(true);
       });
   };
 
@@ -116,20 +119,23 @@ function App() {
                 <Route path="/browse">
                   <span className="product-container">
                     <ProductPage>
-                      <CategoryNav filterHandler={filterHandler} />
+                      <CategoryNav
+                        filterHandler={filterHandler}
+                        category={category}
+                      />
                       <SearchBar searchHandler={searchHandler} />
-                      {products.length > 0 ? (
+                      {pageLoaded === false ? (
+                        <div className="loading-products">
+                          <h1 className="loading-logo">M</h1>
+                          <h3>Loading Products...</h3>
+                        </div>
+                      ) : products.length > 0 ? (
                         <Card
                           search={search}
                           filterHandler={filterHandler}
                           setProducts={setProducts}
                           setUser={setUser}
                         />
-                      ) : pageLoaded === false ? (
-                        <div className="loading-products">
-                          <h1 className="loading-logo">M</h1>
-                          <h3>Loading Products...</h3>
-                        </div>
                       ) : (
                         <h3 className="loading-products">No products found</h3>
                       )}

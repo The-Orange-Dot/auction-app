@@ -18,9 +18,5 @@ export const StarRating = (sellerRating) => {
     rating = <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>;
   }
 
-  return (
-    <div className="star-rating">
-      <p>{rating}</p>
-    </div>
-  );
+  return <div className="star-rating">{rating}</div>;
 };

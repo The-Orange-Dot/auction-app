@@ -63,10 +63,10 @@ const SellForm = ({ setProducts, setUser }) => {
               <input
                 type="text"
                 name="name"
-                placeholder="Name of Product (Max: 35 chars)"
+                placeholder="Name of Product (Max: 40 chars)"
                 onChange={(e) => inputHandler(e)}
                 size="66"
-                max="35"
+                maxLength="40"
                 required
               />
             </div>
@@ -110,7 +110,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 type="number"
                 name="price"
                 id="price"
-                placeholder="Min: 2,000"
+                placeholder="Min: 1,000"
                 onChange={(e) => inputHandler(e)}
                 required
                 min="1000"
@@ -122,7 +122,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 type="number"
                 name="tickets"
                 id="tickets"
-                placeholder="Min: 5"
+                placeholder="Min: 3"
                 onChange={(e) => inputHandler(e)}
                 required
                 min="3"

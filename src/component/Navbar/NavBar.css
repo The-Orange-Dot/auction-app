@@ -147,18 +147,33 @@ sell {
   justify-content: center;
 }
 
-.category-nav-bar {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding-top: 0.5%;
-  padding-bottom: 0.5%;
-  border-bottom: 1px solid black;
-}
-
 .category-nav-bar span {
   font-size: large;
   margin: 0px 5px 0px 5px;
   font-weight: 300;
   cursor: pointer;
+}
+
+.category-nav-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+}
+
+.highlighted {
+  color: white;
+  background-color: black;
+  text-align: center;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  font-weight: bold;
+}
+
+.none {
+  color: black;
+  background-color: white;
+  text-align: center;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
 }

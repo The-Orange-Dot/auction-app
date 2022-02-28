@@ -222,10 +222,10 @@ p {
   right: 2%;
   bottom: 0%;
   padding: 20px;
-  height: 300px;
   width: 30%;
   opacity: 1;
   z-index: 200;
+  height: 100px;
 }
 
 .seller-info-profile {
@@ -233,12 +233,13 @@ p {
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
+  height: 100px;
 }
 
 .seller-info-profile-rating {
   display: flex;
   flex-direction: column;
-  height: 50%;
+  height: 90%;
   align-items: center;
 }
 
@@ -247,8 +248,9 @@ p {
   flex-direction: column;
 }
 
-.star-rating > p {
+.star-rating {
   line-height: 0;
+  margin: 0;
 }
 
 .seller-info-profile-username {

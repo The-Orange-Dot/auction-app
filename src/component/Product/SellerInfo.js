@@ -25,7 +25,6 @@ const SellerInfo = ({ seller }) => {
             ) : null}
 
             <p className="seller-info-rating">Seller Rating:</p>
-            {/* <p className="seller-info-rating">{seller.seller_rating}</p> */}
             {StarRating(seller.seller_rating)}
           </div>
         </div>
