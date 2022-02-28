@@ -1,22 +1,25 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./Product.css";
 import TicketBuy from "./TicketBuy";
 import { LoginContext, UserContext } from "../../App";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 import SellerInfo from "./SellerInfo";
+import moment from "moment";
 
 const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
   const loggedIn = useContext(LoginContext);
   const user = useContext(UserContext);
   const [grayIsOn, setGrayIsOn] = useState(true);
   const [tickets, setTickets] = useState(product.ticketsRemaining);
+  const [isNew, setIsNew] = useState(false);
 
   //Prevents scrolling when gray overlay is up
   const pricePerTicket = product.price / product.tickets;
   document.body.style.overflow = grayIsOn ? "" : "hidden";
 
-  const newProduct =
-    parseInt(Date().slice(7, 10) - product.created_at.slice(8, 10)) <= 3;
+  //Moment.js - checks if the product is new (created at least 3 days ago)
+  const days = moment().diff(product.created_at, "days");
+  const newProduct = days < 3;
 
   return (
     <div className="card-content">
