@@ -11,9 +11,9 @@ const TicketBuy = ({
   grayIsOn,
   setProducts,
   setNotEnoughPoints,
+  tickets,
 }) => {
   const ticketPrice = product.price / product.tickets;
-
   const buyTicket = (item, value) => {
     fetch(
       `https://boiling-forest-19458.herokuapp.com/users/buy_ticket/${user.id}`,
@@ -24,6 +24,7 @@ const TicketBuy = ({
         body: JSON.stringify({
           points: user.points,
           product_id: item.id,
+          tickets_remaining: tickets,
         }),
       }
     )

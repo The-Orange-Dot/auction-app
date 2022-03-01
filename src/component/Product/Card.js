@@ -17,17 +17,23 @@ const Card = ({ search, setProducts, setUser }) => {
 
   return (
     <div className="card-container">
-      {searchFilter.map((product) => {
-        return (
-          <ProductCard
-            key={product.id}
-            product={product?.item || product}
-            setProducts={setProducts}
-            products={products}
-            setUser={setUser}
-          />
-        );
-      })}
+      {searchFilter.length === 0 ? (
+        <div>
+          <h3 className="loading-products">No products found</h3>
+        </div>
+      ) : (
+        searchFilter.map((product) => {
+          return (
+            <ProductCard
+              key={product.id}
+              product={product?.item || product}
+              setProducts={setProducts}
+              products={products}
+              setUser={setUser}
+            />
+          );
+        })
+      )}
     </div>
   );
 };
