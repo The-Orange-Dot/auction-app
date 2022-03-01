@@ -69,6 +69,7 @@ h1 {
   padding: 10px 20px;
   border-radius: 3rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .profile-card-user-info {
@@ -375,4 +376,48 @@ h1 {
   padding: 0 20px;
   justify-content: space-between;
   border-bottom: 1px solid black;
+}
+
+/* Buyer Modal for winner info */
+
+.winner-modal p {
+  margin: 0;
+}
+.winner-modal > h2 {
+  margin: 0;
+}
+
+.winner-modal {
+  height: 40%;
+  max-width: 15%;
+  position: absolute;
+  right: -1%;
+  top: 30%;
+  background-color: white;
+  border: 5px solid #f26867;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.5% 1.5% 0.8% 0.8%;
+}
+.winner-profile-picture {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+.contact-winner-button {
+  background-color: #f26867;
+  border: 1px solid #f26867;
+  color: white;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 3rem;
+  font-weight: bold;
+  opacity: 50%;
+  cursor: pointer;
+}
+.log-out-button:hover {
+  opacity: 0.8;
 }

@@ -2,7 +2,13 @@ import React, { useEffect, useContext, useState } from "react";
 import { ProductContext } from "../../App";
 import BuyerItems from "./BuyerItems";
 
-const BuyingItemsCard = ({ user }) => {
+const BuyingItemsCard = ({
+  user,
+  setBuyerInfo,
+  setBuyerInfoModal,
+  setProductName,
+  setWinnerSeller,
+}) => {
   const products = useContext(ProductContext);
   const [boughtItems, setBoughtItems] = useState([]);
 
@@ -20,7 +26,13 @@ const BuyingItemsCard = ({ user }) => {
     return boughtItems.map((product) => {
       return (
         <div className="seller-item-card" key={product.id}>
-          <BuyerItems product={product} />
+          <BuyerItems
+            product={product}
+            setBuyerInfo={setBuyerInfo}
+            setBuyerInfoModal={setBuyerInfoModal}
+            setWinnerSeller={setWinnerSeller}
+            setProductName={setProductName}
+          />
         </div>
       );
     });

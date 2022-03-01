@@ -2,7 +2,14 @@ import React, { useContext } from "react";
 import SellerItems from "./SellerItems";
 import { ProductContext } from "../../App";
 
-const SellerItemsCard = ({ user, setProducts, setUser }) => {
+const SellerItemsCard = ({
+  user,
+  setProducts,
+  setBuyerInfo,
+  setBuyerInfoModal,
+  setProductName,
+  setWinnerSeller,
+}) => {
   const products = useContext(ProductContext);
 
   const userProducts = products.filter((product) => {
@@ -17,6 +24,10 @@ const SellerItemsCard = ({ user, setProducts, setUser }) => {
             product={product}
             setProducts={setProducts}
             products={products}
+            setBuyerInfo={setBuyerInfo}
+            setBuyerInfoModal={setBuyerInfoModal}
+            setProductName={setProductName}
+            setWinnerSeller={setWinnerSeller}
           />
         </div>
       );

@@ -14,11 +14,25 @@ import SellerItemsCard from "./SellerItemsCard";
 import BuyingItemsCard from "./BuyingItemsCard";
 import BuyerSellerSelector from "./BuyerSellerSelector";
 import { UserContext } from "../../App";
+import { StarRating } from "../Product/StarRating";
 
 const ProfilePage = ({ setProducts, setUser, setLoggedIn }) => {
   const user = useContext(UserContext);
   const [sellSelected, setSellSelected] = useState(false);
   const { path, url } = useRouteMatch();
+  const [buyerInfoModal, setBuyerInfoModal] = useState(false);
+  const [buyerInfo, setBuyerInfo] = useState({
+    username: "",
+    picture: "",
+    firstName: "",
+    lastName: "",
+    address: "",
+    seller_rating: 0,
+  });
+  const [productName, setProductName] = useState("");
+  const [winnerSeller, setWinnerSeller] = useState("");
+
+  console.log(buyerInfo);
 
   const month = [
     "January",
@@ -100,9 +114,20 @@ const ProfilePage = ({ setProducts, setUser, setLoggedIn }) => {
                             user={user}
                             setProducts={setProducts}
                             setUser={setUser}
+                            setBuyerInfo={setBuyerInfo}
+                            setBuyerInfoModal={setBuyerInfoModal}
+                            buyerInfoModal={buyerInfoModal}
+                            setProductName={setProductName}
+                            setWinnerSeller={setWinnerSeller}
                           />
                         ) : (
-                          <BuyingItemsCard user={user} />
+                          <BuyingItemsCard
+                            user={user}
+                            setBuyerInfo={setBuyerInfo}
+                            setBuyerInfoModal={setBuyerInfoModal}
+                            setWinnerSeller={setWinnerSeller}
+                            setProductName={setProductName}
+                          />
                         )}
                       </div>
                     </span>
@@ -118,6 +143,53 @@ const ProfilePage = ({ setProducts, setUser, setLoggedIn }) => {
             </div>
           </span>
         </div>
+        {buyerInfoModal ? (
+          <div className="winner-modal">
+            <h2>
+              {winnerSeller === "winner" ? "Winner" : "Seller"} info for:{" "}
+            </h2>
+            <p>
+              <strong>{productName}</strong>
+            </p>
+            <img src={buyerInfo.picture} className="winner-profile-picture" />
+            <p>
+              <strong>{buyerInfo.username}</strong>
+            </p>
+            {winnerSeller === "winner" ? (
+              <>
+                <p>
+                  {buyerInfo.firstName} {buyerInfo.lastName}
+                </p>
+                <div>
+                  <p>
+                    <strong>Address: </strong>
+                  </p>
+                  <p>{buyerInfo.address}</p>
+                </div>
+              </>
+            ) : (
+              <div>
+                <p>
+                  <strong>Seller Rating: </strong>
+                </p>
+                {StarRating(buyerInfo.seller_rating)}
+              </div>
+            )}
+
+            <button
+              className="contact-winner-button"
+              onClick={() => console.log("Not Implemented Yet")}
+            >
+              Contact {winnerSeller === "winner" ? "Winner" : "Seller"}
+            </button>
+            <button
+              className="log-out-button"
+              onClick={() => setBuyerInfoModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        ) : null}
       </div>
     </Router>
   );

@@ -1,9 +1,19 @@
-import React, { useContext } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import "./ProfilePage.css";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 import { UserContext } from "../../App";
+import gsap from "gsap";
 
-const BuyerItems = ({ product }) => {
+const BuyerItems = ({
+  product,
+  setBuyerInfo,
+  setBuyerInfoModal,
+  setWinnerSeller,
+  setProductName,
+}) => {
+  const [delButtonTween, setDelButtonTween] = useState();
+  const [clicked, setClicked] = useState(false);
+  const el = useRef();
   const user = useContext(UserContext);
   const backgroundImageStyling = {
     backgroundImage: `url(${product.images})`,
@@ -16,12 +26,37 @@ const BuyerItems = ({ product }) => {
     opacity: "100%",
   };
 
+  useEffect(() => {
+    const deleteButton = gsap
+      .timeline({ paused: true })
+      .fromTo(
+        el.current,
+        { display: "none", x: 300 },
+        { display: "block", x: 0 }
+      );
+    setDelButtonTween(deleteButton);
+  }, []);
+
+  //Gets Seller info
+  const sellerInfoHandler = (user) => {
+    setBuyerInfoModal(true);
+    setBuyerInfo(user);
+    setWinnerSeller("seller");
+    setProductName(product.name);
+  };
+
   const ticketsHeld = product.buyers
     .split(", ")
     .filter((num) => (num = String(product.user.id))).length;
 
   return (
-    <div className="seller-product-preview">
+    <div
+      className="seller-product-preview"
+      onClick={() => {
+        clicked ? delButtonTween.reverse(0) : delButtonTween.play(0);
+        setClicked(!clicked);
+      }}
+    >
       <span className="seller-product-title">
         <h3>{product.name}</h3>
       </span>
@@ -55,6 +90,17 @@ const BuyerItems = ({ product }) => {
           </>
         )}
       </span>
+      {product.finished && product.winner === user.id ? (
+        <button
+          onClick={
+            product.finished ? () => sellerInfoHandler(product.user) : null
+          }
+          className="seller-page-delete-product"
+          ref={el}
+        >
+          Seller Info
+        </button>
+      ) : null}
     </div>
   );
 };

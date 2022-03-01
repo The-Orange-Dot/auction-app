@@ -3,7 +3,15 @@ import "./ProfilePage.css";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 import gsap from "gsap";
 
-const SellerItems = ({ product, setProducts, products }) => {
+const SellerItems = ({
+  product,
+  setProducts,
+  products,
+  setBuyerInfo,
+  setBuyerInfoModal,
+  setProductName,
+  setWinnerSeller,
+}) => {
   const [delButtonTween, setDelButtonTween] = useState();
   const [clicked, setClicked] = useState(false);
   const el = useRef();
@@ -16,6 +24,7 @@ const SellerItems = ({ product, setProducts, products }) => {
     height: "100%",
     backgroundRepeat: "no-repeat",
     overflow: "hidden",
+    opacity: "100%",
   };
 
   useEffect(() => {
@@ -29,6 +38,24 @@ const SellerItems = ({ product, setProducts, products }) => {
     setDelButtonTween(deleteButton);
   }, []);
 
+  //Loads Winner info for Modal display
+  const findWinnerHandler = () => {
+    setBuyerInfoModal(true);
+    findWinner(product.winner);
+    setProductName(product.name);
+    setWinnerSeller("winner");
+  };
+
+  //Fetches winner info
+  const findWinner = (userId) => {
+    fetch(`https://boiling-forest-19458.herokuapp.com/users/${userId}`, {
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((user) => setBuyerInfo(user));
+  };
+
+  //Deletes product from seller page
   const deleteHandler = () => {
     fetch(`https://boiling-forest-19458.herokuapp.com/products/${product.id}`, {
       method: "DELETE",
@@ -61,7 +88,7 @@ const SellerItems = ({ product, setProducts, products }) => {
         style={backgroundImageStyling}
       >
         {product.finished ? (
-          <div className="winner-loser-text">
+          <div className="winner-text">
             <h1>Finished!</h1>
           </div>
         ) : (
@@ -75,11 +102,11 @@ const SellerItems = ({ product, setProducts, products }) => {
         )}
       </span>
       <button
-        onClick={deleteHandler}
+        onClick={product.finished ? () => findWinnerHandler() : deleteHandler}
         className="seller-page-delete-product"
         ref={el}
       >
-        Delete
+        {product.finished ? "Winner Details" : "Delete"}
       </button>
     </div>
   );

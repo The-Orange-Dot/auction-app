@@ -24,11 +24,11 @@ const Profile = ({ user_month }) => {
         <div className="user-ratings">
           <span>
             <h2>Buyer Rating</h2>
-            <p className="star-rating">{StarRating(user.buyer_rating)}</p>
+            <div className="star-rating">{StarRating(user.buyer_rating)}</div>
           </span>
           <span>
             <h2>Seller Rating</h2>
-            <p className="star-rating">{StarRating(user.seller_rating)}</p>
+            <div className="star-rating">{StarRating(user.seller_rating)}</div>
           </span>
         </div>
         <div>
