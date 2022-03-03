@@ -34,7 +34,6 @@ const InfoPage = () => {
           setAction: "play none none reverse",
           stagger: 10,
           scrub: 1,
-          markers: true,
         },
       })
       .fromTo(
@@ -81,7 +80,6 @@ const InfoPage = () => {
           end: "+=100",
           scrub: 1,
           setAction: "play none none reverse",
-          markers: true,
         },
       })
       .fromTo(
