@@ -34,6 +34,7 @@ const InfoPage = () => {
           setAction: "play none none reverse",
           stagger: 10,
           scrub: 1,
+          markers: true,
         },
       })
       .fromTo(
@@ -76,10 +77,11 @@ const InfoPage = () => {
       .timeline({
         scrollTrigger: {
           trigger: ".info-2",
-          start: "top 65%",
+          start: "top center",
           end: "+=100",
           scrub: 1,
           setAction: "play none none reverse",
+          markers: true,
         },
       })
       .fromTo(
@@ -171,7 +173,12 @@ const InfoPage = () => {
         },
         { opacity: 1 }
       )
-      .to(".ticket-info-4", { scale: 0.7, x: -70, y: 950, rotate: "-= 60" });
+      .to(".ticket-info-4", {
+        scale: 0.7,
+        x: -70,
+        yPercent: 380,
+        rotate: "-= 60",
+      });
 
     gsap
       .timeline({

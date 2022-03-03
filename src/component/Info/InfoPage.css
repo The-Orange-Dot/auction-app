@@ -44,7 +44,7 @@
 .dollar-sign2 {
   height: 120px;
   position: absolute;
-  top: 1700px;
+  top: 47%;
   left: 50%;
 }
 
@@ -83,7 +83,7 @@
 
 .take-ticket-f {
   position: absolute;
-  top: 2000px;
+  top: 55%;
   transform: scale(150%);
   z-index: -1;
 }
@@ -132,6 +132,6 @@
 .ticket-info-4 {
   position: absolute;
   transform: rotate(115deg) scale(0.15);
-  top: 49.8%;
+  top: 49.7%;
   left: 70px;
 }
