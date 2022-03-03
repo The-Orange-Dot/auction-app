@@ -32,8 +32,6 @@ const ProfilePage = ({ setProducts, setUser, setLoggedIn }) => {
   const [productName, setProductName] = useState("");
   const [winnerSeller, setWinnerSeller] = useState("");
 
-  console.log(buyerInfo);
-
   const month = [
     "January",
     "February",

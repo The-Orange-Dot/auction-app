@@ -38,7 +38,8 @@ const BuyerItems = ({
   }, []);
 
   //Gets Seller info
-  const sellerInfoHandler = (user) => {
+  const sellerInfoHandler = async (user) => {
+    await setBuyerInfo("");
     setBuyerInfoModal(true);
     setBuyerInfo(user);
     setWinnerSeller("seller");

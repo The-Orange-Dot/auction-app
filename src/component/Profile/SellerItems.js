@@ -39,11 +39,12 @@ const SellerItems = ({
   }, []);
 
   //Loads Winner info for Modal display
-  const findWinnerHandler = () => {
+  const findWinnerHandler = async () => {
+    await setBuyerInfo("");
     setBuyerInfoModal(true);
     findWinner(product.winner);
-    setProductName(product.name);
     setWinnerSeller("winner");
+    setProductName(product.name);
   };
 
   //Fetches winner info
