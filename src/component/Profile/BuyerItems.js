@@ -77,7 +77,10 @@ const BuyerItems = ({
         ) : (
           <>
             <div className="seller-product-description-text">
-              <p>Total price: {numberWithCommas(product.price)}</p>
+              <p>
+                Points Per Ticket:{" "}
+                {numberWithCommas(product.price / product.tickets)}
+              </p>
               <p>
                 Tickets Remaining: {product.ticketsRemaining} /{" "}
                 {product.tickets}
