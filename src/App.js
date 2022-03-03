@@ -37,6 +37,7 @@ function App() {
   const [pageLoaded, setPageLoaded] = useState(false);
   const [category, setCategory] = useState("");
 
+  //Makes the loading logo strobe in and out
   gsap.to(".loading-logo", {
     opacity: 0.5,
     yoyo: true,
@@ -47,6 +48,7 @@ function App() {
   });
 
   useEffect(() => {
+    //Fetches all products and loads them into cards for the browse page
     fetch("https://boiling-forest-19458.herokuapp.com/products")
       .then((res) => res.json())
       .then((products) => {
@@ -54,6 +56,7 @@ function App() {
         setPageLoaded(true);
       });
 
+    //Uses data stored on local storage to keep user logged in
     if (localStorage.getItem("user")) {
       fetch("https://boiling-forest-19458.herokuapp.com/user", {
         headers: {
@@ -72,10 +75,12 @@ function App() {
     }
   }, []);
 
+  //Searchbar value is stored in state
   const searchHandler = (event) => {
     setSearch(event.target.value);
   };
 
+  //Filters the search bar values and categories
   const filterHandler = (category) => {
     setPageLoaded(false);
     const API = process.env.REACT_APP_API_URL;

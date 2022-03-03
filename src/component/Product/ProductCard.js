@@ -9,9 +9,9 @@ const ProductCard = ({ product, setProducts, products, setUser }) => {
   const [grayIsOn, setGrayIsOn] = useState(true);
   const [notEnoughPoints, setNotEnoughPoints] = useState(false);
 
-  // document.html.style.overflowY = "hidden";
   document.documentElement.style.overflowY = grayIsOn ? "" : "hidden";
 
+  //Scrolls to the top of the page when browse page is loaded for the first time
   useEffect(() => {
     scrollHandler(-10000);
     gsap.timeline().fromTo(
@@ -29,6 +29,8 @@ const ProductCard = ({ product, setProducts, products, setUser }) => {
   }, []);
 
   document.body.style.position = isBig ? "fixed" : "";
+
+  //Turns the big product page on or off when clicked
   const clickHandler = () => {
     if (isBig === false) {
       setIsBig(true);
