@@ -15,6 +15,7 @@ Tools and libraries used:
 
 - GreenSock (GSAP) for animation
 - FUSE.JS for fuzzy search functionality
+- Moment.js for "new" tag which lists item as new if posted within the last 3 days
 
 Working functionalities of this build for the Front-end:
 
@@ -27,12 +28,26 @@ Working functionalities of this build for the Front-end:
 - Using table association to show seller information and rating on products
 - Sell form and login form uses front-end validation along with the back-end validation for increased security
 - Accounts stay logged in even if page is refreshed through localStorage (need to get sessions and cookies working instead)
+- Account id stored in local storage is encrypted to prevent logging in by editing local storage
 - Buying tickets and charging points on account will persist and update on all pages
-- Users selling an item will refund points back to all buyers who hold tickets if seller deletes item
+- If seller deleted a lited item, points will refund points back to all buyers who hold tickets
 - Once all tickets are sold for an item, seller will then receive points (seller should receive points once item is delivered)
 - Once all tickets are sold, a random generator will choose 1 ticket as the winner of the product (the more tickets one user holds, the higher the chance of winning)
 
 Things to be added:
 
 - Verified sellers title should only be held if seller rating is over 4.5
-- Profile page will show if user has won the item or not
+- Websocket for winner and seller to communicate
+- Add "delivered" and "received" before seller's points are added to their account
+
+==========================================================-
+FlatIron Capstone Requirement:
+--Backend--
+Auth
+Validations (2 custom)
+Custom routes (at least 2)
+--Front end--
+Auth
+HOC (spinner while loading etc)
+Use of hooks (ones that make sense, add context if you feel up to the challenge!)
+==========================================================-
