@@ -4,7 +4,7 @@ import { StarRating } from "./StarRating";
 
 const SellerInfo = ({ seller }) => {
   const user = useContext(UserContext);
-  // console.log(seller);
+
   return (
     <div className="seller-info-container">
       {user.id === seller.id ? (

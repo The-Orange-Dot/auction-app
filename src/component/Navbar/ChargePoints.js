@@ -4,6 +4,7 @@ import { UserContext } from "../../App";
 const ChargePoints = ({ grayIsOn, setUser }) => {
   const user = useContext(UserContext);
 
+  //Backend will check if the point value and button id are correct before adding points (as security measure)
   const chargePoints = (value, id) => {
     fetch(
       `https://boiling-forest-19458.herokuapp.com/users/charge_points/${user.id}`,

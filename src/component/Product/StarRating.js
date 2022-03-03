@@ -4,6 +4,8 @@ export const StarRating = (sellerRating) => {
   const userRating = sellerRating;
   let rating = null;
 
+  //Why doesn't switch statement work for thisssss???
+  //Oh well, if else will work for now
   if (userRating < 1) {
     rating = <p>&#9734;&#9734;&#9734;&#9734;&#9734;</p>;
   } else if (userRating < 2) {

@@ -16,11 +16,12 @@ const RegisterNewUser = () => {
   });
   const [errors, setErrors] = useState([]);
 
+  //Tracks input inside the text boxes
   const inputHandler = (e) => {
-    // console.log(`${e.target.name}: ${e.target.value}`);
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
+  //Submits and creates new user
   const newUserSubmit = (e) => {
     e.preventDefault();
     fetch("https://boiling-forest-19458.herokuapp.com/users", {

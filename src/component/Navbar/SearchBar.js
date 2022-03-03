@@ -2,6 +2,7 @@ import React from "react";
 import "./NavBar.css";
 
 const SearchBar = ({ searchHandler }) => {
+  //This component is used in the 'App' component, but is rendered on the navbar
   return (
     <div className="search-bar">
       <form action="">

@@ -28,6 +28,7 @@ const ProductCard = ({ product, setProducts, products, setUser }) => {
     );
   }, []);
 
+  //Prevents scrolling when a large card is open
   document.body.style.position = isBig ? "fixed" : "";
 
   //Turns the big product page on or off when clicked

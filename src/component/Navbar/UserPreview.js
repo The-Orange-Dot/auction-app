@@ -22,6 +22,7 @@ const UserPreview = ({ pageLoaded, setUser }) => {
         onClick={() => setGrayIsOn(!grayIsOn)}
       />
 
+      {/* If user is logged in, show user info and sell button, if not, show login  */}
       {loggedIn ? (
         <>
           <div className="profile-container">

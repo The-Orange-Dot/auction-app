@@ -1,6 +1,7 @@
 import React from "react";
 
 const CategoryNav = ({ filterHandler, category }) => {
+  //Checks value of category selector and adjusts them for the filter
   const formSubmit = (event) => {
     if (event.target.textContent === "Video Games") {
       filterHandler(event.target.textContent.split(" ")[1].toLowerCase());
@@ -14,6 +15,7 @@ const CategoryNav = ({ filterHandler, category }) => {
   };
 
   //width divided by number of categories in category navbar
+  //change the second number if adding or subtracting categories to selector
   const width = 100 / 10;
 
   return (

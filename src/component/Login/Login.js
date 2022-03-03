@@ -12,6 +12,7 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
   const [failedLogin, setFailedLogin] = useState(false);
   const [loginError, setLoginError] = useState("");
 
+  //Logs in the user through sessions on the back end
   const submitHandler = (e) => {
     e.preventDefault();
     fetch("https://boiling-forest-19458.herokuapp.com/login", {
@@ -25,8 +26,9 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
       if (r.ok) {
         r.json().then((resp) => {
           localStorage.setItem("user", resp.cookies.user);
+          //If login is successful, returns hashed user token and stores on local storage
           fetch("https://boiling-forest-19458.herokuapp.com/user", {
-            //THIS HEADER IS A TEMP FIX FOR LOGIN RENDER!!!
+            //Header will return an encrypted user token
             headers: {
               user: localStorage.getItem("user"),
             },
@@ -51,8 +53,8 @@ const Login = ({ setUser, setLoggedIn, setPageLoaded }) => {
     });
   };
 
+  //Tracks input inside the text boxes
   const inputHandler = (e) => {
-    // console.log(`${e.target.name}: ${e.target.value}`);
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 

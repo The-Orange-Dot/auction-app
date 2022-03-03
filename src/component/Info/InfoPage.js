@@ -12,6 +12,8 @@ import happy from "../../database/images/happy.png";
 import present from "../../database/images/present.png";
 import Copyright from "./Copyright";
 
+//Oh geeze, This is all GSAP animation for the landing page
+//Needs optimization for better responsiveness
 const InfoPage = () => {
   const el = useRef();
 
@@ -24,7 +26,7 @@ const InfoPage = () => {
         y: 1,
         duration: 1,
       });
-
+    //Trigger 1
     gsap
       .timeline({
         scrollTrigger: {
@@ -72,6 +74,7 @@ const InfoPage = () => {
         }
       );
 
+    //Trigger 2
     gsap
       .timeline({
         scrollTrigger: {
@@ -115,6 +118,7 @@ const InfoPage = () => {
         { x: -400, y: 0, opacity: 1 }
       );
 
+    //Trigger 3
     gsap
       .timeline({
         scrollTrigger: {
@@ -127,6 +131,7 @@ const InfoPage = () => {
       })
       .to(".ticket-info-3", { opacity: 0, delay: 0.5 });
 
+    //Trigger 4
     gsap
       .timeline({
         scrollTrigger: {
@@ -154,6 +159,7 @@ const InfoPage = () => {
       )
       .fromTo(".ticket-info-4", { opacity: 0 }, { opacity: 1, y: 50 });
 
+    //Trigger 5
     gsap
       .timeline({
         scrollTrigger: {
@@ -178,6 +184,7 @@ const InfoPage = () => {
         rotate: "-= 60",
       });
 
+    //Trigger 6
     gsap
       .timeline({
         scrollTrigger: {
