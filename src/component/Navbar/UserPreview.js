@@ -15,41 +15,43 @@ const UserPreview = ({ pageLoaded, setUser }) => {
   document.body.style.overflow = grayIsOn ? "" : "hidden";
 
   return (
-    <span className="user-info-container">
-      {grayIsOn ? null : <ChargePoints setUser={setUser} />}
-      <div
-        className={grayIsOn ? "hide-gray" : "show-gray"}
-        onClick={() => setGrayIsOn(!grayIsOn)}
-      />
+    <>
+      <span className="user-info-container">
+        <div
+          className={grayIsOn ? "hide-gray" : "show-gray"}
+          onClick={() => setGrayIsOn(!grayIsOn)}
+        />
 
-      {/* If user is logged in, show user info and sell button, if not, show login  */}
-      {loggedIn ? (
-        <>
-          <div className="profile-container">
-            <NavLink to="/profile/info">
-              <img src={user.picture} alt="selfie" className="user-photo" />
+        {/* If user is logged in, show user info and sell button, if not, show login  */}
+        {loggedIn ? (
+          <>
+            <div className="profile-container">
+              <NavLink to="/profile/info">
+                <img src={user.picture} alt="selfie" className="user-photo" />
+              </NavLink>
+              <small className="points" onClick={() => setGrayIsOn(!grayIsOn)}>
+                Points:
+                {pageLoaded
+                  ? numberWithCommas(user.points)
+                  : numberWithCommas(userDefault.points)}
+              </small>
+            </div>
+
+            <NavLink to="/sell" style={{ textDecoration: "none" }}>
+              <h2 className="nav-button">Sell</h2>
             </NavLink>
-            <small className="points" onClick={() => setGrayIsOn(!grayIsOn)}>
-              Points:
-              {pageLoaded
-                ? numberWithCommas(user.points)
-                : numberWithCommas(userDefault.points)}
-            </small>
-          </div>
-
-          <NavLink to="/sell" style={{ textDecoration: "none" }}>
-            <h2 className="nav-button">Sell</h2>
+          </>
+        ) : (
+          <NavLink to="/login" style={{ textDecoration: "none" }}>
+            <h2 className="nav-button">Login</h2>
           </NavLink>
-        </>
-      ) : (
-        <NavLink to="/login" style={{ textDecoration: "none" }}>
-          <h2 className="nav-button">Login</h2>
+        )}
+        <NavLink to="/browse" style={{ textDecoration: "none" }}>
+          <h2 className="nav-button">Browse</h2>
         </NavLink>
-      )}
-      <NavLink to="/browse" style={{ textDecoration: "none" }}>
-        <h2 className="nav-button">Browse</h2>
-      </NavLink>
-    </span>
+      </span>
+      {grayIsOn ? null : <ChargePoints setUser={setUser} />}
+    </>
   );
 };
 

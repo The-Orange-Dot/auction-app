@@ -70,21 +70,17 @@ const Account = ({ user_month, setUser }) => {
         </div>
         <div>
           <span>
-            {/* <h2>Date of Birth</h2> */}
             <p>
-              <p>
-                <strong>Date of Birth: </strong>
-                {`${user_month} ${String(user.created_at).slice(
-                  8,
-                  10
-                )} , ${String(user.created_at).slice(0, 4)}`}
-              </p>
+              <strong>Date of Birth: </strong>
+              {`${user_month} ${String(user.created_at).slice(
+                8,
+                10
+              )} , ${String(user.created_at).slice(0, 4)}`}
             </p>
           </span>
         </div>
         <div>
           <span>
-            {/* <h2>Email</h2> */}
             {editInfo ? (
               <div className="edit-info">
                 <p>
@@ -107,8 +103,6 @@ const Account = ({ user_month, setUser }) => {
         </div>
         <div>
           <span>
-            {/* <h2>Shipping Address</h2> */}
-
             {editInfo ? (
               <div className="edit-info">
                 <p>
@@ -136,7 +130,6 @@ const Account = ({ user_month, setUser }) => {
         </div>
         <div>
           <span>
-            {/* <h2>Billing Address</h2> */}
             {editInfo ? (
               <div className="edit-info">
                 <p>
@@ -167,7 +160,6 @@ const Account = ({ user_month, setUser }) => {
           </span>
         </div>
         <div>
-          {/* <h2>Payment Info</h2> */}
           <p>
             <strong>Payment Info: </strong>*****************
           </p>

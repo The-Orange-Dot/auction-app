@@ -4,7 +4,7 @@
 }
 
 .profile-info-container {
-  padding-top: 6%;
+  padding-top: 100px;
   max-width: 1500px;
   display: flex;
   flex-direction: column;

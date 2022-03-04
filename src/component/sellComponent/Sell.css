@@ -7,8 +7,10 @@
   align-items: center;
   background-color: white;
   width: 35%;
-  border: 10px dashed #f26867;
+  /* border: 10px dashed #f26867; */
+  padding-top: 20px;
   opacity: 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 .sell-form-container > form {

@@ -149,7 +149,11 @@ const ProfilePage = ({ setProducts, setUser, setLoggedIn }) => {
             <p>
               <strong>{productName}</strong>
             </p>
-            <img src={buyerInfo.picture} className="winner-profile-picture" />
+            <img
+              alt="user profile"
+              src={buyerInfo.picture}
+              className="winner-profile-picture"
+            />
             <p>
               <strong>{buyerInfo.username}</strong>
             </p>

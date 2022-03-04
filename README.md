@@ -7,32 +7,36 @@ MOXIE
 
 This is a capstone project for Flatiron bootcamp.
 
-This application is designed to be a concept for a different type of e-commerce business. While most e-commerce business work as a store, this app takes the concept of loot boxes and gacha mechanics in video games and tries to implement it into an e-commerce application. Users can buy tickets using points charged on their accounts in hopes of winning an item. Currently only the winner will receive an item, and others will not receive anything at all, but for future development, all users who buy tickets will win something (digital goods?).
+This application is designed to be a concept for a different type of p2p e-commerce business. While most e-commerce business work as a store, this app takes the concept of loot boxes and gacha mechanics in video games and tries to implement it into an e-commerce application. Users can buy tickets using points charged on their accounts in hopes of winning an item. Currently only the winner will receive an item, and others will not receive anything at all, but for future development, all users who buy tickets will win something (digital goods?).
 
 ====================================================================
 
 Tools and libraries used:
 
+- React.js
+- Ruby-on-Rails
 - GreenSock (GSAP) for animation
 - FUSE.JS for fuzzy search functionality
 - Moment.js for "new" tag which lists item as new if posted within the last 3 days
 
-Working functionalities of this build for the Front-end:
+Progress of this build for the Front-end:
 
 - Basic CRUD functionality
-- Landing page animation using GSAP
+- Buying tickets and charging points on account will persist and update on all pages
 - Search bar will perform a fuzzy search from products' title, category, and keywords all at the same time and return filtered items dynamically using FUSE.JS
-- Category selector which will work with the search bar for further filtering
-- Products on browse page will expand for more information when clicked
 - You can only buy tickets if you are logged in and you have enough points and if you are not the seller of said item
+- Products on browse page will expand for more information when clicked
+- Category selector which will work with the search bar for further filtering
+- Landing page animation using GSAP
 - Using table association to show seller information and rating on products
 - Sell form and login form uses front-end validation along with the back-end validation for increased security
 - Accounts stay logged in even if page is refreshed through localStorage (need to get sessions and cookies working instead)
 - Account id stored in local storage is encrypted to prevent logging in by editing local storage
-- Buying tickets and charging points on account will persist and update on all pages
 - If seller deleted a lited item, points will refund points back to all buyers who hold tickets
 - Once all tickets are sold for an item, seller will then receive points (seller should receive points once item is delivered)
 - Once all tickets are sold, a random generator will choose 1 ticket as the winner of the product (the more tickets one user holds, the higher the chance of winning)
+- Winners of products are able to see seller information (need to implement a message feature)
+- Sellers can see the name and address of winner for delivery
 
 Things to be added:
 

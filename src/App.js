@@ -18,6 +18,8 @@ export const ProductContext = createContext();
 export const LoginContext = createContext();
 
 function App() {
+  gsap.config({ nullTargetWarn: false });
+
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);

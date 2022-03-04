@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./Product.css";
 import TicketBuy from "./TicketBuy";
 import { LoginContext, UserContext } from "../../App";
@@ -11,7 +11,6 @@ const Item = ({ product, isBig, setProducts, setUser, setNotEnoughPoints }) => {
   const user = useContext(UserContext);
   const [grayIsOn, setGrayIsOn] = useState(true);
   const [tickets, setTickets] = useState(product.ticketsRemaining);
-  const [isNew, setIsNew] = useState(false);
 
   //Prevents scrolling when gray overlay is up
   const pricePerTicket = product.price / product.tickets;

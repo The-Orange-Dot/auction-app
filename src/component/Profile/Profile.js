@@ -4,9 +4,6 @@ import { StarRating } from "../Product/StarRating";
 
 const Profile = ({ user_month }) => {
   const user = useContext(UserContext);
-
-  console.log(user);
-
   return (
     <div className="profile-info-container-tab">
       <h1>Public Profile</h1>
@@ -47,9 +44,9 @@ const Profile = ({ user_month }) => {
           ) : (
             user.buyer_reviews.map((review) => {
               return (
-                <div className="review-cards">
+                <div className="review-cards" key={review.id}>
                   <p>{review.review}</p>
-                  <p>{StarRating(review.rating)}</p>
+                  {StarRating(review.rating)}
                 </div>
               );
             })
