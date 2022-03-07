@@ -38,10 +38,13 @@ const SellForm = ({ setProducts, setUser }) => {
   };
 
   const inputHandler = (e) => {
+    //Updates description character counter
     if (e.target.name === "description") {
       setDescriptionCounter(1000 - parseInt(e.target.value.length));
     }
 
+    //Checks if input is price or ticket and changes it to an integer
+    //Updates and stores user input as state
     const numberData = { ...newItem };
     numberData.user_id = user.id;
     if (e.target.name === "price") {
@@ -154,7 +157,7 @@ const SellForm = ({ setProducts, setUser }) => {
               <textarea
                 type="textArea"
                 name="description"
-                placeholder="Product Full Desciption (Max: 1000 characters)"
+                placeholder="Product Full Desciption (Max: 1,000 characters)"
                 onChange={(e) => inputHandler(e)}
                 required
                 maxLength="1000"
@@ -163,7 +166,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 style={{ resize: "none" }}
               />
               <small className="description-counter">
-                {numberWithCommas(descriptionCounter)} characters remaining.
+                {numberWithCommas(descriptionCounter)} characters remaining
               </small>
             </div>
             <div>
