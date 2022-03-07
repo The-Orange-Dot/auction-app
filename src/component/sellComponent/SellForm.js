@@ -20,7 +20,7 @@ const SellForm = ({ setProducts, setUser }) => {
     tickets: 0,
     user_id: null,
   });
-  const [descriptionCounter, setDescriptionCounter] = useState(0);
+  const [descriptionCounter, setDescriptionCounter] = useState(1000);
 
   const sellSubmitHandler = (event) => {
     event.preventDefault();
@@ -40,8 +40,6 @@ const SellForm = ({ setProducts, setUser }) => {
   const inputHandler = (e) => {
     if (e.target.name === "description") {
       setDescriptionCounter(1000 - parseInt(e.target.value.length));
-
-      console.log(descriptionCounter);
     }
 
     const numberData = { ...newItem };
@@ -152,7 +150,7 @@ const SellForm = ({ setProducts, setUser }) => {
               />
             </div> */}
             <div>
-              <label htmlFor="description">Full Description: </label>
+              <label htmlFor="description">Description: </label>
               <textarea
                 type="textArea"
                 name="description"
@@ -164,7 +162,9 @@ const SellForm = ({ setProducts, setUser }) => {
                 cols="55"
                 style={{ resize: "none" }}
               />
-              <small className="desciption-counter">{descriptionCounter}</small>
+              <small className="description-counter">
+                {numberWithCommas(descriptionCounter)} characters remaining.
+              </small>
             </div>
             <div>
               <label htmlFor="keywords">Keywords: </label>

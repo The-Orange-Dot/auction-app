@@ -49,3 +49,9 @@
   height: 100vh;
   background-image: url("../../database/images/sell-background.png");
 }
+
+.description-counter {
+  color: gray;
+  font-size: 0.7rem;
+  text-align: end;
+}
