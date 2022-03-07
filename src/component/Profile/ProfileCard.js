@@ -8,6 +8,7 @@ const ProfileCard = ({ children, setLoggedIn }) => {
   const user = useContext(UserContext);
   const history = useHistory();
 
+  //Logs user out, removes user info from localStorage, directs them back to Browse page
   const refresh = () => {
     history.push("/browse");
     window.location.reload();
@@ -15,12 +16,13 @@ const ProfileCard = ({ children, setLoggedIn }) => {
     setLoggedIn(false);
   };
 
+  //Deleted sessions server side
   const logOutHandler = () => {
     fetch("https://boiling-forest-19458.herokuapp.com/logout", {
       method: "DELETE",
-
       headers: { "Content-Type": "application/json" },
-    }).then(refresh());
+    });
+    refresh();
   };
 
   return (

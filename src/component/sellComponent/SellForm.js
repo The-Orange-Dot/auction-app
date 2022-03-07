@@ -22,12 +22,10 @@ const SellForm = ({ setProducts, setUser }) => {
   });
   const [descriptionCounter, setDescriptionCounter] = useState(1000);
 
-  const sellSubmitHandler = (event) => {
+  const sellSubmitHandler = async (event) => {
     event.preventDefault();
-    history.push("/browse");
-    fetch("https://boiling-forest-19458.herokuapp.com/products", {
+    await fetch("https://boiling-forest-19458.herokuapp.com/products", {
       method: "POST",
-
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newItem),
     })
@@ -35,6 +33,7 @@ const SellForm = ({ setProducts, setUser }) => {
       .then((newProduct) => {
         setProducts([...products, newProduct]);
       });
+    history.push("/browse");
   };
 
   const inputHandler = (e) => {
