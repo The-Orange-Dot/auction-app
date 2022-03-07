@@ -3,6 +3,7 @@ import "./Sell.css";
 import { useHistory } from "react-router-dom";
 import { ProductContext, UserContext } from "../../App";
 import SellBackgroundTween from "./SellBackgroundTween";
+import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 
 const SellForm = ({ setProducts, setUser }) => {
   const user = useContext(UserContext);
@@ -19,6 +20,7 @@ const SellForm = ({ setProducts, setUser }) => {
     tickets: 0,
     user_id: null,
   });
+  const [descriptionCounter, setDescriptionCounter] = useState(0);
 
   const sellSubmitHandler = (event) => {
     event.preventDefault();
@@ -36,6 +38,12 @@ const SellForm = ({ setProducts, setUser }) => {
   };
 
   const inputHandler = (e) => {
+    if (e.target.name === "description") {
+      setDescriptionCounter(1000 - parseInt(e.target.value.length));
+
+      console.log(descriptionCounter);
+    }
+
     const numberData = { ...newItem };
     numberData.user_id = user.id;
     if (e.target.name === "price") {
@@ -156,6 +164,7 @@ const SellForm = ({ setProducts, setUser }) => {
                 cols="55"
                 style={{ resize: "none" }}
               />
+              <small className="desciption-counter">{descriptionCounter}</small>
             </div>
             <div>
               <label htmlFor="keywords">Keywords: </label>
