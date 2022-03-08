@@ -117,13 +117,13 @@ const Account = ({ user_month, setUser }) => {
               </div>
             ) : user.address ? (
               <p>
-                <strong>Shipping Address: </strong>Shipping address hasn't been
-                added yet
+                <strong>Shipping Address: </strong>
+                {user.address}
               </p>
             ) : (
               <p>
-                <strong>Shipping Address: </strong>
-                {user.address}
+                <strong>Shipping Address: </strong>Shipping address hasn't been
+                added yet
               </p>
             )}
           </span>
