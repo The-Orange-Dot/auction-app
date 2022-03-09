@@ -240,6 +240,7 @@ h1 {
   justify-content: center;
   flex-direction: column;
   line-height: 0;
+  cursor: pointer;
 }
 
 .loser-text {

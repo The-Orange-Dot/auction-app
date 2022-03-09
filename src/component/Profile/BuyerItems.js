@@ -69,6 +69,7 @@ const BuyerItems = ({
           product.winner === user.id ? (
             <div className="winner-text">
               <h1>You're a winner!</h1>
+              <p>Click here to more info!</p>
             </div>
           ) : (
             <div className="loser-text">

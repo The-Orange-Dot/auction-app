@@ -91,6 +91,7 @@ const SellerItems = ({
         {product.finished ? (
           <div className="winner-text">
             <h1>Finished!</h1>
+            <p>Click here for more info!</p>
           </div>
         ) : (
           <div className="seller-product-description-text">

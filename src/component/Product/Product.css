@@ -183,7 +183,7 @@ span.card:hover {
     transform: rotate(90deg) translate(1000px, 700px) scale(90%);
   }
   to {
-    transform: rotate(90deg) translate(120px, 700px) scale(90%);
+    transform: rotate(90deg) translate(80px, 700px) scale(90%);
   }
 }
 
