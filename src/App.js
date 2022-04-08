@@ -119,11 +119,16 @@ function App() {
 
               <Switch>
                 <Route path="/sell">
-                  <SellForm setProducts={setProducts} setUser={setUser} />
+                  <SellForm
+                    setProducts={setProducts}
+                    setUser={setUser}
+                    mobile={mobile}
+                  />
                 </Route>
 
                 <Route path="/profile">
                   <ProfilePage
+                    mobile={mobile}
                     user={user}
                     setProducts={setProducts}
                     setUser={setUser}
@@ -143,7 +148,13 @@ function App() {
                         <SearchBar searchHandler={searchHandler} />
                       )}
                       {pageLoaded === false ? (
-                        <div className="loading-products">
+                        <div
+                          className={
+                            mobile
+                              ? "mobile-loading-products"
+                              : "loading-products"
+                          }
+                        >
                           <h1 className="loading-logo">M</h1>
                           <h3>Loading Products...</h3>
                         </div>

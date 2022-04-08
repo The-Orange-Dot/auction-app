@@ -2,10 +2,16 @@ import React, { useContext } from "react";
 import { UserContext } from "../../App";
 import { StarRating } from "../Product/StarRating";
 
-const Profile = ({ user_month }) => {
+const Profile = ({ user_month, mobile }) => {
   const user = useContext(UserContext);
   return (
-    <div className="profile-info-container-tab">
+    <div
+      className={
+        mobile
+          ? "mobile-profile-info-container-tab"
+          : "profile-info-container-tab"
+      }
+    >
       <h1>Public Profile</h1>
       <div>
         <div>

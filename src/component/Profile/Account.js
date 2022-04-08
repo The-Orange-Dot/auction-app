@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../App";
 
-const Account = ({ user_month, setUser }) => {
+const Account = ({ user_month, setUser, mobile }) => {
   const user = useContext(UserContext);
   const [editInfo, setEditInfo] = useState(false);
   const [userInput, setUserInput] = useState({});

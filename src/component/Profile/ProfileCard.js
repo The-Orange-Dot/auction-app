@@ -4,7 +4,7 @@ import { UserContext } from "../../App";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 import "./ProfilePage.css";
 
-const ProfileCard = ({ children, setLoggedIn }) => {
+const ProfileCard = ({ children, setLoggedIn, mobile }) => {
   const user = useContext(UserContext);
   const history = useHistory();
 
@@ -26,32 +26,38 @@ const ProfileCard = ({ children, setLoggedIn }) => {
   };
 
   return (
-    <div className="profile-card-container">
-      <span className="profile-card-user-container">
-        <div className="profile-card-user-picture">
-          <div className="profile-picture-overlay" />
-          <img src={user.picture} alt="profile" />
-        </div>
-        <div className="profile-card-user-info">
-          <h1>Points: {numberWithCommas(user.points)}</h1>
-          <h3>{user.username}</h3>
-          <h3>
-            {user.firstName
-              ? user.firstName[0].toUpperCase() + user.firstName.slice(1)
-              : ""}{" "}
-            {user.lastName
-              ? user.lastName[0].toUpperCase() + user.lastName.slice(1)
-              : ""}
-          </h3>
-          <p>{user.email}</p>
-          <div>
-            <p>{user.address}</p>
+    <div
+      className={
+        mobile ? "mobile-profile-card-container" : "profile-card-container"
+      }
+    >
+      {mobile ? null : (
+        <span className="profile-card-user-container">
+          <div className="profile-card-user-picture">
+            <div className="profile-picture-overlay" />
+            <img src={user.picture} alt="profile" />
           </div>
-          <button onClick={logOutHandler} className="log-out-button">
-            Log out
-          </button>
-        </div>
-      </span>
+          <div className="profile-card-user-info">
+            <h1>Points: {numberWithCommas(user.points)}</h1>
+            <h3>{user.username}</h3>
+            <h3>
+              {user.firstName
+                ? user.firstName[0].toUpperCase() + user.firstName.slice(1)
+                : ""}
+              {user.lastName
+                ? user.lastName[0].toUpperCase() + user.lastName.slice(1)
+                : ""}
+            </h3>
+            <p>{user.email}</p>
+            <div>
+              <p>{user.address}</p>
+            </div>
+            <button onClick={logOutHandler} className="log-out-button">
+              Log out
+            </button>
+          </div>
+        </span>
+      )}
       {children}
     </div>
   );
