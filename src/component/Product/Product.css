@@ -297,3 +297,60 @@ p {
 .finished {
   font-size: 1.5rem;
 }
+
+/* =========MOBILE========== */
+
+.mobile-card-container {
+  margin-top: 10%;
+  width: 100%;
+  display: flex;
+  flex-wrap: inherit;
+  justify-content: center;
+}
+
+.mobile-big-card {
+  background-color: white;
+  position: fixed;
+  width: 85%;
+  height: 80%;
+  padding: 2%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.5s;
+  border: 10px solid #f26867;
+  top: 3%;
+  left: 3%;
+}
+
+.big-card h3,
+.mobile-card h3 {
+  margin: 0.5em;
+  max-height: 40px;
+  min-height: 40px;
+}
+
+.mobile-buy-ticket-picture {
+  transform: rotate(90deg) translate(35px, 480px) scale(50%);
+  position: absolute;
+  transition: 0.5s;
+  animation: 1s mobile-slide-up;
+  height: 350px;
+}
+
+.mobile-buy-ticket-picture:hover {
+  transform: rotate(90deg) translate(35px, 480px) scale(50%);
+  transition: 0.5s;
+  transition-delay: 150ms;
+}
+
+@keyframes mobile-slide-up {
+  from {
+    transform: rotate(90deg) translate(700px, 480px) scale(50%);
+  }
+  to {
+    transform: rotate(90deg) translate(35px, 480px) scale(50%);
+  }
+}

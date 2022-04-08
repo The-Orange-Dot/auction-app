@@ -137,8 +137,11 @@ function App() {
                       <CategoryNav
                         filterHandler={filterHandler}
                         category={category}
+                        mobile={mobile}
                       />
-                      <SearchBar searchHandler={searchHandler} />
+                      {mobile ? null : (
+                        <SearchBar searchHandler={searchHandler} />
+                      )}
                       {pageLoaded === false ? (
                         <div className="loading-products">
                           <h1 className="loading-logo">M</h1>
@@ -150,6 +153,7 @@ function App() {
                           filterHandler={filterHandler}
                           setProducts={setProducts}
                           setUser={setUser}
+                          mobile={mobile}
                         />
                       ) : (
                         <h3 className="loading-products">No products found</h3>

@@ -4,6 +4,7 @@ import ChargePoints from "../Navbar/ChargePoints";
 import "../Navbar/NavBar.css";
 
 const TicketBuy = ({
+  mobile,
   user,
   product,
   setTickets,
@@ -67,7 +68,9 @@ const TicketBuy = ({
           onClick={() => buyHandler(product, ticketPrice)}
           src={ticket}
           alt="ticket"
-          className="buy-ticket-picture"
+          className={
+            mobile ? "mobile-buy-ticket-picture" : "buy-ticket-picture"
+          }
         />
       )}
     </div>

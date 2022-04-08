@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { scrollHandler } from "../BaseComponents/ScrollHandler";
 import shocked from "../../database/images/shocked.png";
 
-const ProductCard = ({ product, setProducts, products, setUser }) => {
+const ProductCard = ({ product, setProducts, products, setUser, mobile }) => {
   const [isBig, setIsBig] = useState(false);
   const [grayIsOn, setGrayIsOn] = useState(true);
   const [notEnoughPoints, setNotEnoughPoints] = useState(false);
@@ -42,7 +42,45 @@ const ProductCard = ({ product, setProducts, products, setUser }) => {
       setNotEnoughPoints(false);
     }
   };
-  return (
+  return mobile ? (
+    <>
+      <div
+        className={grayIsOn ? "hide-gray" : "show-gray"}
+        onClick={() => clickHandler()}
+      />
+      <span
+        className={isBig ? "mobile-big-card" : "card"}
+        onClick={
+          isBig
+            ? null
+            : () => {
+                clickHandler();
+              }
+        }
+      >
+        <span className="product-image-container">
+          <Item
+            product={product}
+            isBig={isBig}
+            setIsBig={setIsBig}
+            setProducts={setProducts}
+            products={products}
+            setUser={setUser}
+            notEnoughPoints={notEnoughPoints}
+            setNotEnoughPoints={setNotEnoughPoints}
+            mobile={mobile}
+          />
+        </span>
+      </span>
+      {notEnoughPoints ? (
+        <img
+          src={shocked}
+          alt="not enough points"
+          className="not-enough-points-img"
+        />
+      ) : null}
+    </>
+  ) : (
     <>
       <div
         className={grayIsOn ? "hide-gray" : "show-gray"}
@@ -68,6 +106,7 @@ const ProductCard = ({ product, setProducts, products, setUser }) => {
             setUser={setUser}
             notEnoughPoints={notEnoughPoints}
             setNotEnoughPoints={setNotEnoughPoints}
+            mobile={mobile}
           />
         </span>
       </span>
