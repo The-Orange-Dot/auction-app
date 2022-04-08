@@ -61,6 +61,7 @@ const WelcomePage = ({ mobile }) => {
         </div>
       </div>
       <InfoPage mobile={mobile} />
+      <div className="mobile-page-background" />
     </div>
   ) : (
     <div className="welcome-page-container">

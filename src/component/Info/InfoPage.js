@@ -38,6 +38,7 @@ const InfoPage = ({ mobile }) => {
           scrub: 1,
         },
       })
+      .fromTo(".mobile-page-background", { opacity: 1 }, { opacity: 0 })
       .fromTo(
         ".scroll-down",
         { opacity: 1 },

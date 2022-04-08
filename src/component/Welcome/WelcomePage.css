@@ -79,7 +79,9 @@
   font-size: 1.8rem;
   display: flex;
   justify-content: center;
-  padding-top: 20%;
+  height: 100vh;
+  z-index: -5;
+  padding-top: 18%;
 }
 
 .mobile-welcome-container h1 {
@@ -120,4 +122,19 @@
   position: fixed;
   left: 25%;
   bottom: 0%;
+}
+
+.mobile-page-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1)
+    ),
+    url(../../database/images/circus-wallpaper.jpeg);
+  background-repeat: no-repeat;
+  background-size: 300%;
+  z-index: -10;
 }

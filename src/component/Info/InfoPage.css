@@ -141,7 +141,7 @@
 .mobile-info-page-container {
   position: absolute;
   height: 320vh;
-  width: 90%;
+  width: 100%;
   display: block;
   z-index: -1;
   overflow: hidden;
@@ -175,14 +175,14 @@
 }
 
 .mobile-info-2 {
-  top: 36%;
+  top: 37%;
   position: absolute;
 }
 
 .mobile-dollar-sign2 {
   height: 70px;
   position: absolute;
-  top: 41%;
+  top: 42%;
   left: 45%;
 }
 
@@ -231,14 +231,14 @@
 
 .mobile-box {
   position: absolute;
-  left: -130%;
+  left: -100%;
   top: 70%;
   transform: scale(20%);
 }
 
 .mobile-start {
   position: absolute;
-  left: -55%;
+  left: -40%;
   top: 95%;
 }
 
