@@ -152,6 +152,7 @@
   position: absolute;
   font-size: 3rem;
   width: 100%;
+  top: 15%;
 }
 
 .mobile-info-1 {
@@ -174,7 +175,7 @@
 }
 
 .mobile-info-2 {
-  top: 35%;
+  top: 36%;
   position: absolute;
 }
 
@@ -198,7 +199,7 @@
 }
 
 .mobile-info-3 {
-  top: 50%;
+  top: 52%;
   position: absolute;
   right: 10%;
 }
@@ -206,19 +207,19 @@
 .mobile-take-ticket-f {
   position: absolute;
   left: 0%;
-  top: 56%;
+  top: 58%;
   z-index: -1;
 }
 
 .mobile-ticket-info-4 {
   position: absolute;
   transform: rotate(115deg) scale(0.12);
-  top: 52.5%;
+  top: 54.5%;
   left: 10px;
 }
 
 .mobile-info-4 {
-  top: 70%;
+  top: 71%;
   position: absolute;
 }
 

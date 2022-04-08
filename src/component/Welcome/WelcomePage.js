@@ -61,7 +61,6 @@ const WelcomePage = ({ mobile }) => {
         </div>
       </div>
       <InfoPage mobile={mobile} />
-      <p className="mobile-scroll-down SD">Scroll down</p>
     </div>
   ) : (
     <div className="welcome-page-container">
