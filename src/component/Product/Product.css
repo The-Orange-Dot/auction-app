@@ -193,7 +193,7 @@ span.card:hover {
   overflow: hidden;
 }
 
-.card-content {
+.product-card-content {
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -208,7 +208,7 @@ span.card:hover {
   justify-content: flex-end;
 }
 
-.card-content h3,
+.product-card-content > h3,
 p {
   text-align: center;
 }

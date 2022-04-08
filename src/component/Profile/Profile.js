@@ -44,7 +44,7 @@ const Profile = ({ user_month, mobile }) => {
         <div className="review-container">
           <h2>Buyer reviews:</h2>
         </div>
-        <div className="reviews">
+        <div className={mobile ? "mobile-reviews" : "reviews"}>
           {user.buyer_reviews.length === 0 || null ? (
             <p>You currently don't have any reviews</p>
           ) : (

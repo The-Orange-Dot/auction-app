@@ -28,7 +28,7 @@ const Item = ({
   const newProduct = days < 3;
 
   return mobile ? (
-    <div className="card-content">
+    <div className="product-card-content">
       <span>
         {!isBig && newProduct ? <p className="new-banner">NEW</p> : null}
         <img
@@ -86,7 +86,7 @@ const Item = ({
       </div>
     </div>
   ) : (
-    <div className="card-content">
+    <div className="product-card-content">
       <span>
         {!isBig && newProduct ? <p className="new-banner">NEW</p> : null}
         <img

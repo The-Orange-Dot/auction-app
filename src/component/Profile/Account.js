@@ -25,7 +25,7 @@ const Account = ({ user_month, setUser, mobile }) => {
   };
 
   return (
-    <div className="account-container">
+    <div className={mobile ? "mobile-account-container" : "account-container"}>
       <h1>Account Info</h1>
       <div>
         <div>
@@ -105,7 +105,7 @@ const Account = ({ user_month, setUser, mobile }) => {
           <span>
             {editInfo ? (
               <div className="edit-info">
-                <p>
+                <p style={{ textAlign: "start" }}>
                   <strong>Shipping Address: </strong>
                 </p>
                 <input
@@ -116,12 +116,12 @@ const Account = ({ user_month, setUser, mobile }) => {
                 />
               </div>
             ) : user.address ? (
-              <p>
+              <p style={{ textAlign: "start" }}>
                 <strong>Shipping Address: </strong>
                 {user.address}
               </p>
             ) : (
-              <p>
+              <p style={{ textAlign: "start" }}>
                 <strong>Shipping Address: </strong>Shipping address hasn't been
                 added yet
               </p>
@@ -132,7 +132,7 @@ const Account = ({ user_month, setUser, mobile }) => {
           <span>
             {editInfo ? (
               <div className="edit-info">
-                <p>
+                <p style={{ textAlign: "start" }}>
                   <strong>Billing Address: </strong>
                 </p>
                 <input
@@ -147,12 +147,12 @@ const Account = ({ user_month, setUser, mobile }) => {
                 />
               </div>
             ) : user.billing_address ? (
-              <p>
+              <p style={{ textAlign: "start" }}>
                 <strong>Billing Address: </strong>
                 {user.billing_address}
               </p>
             ) : (
-              <p>
+              <p style={{ textAlign: "start" }}>
                 <strong>Billing Address: </strong>Billing address hasn't been
                 added yet
               </p>
@@ -165,12 +165,14 @@ const Account = ({ user_month, setUser, mobile }) => {
           </p>
         </div>
         <div className="edit-info-button">
-          <button
-            className="log-out-button"
-            onClick={() => (editInfo ? submitHandler() : setEditInfo(true))}
-          >
-            {editInfo ? "Submit" : "Edit info"}
-          </button>
+          {mobile ? null : (
+            <button
+              className="log-out-button"
+              onClick={() => (editInfo ? submitHandler() : setEditInfo(true))}
+            >
+              {editInfo ? "Submit" : "Edit info"}
+            </button>
+          )}
           {editInfo ? (
             <button
               className="log-out-button"

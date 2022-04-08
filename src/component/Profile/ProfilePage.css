@@ -471,3 +471,46 @@ h1 {
   line-height: 0;
   font-size: 1.2rem;
 }
+
+.mobile-reviews {
+  min-height: 185px;
+  margin-right: 16px;
+  overflow-y: scroll;
+  border-top: 1px solid black;
+}
+
+.account-container {
+  width: 800px;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.mobile-account-container p {
+  font-size: 1.2rem;
+}
+
+.mobile-account-container h2 {
+  line-height: 0;
+}
+
+.mobile-account-container > h1 {
+  text-align: center;
+}
+
+.mobile-account-container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5%;
+  margin-left: 10%;
+}
+
+.mobile-account-container::-webkit-scrollbar {
+  display: none;
+}
