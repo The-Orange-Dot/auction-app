@@ -178,3 +178,17 @@ sell {
   padding-top: 0.5%;
   padding-bottom: 0.5%;
 }
+
+/* =========MOBILE=========== */
+
+.mobile-logo {
+  color: white;
+  font-size: 2rem;
+  margin-left: 20%;
+}
+
+.mobile-nav-button {
+  color: white;
+  margin: 0 30px 0 0;
+  font-size: 1.3rem;
+}

@@ -7,7 +7,7 @@ import { scrollHandler } from "../BaseComponents/ScrollHandler";
 import { gsap } from "gsap/all";
 import { onEnterTicket, onLeaveTicket } from "../Animation/WiggleOnEnter";
 
-const WelcomePage = () => {
+const WelcomePage = ({ mobile }) => {
   useEffect(() => {
     scrollHandler(-10000);
     gsap
@@ -35,15 +35,35 @@ const WelcomePage = () => {
         { x: 0, stagger: 0.25, ease: "Power4.easeout", duration: 0.3 }
       );
 
-    gsap
-      .timeline({ repeat: -1, yoyo: true, ease: "Power.easeOut" })
-      .to(".scroll-down", {
-        y: 1,
-        duration: 1,
-      });
+    gsap.timeline({ repeat: -1, yoyo: true, ease: "Power.easeOut" }).to(".SD", {
+      y: 1,
+      duration: 1,
+    });
   }, []);
 
-  return (
+  return mobile ? (
+    <div className="mobile-welcome-container">
+      <div className="welcome-page-header">
+        <h1>Bring some excitement to your shopping</h1>
+        <p>Find thousands of products and pay only a fraction of the cost!</p>
+        <div
+          style={{
+            paddingTop: 20,
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+          }}
+        >
+          <NavLink to="/browse">
+            <button>Start Searching</button>
+          </NavLink>
+          <button onClick={() => scrollHandler(800)}>More Info</button>
+        </div>
+      </div>
+      <InfoPage mobile={mobile} />
+      <p className="mobile-scroll-down SD">Scroll down</p>
+    </div>
+  ) : (
     <div className="welcome-page-container">
       <div>
         <div className="welcome-page-background"></div>
@@ -83,7 +103,7 @@ const WelcomePage = () => {
         </div>
       </div>
       <InfoPage />
-      <p className="scroll-down">Scroll down</p>
+      <p className="scroll-down SD">Scroll down</p>
     </div>
   );
 };

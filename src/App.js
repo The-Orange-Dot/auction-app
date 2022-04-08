@@ -12,6 +12,7 @@ import SearchBar from "./component/Navbar/SearchBar";
 import Login from "./component/Login/Login";
 import RegisterNewUser from "./component/Login/RegisterNewUser";
 import gsap from "gsap/all";
+import { useMediaQuery } from "react-responsive";
 
 export const UserContext = createContext();
 export const ProductContext = createContext();
@@ -20,6 +21,8 @@ export const LoginContext = createContext();
 function App() {
   gsap.config({ nullTargetWarn: false });
 
+  const isMobile = useMediaQuery({ query: "(max-width: 900px)" });
+  const [mobile, setMobile] = useState(false);
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -50,6 +53,7 @@ function App() {
   });
 
   useEffect(() => {
+    isMobile ? setMobile(true) : setMobile(false);
     //Fetches all products and loads them into cards for the browse page
     fetch("https://boiling-forest-19458.herokuapp.com/products")
       .then((res) => res.json())
@@ -75,7 +79,7 @@ function App() {
         }
       });
     }
-  }, []);
+  }, [isMobile]);
 
   //Searchbar value is stored in state
   const searchHandler = (event) => {
@@ -107,7 +111,11 @@ function App() {
         <UserContext.Provider value={user}>
           <ProductContext.Provider value={products}>
             <LoginContext.Provider value={loggedIn}>
-              <NavBar pageLoaded={pageLoaded} setUser={setUser} />
+              <NavBar
+                pageLoaded={pageLoaded}
+                setUser={setUser}
+                mobile={mobile}
+              />
 
               <Switch>
                 <Route path="/sell">
@@ -163,7 +171,7 @@ function App() {
                 </Route>
 
                 <Route exact path="/">
-                  <WelcomePage />
+                  <WelcomePage mobile={mobile} />
                 </Route>
               </Switch>
             </LoginContext.Provider>

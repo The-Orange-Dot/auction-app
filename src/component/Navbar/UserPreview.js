@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { LoginContext, UserContext } from "../../App";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 
-const UserPreview = ({ pageLoaded, setUser }) => {
+const UserPreview = ({ pageLoaded, setUser, mobile }) => {
   const loggedIn = useContext(LoginContext);
   const [grayIsOn, setGrayIsOn] = useState(true);
   const user = useContext(UserContext);
@@ -38,16 +38,22 @@ const UserPreview = ({ pageLoaded, setUser }) => {
             </div>
 
             <NavLink to="/sell" style={{ textDecoration: "none" }}>
-              <h2 className="nav-button">Sell</h2>
+              <h2 className={mobile ? "mobile-nav-button" : "nav-button"}>
+                Sell
+              </h2>
             </NavLink>
           </>
         ) : (
           <NavLink to="/login" style={{ textDecoration: "none" }}>
-            <h2 className="nav-button">Login</h2>
+            <h2 className={mobile ? "mobile-nav-button" : "nav-button"}>
+              Login
+            </h2>
           </NavLink>
         )}
         <NavLink to="/browse" style={{ textDecoration: "none" }}>
-          <h2 className="nav-button">Browse</h2>
+          <h2 className={mobile ? "mobile-nav-button" : "nav-button"}>
+            Browse
+          </h2>
         </NavLink>
       </span>
       {grayIsOn ? null : <ChargePoints setUser={setUser} />}

@@ -14,7 +14,7 @@ import Copyright from "./Copyright";
 
 //Oh geeze, This is all GSAP animation for the landing page
 //Needs optimization for better responsiveness
-const InfoPage = () => {
+const InfoPage = ({ mobile }) => {
   const el = useRef();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const InfoPage = () => {
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".info-page-how-it-works",
+          trigger: ".HIW",
           start: "top center",
           end: "+=230",
           setAction: "play none none reverse",
@@ -44,14 +44,14 @@ const InfoPage = () => {
         { opacity: 0, onComplete: scroll.pause() }
       )
       .fromTo(
-        ".info-page-how-it-works",
+        ".HIW",
         { opacity: 0 },
         {
           opacity: 1,
         }
       )
       .fromTo(
-        ".info-1",
+        ".I1",
         { x: -800, opacity: 0 },
         {
           x: 0,
@@ -60,14 +60,14 @@ const InfoPage = () => {
         }
       )
       .fromTo(
-        ".boy-with-lighter",
+        ".BWL",
         { opacity: 0 },
         {
           opacity: 1,
         }
       )
       .fromTo(
-        ".dollar-sign",
+        ".DS",
         { opacity: 0 },
         {
           opacity: 1,
@@ -78,7 +78,7 @@ const InfoPage = () => {
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".info-2",
+          trigger: ".I2",
           start: "top center",
           end: "+=100",
           scrub: 1,
@@ -86,7 +86,7 @@ const InfoPage = () => {
         },
       })
       .fromTo(
-        ".info-2",
+        ".I2",
         { x: -800, opacity: 0 },
         {
           x: 0,
@@ -94,7 +94,7 @@ const InfoPage = () => {
           ease: "back",
         }
       )
-      .fromTo(".dollar-sign2", { opacity: 0, y: -30 }, { opacity: 1, y: 0 })
+      .fromTo(".DS2", { opacity: 0, y: -30 }, { opacity: 1, y: 0 })
       .fromTo(
         ".ticket-info-1",
         {
@@ -135,7 +135,7 @@ const InfoPage = () => {
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".take-ticket-f",
+          trigger: ".TTF",
           start: "20% center",
           end: "+=100",
           scrub: 1,
@@ -143,27 +143,27 @@ const InfoPage = () => {
         },
       })
       .fromTo(
-        ".info-3",
+        ".I3",
         {
           opacity: 0,
         },
         { opacity: 1, ease: "back" }
       )
       .fromTo(
-        ".take-ticket-f",
+        ".TTF",
         {
           opacity: 0,
           x: 20,
         },
         { opacity: 1, x: 60 }
       )
-      .fromTo(".ticket-info-4", { opacity: 0 }, { opacity: 1, y: 50 });
+      .fromTo(".TI4", { opacity: 0 }, { opacity: 1, y: 50 });
 
     //Trigger 5
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".info-4",
+          trigger: ".I4",
           start: "top center",
           end: "+=100",
           scrub: 1,
@@ -171,7 +171,7 @@ const InfoPage = () => {
         },
       })
       .fromTo(
-        ".info-4",
+        ".I4",
         {
           opacity: 0,
         },
@@ -188,7 +188,7 @@ const InfoPage = () => {
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".info-4",
+          trigger: ".I4",
           start: "center center",
           end: "+=10",
           scrub: 1,
@@ -196,23 +196,23 @@ const InfoPage = () => {
         },
       })
       .fromTo(
-        ".box",
+        ".B",
         { opacity: 0, x: 50, y: 0, rotate: "+=10" },
         { opacity: 1, x: 120, y: -30, rotate: "+=10" }
       )
       .fromTo(
-        ".happy-girl",
+        ".HG",
         {
           opacity: 0,
         },
         { opacity: 1, x: -100 }
       )
-      .fromTo(".start", { opacity: 0, x: 300 }, { opacity: 1, x: 300 });
+      .fromTo(".S", { opacity: 0, x: 300 }, { opacity: 1, x: 300 });
   }, []);
 
-  return (
-    <div className="info-page-container">
-      <h1 className="info-page-how-it-works">How it works</h1>
+  return mobile ? (
+    <div className="mobile-info-page-container">
+      <h1 className="mobile-info-page-how-it-works HIW">How it works</h1>
       <div className="info-description" ref={el}>
         {/* <img src={jars} alt="girl holding jars" className="girl-with-jars" /> */}
 
@@ -220,22 +220,95 @@ const InfoPage = () => {
           <img
             src={lighter}
             alt="boy holding lighter"
-            className="boy-with-lighter"
+            className="mobile-boy-with-lighter BWL"
           />
-          <p className="info-1">
+          <p className="mobile-info-1 I1">
             Just like any other e-commerce website, sellers put what they want
             to sell on the site, write a description, and list their price.
           </p>
-          <img src={dollar} alt="dollar sign" className="dollar-sign" />
+          <img
+            src={dollar}
+            alt="dollar sign"
+            className="mobile-dollar-sign DS"
+          />
         </div>
 
         <div className="section-two">
-          <p className="info-2">
+          <p className="mobile-info-2 I2">
             The only difference is, sellers can split the price up into tickets!
             Each ticket is worth the total price divided by the total number of
             tickets.
           </p>
-          <img src={dollar} alt="dollar sign" className="dollar-sign2" />
+          <img
+            src={dollar}
+            alt="dollar sign"
+            className="mobile-dollar-sign2 DS2"
+          />
+          <div className="mobile-ticket-info-group">
+            <img src={ticket} alt="ticket" className="ticket-info-1" />
+            <img src={ticket} alt="ticket" className="ticket-info-2" />
+            <img src={ticket} alt="ticket" className="ticket-info-3" />
+          </div>
+        </div>
+
+        <div className="section-three">
+          <p className="mobile-info-3 I3">
+            Buyers can purchase these tickets using their points. You can buy
+            one, two, or even all of the tickets. The more tickets you buy, the
+            higher your chances of winning the item.
+          </p>
+          <img
+            src={takeTicketF}
+            alt="woman taking ticket"
+            className="mobile-take-ticket-f TTF"
+          />
+          <img src={ticket} alt="ticket" className="mobile-ticket-info-4 TI4" />
+        </div>
+        <div className="section-four">
+          <p className="mobile-info-4 I4" ref={el}>
+            Once all the tickets are purchased, one of the tickets, chosen
+            randomly, is selected and the holder of that ticket receives the
+            item!
+          </p>
+          <img
+            src={happy}
+            alt="cheerful girl"
+            className="mobile-happy-girl HG"
+          />
+          <img src={present} alt="gift box" className="mobile-box B" />
+          <NavLink to="/browse">
+            <button className="mobile-start S"> Let's get started! </button>
+          </NavLink>
+        </div>
+      </div>
+      <Copyright />
+    </div>
+  ) : (
+    <div className="info-page-container">
+      <h1 className="info-page-how-it-works HIW">How it works</h1>
+      <div className="info-description" ref={el}>
+        {/* <img src={jars} alt="girl holding jars" className="girl-with-jars" /> */}
+
+        <div className="section-one" ref={el}>
+          <img
+            src={lighter}
+            alt="boy holding lighter"
+            className="boy-with-lighter BWL"
+          />
+          <p className="info-1 I1">
+            Just like any other e-commerce website, sellers put what they want
+            to sell on the site, write a description, and list their price.
+          </p>
+          <img src={dollar} alt="dollar sign" className="dollar-sign DS" />
+        </div>
+
+        <div className="section-two">
+          <p className="info-2 I2">
+            The only difference is, sellers can split the price up into tickets!
+            Each ticket is worth the total price divided by the total number of
+            tickets.
+          </p>
+          <img src={dollar} alt="dollar sign" className="dollar-sign2 DS2" />
           <div className="ticket-info-group">
             <img src={ticket} alt="ticket" className="ticket-info-1" />
             <img src={ticket} alt="ticket" className="ticket-info-2" />
@@ -244,7 +317,7 @@ const InfoPage = () => {
         </div>
 
         <div className="section-three">
-          <p className="info-3">
+          <p className="info-3 I3">
             Buyers can purchase these tickets using their points. You can buy
             one, two, or even all of the tickets. The more tickets you buy, the
             higher your chances of winning the item.
@@ -252,24 +325,24 @@ const InfoPage = () => {
           <img
             src={takeTicketF}
             alt="woman taking ticket"
-            className="take-ticket-f"
+            className="take-ticket-f TTF"
           />
-          <img src={ticket} alt="ticket" className="ticket-info-4" />
+          <img src={ticket} alt="ticket" className="ticket-info-4 TI4" />
         </div>
         <div className="section-four">
-          <p className="info-4" ref={el}>
+          <p className="info-4 I4" ref={el}>
             Once all the tickets are purchased, one of the tickets, chosen
             randomly, is selected and the holder of that ticket receives the
             item!
           </p>
-          <img src={happy} alt="cheerful girl" className="happy-girl" />
-          <img src={present} alt="gift box" className="box" />
+          <img src={happy} alt="cheerful girl" className="happy-girl HG" />
+          <img src={present} alt="gift box" className="box B" />
           <NavLink to="/browse">
-            <button className="start"> Let's get started! </button>
+            <button className="start S"> Let's get started! </button>
           </NavLink>
         </div>
       </div>
-      <Copyright />
+      <Copyright mobile={mobile} />
     </div>
   );
 };

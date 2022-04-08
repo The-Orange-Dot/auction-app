@@ -72,3 +72,52 @@
   left: 45%;
   bottom: 0%;
 }
+
+/* =========MOBILE============= */
+
+.mobile-welcome-container {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 20%;
+}
+
+.mobile-welcome-container h1 {
+  width: 90%;
+  display: inline-flex;
+  margin: 80px 0px 0px 10%;
+}
+
+.mobile-welcome-container p {
+  font-size: 1.3rem;
+  width: 80%;
+  font-weight: bolder;
+  text-align: left;
+  margin: 20px 10px 10px 10%;
+}
+
+.mobile-welcome-container button {
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  padding: 12px;
+  border-radius: 2rem;
+  font-weight: bolder;
+  margin: 0px 5px 0px 5px;
+}
+
+.mobile-welcome-page-background {
+  background-image: url(../../database/images/circus-wallpaper.jpeg);
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  left: 0%;
+  overflow-x: hidden;
+  opacity: 90%;
+}
+
+.mobile-scroll-down {
+  position: fixed;
+  left: 25%;
+  bottom: 0%;
+}

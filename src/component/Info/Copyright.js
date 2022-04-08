@@ -1,11 +1,10 @@
 import React from "react";
 import "./InfoPage.css";
 
-const Copyright = () => {
+const Copyright = ({ mobile }) => {
   return (
-    <div className="copyright">
+    <div className={mobile ? "mobile-copyright" : "copyright"}>
       <p>Designed and Coded by Hung Le.</p>
-      <p>&copy; Copyright 2022, All Rights Reserved</p>
     </div>
   );
 };
