@@ -10,7 +10,13 @@ const SellBackgroundTween = ({ children }) => {
         { opacity: 0, x: -20 },
         { opacity: 1, x: 0, ease: "Power4.easeout", duration: 0.7 }
       )
-      .fromTo(".sell-form-container", { opacity: 0 }, { opacity: 1 });
+      .fromTo(".sell-form-container", { opacity: 0 }, { opacity: 1 })
+      .fromTo(
+        ".mobile-sell-form-container",
+        { opacity: 0 },
+        { opacity: 1 },
+        0.6
+      );
   }, []);
 
   return <div>{children}</div>;

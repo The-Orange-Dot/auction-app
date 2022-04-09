@@ -9,6 +9,7 @@ const SellerItemsCard = ({
   setBuyerInfoModal,
   setProductName,
   setWinnerSeller,
+  mobile,
 }) => {
   const products = useContext(ProductContext);
 
@@ -28,6 +29,7 @@ const SellerItemsCard = ({
             setBuyerInfoModal={setBuyerInfoModal}
             setProductName={setProductName}
             setWinnerSeller={setWinnerSeller}
+            mobile={mobile}
           />
         </div>
       );

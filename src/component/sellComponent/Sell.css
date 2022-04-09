@@ -56,3 +56,44 @@
   font-size: 0.7rem;
   text-align: end;
 }
+
+/* ============MOBILE============= */
+
+.mobile-sell-form-container {
+  top: 15%;
+  left: 5%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 35%;
+  min-width: 90%;
+  max-height: 90%;
+  /* border: 10px dashed #f26867; */
+  padding-top: 20px;
+  opacity: 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-sell-form-container > form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px;
+  width: 80%;
+}
+
+.mobile-sell-form-container div {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.mobile-sell-form-container label {
+  display: inherit;
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: start;
+}

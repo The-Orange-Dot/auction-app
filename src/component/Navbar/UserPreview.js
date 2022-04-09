@@ -56,7 +56,7 @@ const UserPreview = ({ pageLoaded, setUser, mobile }) => {
           </h2>
         </NavLink>
       </span>
-      {grayIsOn ? null : <ChargePoints setUser={setUser} />}
+      {grayIsOn ? null : <ChargePoints setUser={setUser} mobile={mobile} />}
     </>
   );
 };

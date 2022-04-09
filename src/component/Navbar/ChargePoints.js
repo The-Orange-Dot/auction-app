@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../App";
 
-const ChargePoints = ({ grayIsOn, setUser }) => {
+const ChargePoints = ({ grayIsOn, setUser, mobile }) => {
   const user = useContext(UserContext);
 
   //Backend will check if the point value and button id are correct before adding points (as security measure)
@@ -24,7 +24,45 @@ const ChargePoints = ({ grayIsOn, setUser }) => {
     });
   };
 
-  return (
+  return mobile ? (
+    <>
+      <div className={grayIsOn ? "" : "mobile-charge-container"}>
+        <h1>Fill'er up, chief!</h1>
+        <div className="mobile-charge-button-container">
+          <span
+            className="mobile-charge"
+            value="500"
+            onClick={() => {
+              chargePoints(500, 1);
+            }}
+          >
+            <p>CHARGE</p>
+            <h1>500PT</h1>
+          </span>
+          <span
+            className="mobile-charge"
+            value="1000"
+            onClick={() => {
+              chargePoints(1000, 2);
+            }}
+          >
+            <p>CHARGE</p>
+            <h1>1,000PT</h1>
+          </span>
+          <span
+            className="mobile-charge"
+            value="5000"
+            onClick={() => {
+              chargePoints(5000, 3);
+            }}
+          >
+            <p>CHARGE</p>
+            <h1>5,000PT</h1>
+          </span>
+        </div>
+      </div>
+    </>
+  ) : (
     <>
       <div className={grayIsOn ? "" : "charge-container"}>
         <h1>Fill'er up, chief!</h1>

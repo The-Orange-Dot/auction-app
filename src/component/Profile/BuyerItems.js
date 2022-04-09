@@ -78,7 +78,7 @@ const BuyerItems = ({
           product.winner === user.id ? (
             <div className={mobile ? "mobile-winner-text" : "winner-text"}>
               <h1>You're a winner!</h1>
-              <p>Click here to more info!</p>
+              {mobile ? null : <p>Click here to more info!</p>}
             </div>
           ) : (
             <div className={mobile ? "mobile-loser-text" : "loser-text"}>
@@ -111,15 +111,17 @@ const BuyerItems = ({
         )}
       </span>
       {product.finished && product.winner === user.id ? (
-        <button
-          onClick={
-            product.finished ? () => sellerInfoHandler(product.user) : null
-          }
-          className="seller-page-delete-product"
-          ref={el}
-        >
-          Seller Info
-        </button>
+        mobile ? null : (
+          <button
+            onClick={
+              product.finished ? () => sellerInfoHandler(product.user) : null
+            }
+            className="seller-page-delete-product"
+            ref={el}
+          >
+            Seller Info
+          </button>
+        )
       ) : null}
     </div>
   );

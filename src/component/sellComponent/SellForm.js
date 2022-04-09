@@ -63,7 +63,11 @@ const SellForm = ({ setProducts, setUser, mobile }) => {
   return (
     <SellBackgroundTween>
       <div className="sell-background">
-        <div className="sell-form-container">
+        <div
+          className={
+            mobile ? "mobile-sell-form-container" : "sell-form-container"
+          }
+        >
           <h1>Sell on MOXIE!</h1>
           <form onSubmit={(e) => sellSubmitHandler(e)}>
             <div>
@@ -160,7 +164,7 @@ const SellForm = ({ setProducts, setUser, mobile }) => {
                 onChange={(e) => inputHandler(e)}
                 required
                 maxLength="1000"
-                rows="15"
+                rows={mobile ? "7" : "15"}
                 cols="55"
                 style={{ resize: "none" }}
               />

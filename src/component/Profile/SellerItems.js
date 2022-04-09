@@ -11,6 +11,7 @@ const SellerItems = ({
   setBuyerInfoModal,
   setProductName,
   setWinnerSeller,
+  mobile,
 }) => {
   const [delButtonTween, setDelButtonTween] = useState();
   const [clicked, setClicked] = useState(false);
@@ -81,20 +82,34 @@ const SellerItems = ({
         setClicked(!clicked);
       }}
     >
-      <span className="seller-product-title">
+      <span
+        className={
+          mobile ? "mobile-seller-product-title" : "seller-product-title"
+        }
+      >
         <h3>{product.name}</h3>
       </span>
       <span
-        className="seller-product-description"
+        className={
+          mobile
+            ? "mobile-seller-product-description"
+            : "seller-product-description"
+        }
         style={backgroundImageStyling}
       >
         {product.finished ? (
-          <div className="winner-text">
+          <div className={mobile ? "mobile-winner-text" : "winner-text"}>
             <h1>Finished!</h1>
-            <p>Click here for more info!</p>
+            {mobile ? null : <p>Click here for more info!</p>}
           </div>
         ) : (
-          <div className="seller-product-description-text">
+          <div
+            className={
+              mobile
+                ? "mobile-seller-product-description-text"
+                : "seller-product-description-text"
+            }
+          >
             <p>Total price: {numberWithCommas(product.price)}</p>
             <p>
               Tickets Remaining: {product.ticketsRemaining} / {product.tickets}
@@ -103,13 +118,15 @@ const SellerItems = ({
           </div>
         )}
       </span>
-      <button
-        onClick={product.finished ? () => findWinnerHandler() : deleteHandler}
-        className="seller-page-delete-product"
-        ref={el}
-      >
-        {product.finished ? "Winner Details" : "Delete"}
-      </button>
+      {mobile ? null : (
+        <button
+          onClick={product.finished ? () => findWinnerHandler() : deleteHandler}
+          className="seller-page-delete-product"
+          ref={el}
+        >
+          {product.finished ? "Winner Details" : "Delete"}
+        </button>
+      )}
     </div>
   );
 };
