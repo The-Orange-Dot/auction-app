@@ -514,3 +514,84 @@ h1 {
 .mobile-account-container::-webkit-scrollbar {
   display: none;
 }
+
+.mobile-bid-items-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.mobile-bid-items-container > div {
+  display: block;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.mobile-seller-product-title {
+  width: 30%;
+  height: 100%;
+  background-color: #f26867;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.mobile-seller-product-title > h3 {
+  top: 0;
+  font-size: 1rem;
+}
+
+.mobile-seller-product-description {
+  width: 70%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mobile-seller-product-description-text {
+  height: 100%;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: black;
+  text-align: center;
+  margin-left: 0px;
+  background-color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  flex-direction: column;
+  line-height: 0;
+}
+
+.mobile-winner-text {
+  height: 100%;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: black;
+  text-align: center;
+  margin-left: 0px;
+  background-color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.mobile-loser-text {
+  height: 100%;
+  font-size: 0.75rem;
+  font-weight: bolder;
+  color: black;
+  text-align: center;
+  margin-left: 0px;
+  background-color: rgba(125, 125, 125, 0.75);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 0;
+}

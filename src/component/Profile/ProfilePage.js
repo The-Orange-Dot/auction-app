@@ -100,7 +100,7 @@ const ProfilePage = ({ setProducts, setUser, setLoggedIn, mobile }) => {
               <ProfileCard setLoggedIn={setLoggedIn} mobile={mobile}>
                 <Switch>
                   <Route path={`${path}/tickets`}>
-                    <span className="bid-items-container">
+                    <span className="mobile-bid-items-container">
                       <div>
                         <BuyerSellerSelector
                           setSellSelected={setSellSelected}
@@ -238,6 +238,7 @@ const ProfilePage = ({ setProducts, setUser, setLoggedIn, mobile }) => {
                     <span className="bid-items-container">
                       <div>
                         <BuyerSellerSelector
+                          mobile={mobile}
                           setSellSelected={setSellSelected}
                         />
 

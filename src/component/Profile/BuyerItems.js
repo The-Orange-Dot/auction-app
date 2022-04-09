@@ -10,6 +10,7 @@ const BuyerItems = ({
   setBuyerInfoModal,
   setWinnerSeller,
   setProductName,
+  mobile,
 }) => {
   const [delButtonTween, setDelButtonTween] = useState();
   const [clicked, setClicked] = useState(false);
@@ -58,27 +59,41 @@ const BuyerItems = ({
         setClicked(!clicked);
       }}
     >
-      <span className="seller-product-title">
+      <span
+        className={
+          mobile ? "mobile-seller-product-title" : "seller-product-title"
+        }
+      >
         <h3>{product.name}</h3>
       </span>
       <span
-        className="seller-product-description"
+        className={
+          mobile
+            ? "mobile-seller-product-description"
+            : "seller-product-description"
+        }
         style={backgroundImageStyling}
       >
         {product.finished ? (
           product.winner === user.id ? (
-            <div className="winner-text">
+            <div className={mobile ? "mobile-winner-text" : "winner-text"}>
               <h1>You're a winner!</h1>
               <p>Click here to more info!</p>
             </div>
           ) : (
-            <div className="loser-text">
+            <div className={mobile ? "mobile-loser-text" : "loser-text"}>
               <h1>Better luck next time!</h1>
             </div>
           )
         ) : (
           <>
-            <div className="seller-product-description-text">
+            <div
+              className={
+                mobile
+                  ? "mobile-seller-product-description-text"
+                  : "seller-product-description-text"
+              }
+            >
               <p>
                 Points Per Ticket:{" "}
                 {numberWithCommas(product.price / product.tickets)}

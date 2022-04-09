@@ -5,7 +5,7 @@ import { ProductContext, UserContext } from "../../App";
 import SellBackgroundTween from "./SellBackgroundTween";
 import { numberWithCommas } from "../BaseComponents/NumberWithCommas";
 
-const SellForm = ({ setProducts, setUser }) => {
+const SellForm = ({ setProducts, setUser, mobile }) => {
   const user = useContext(UserContext);
   const products = useContext(ProductContext);
   const history = useHistory();

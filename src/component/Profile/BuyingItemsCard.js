@@ -8,6 +8,7 @@ const BuyingItemsCard = ({
   setBuyerInfoModal,
   setProductName,
   setWinnerSeller,
+  mobile,
 }) => {
   const products = useContext(ProductContext);
   const [boughtItems, setBoughtItems] = useState([]);
@@ -32,6 +33,7 @@ const BuyingItemsCard = ({
             setBuyerInfoModal={setBuyerInfoModal}
             setWinnerSeller={setWinnerSeller}
             setProductName={setProductName}
+            mobile={mobile}
           />
         </div>
       );
