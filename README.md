@@ -1,8 +1,8 @@
-# README
+# MOXIE
 
 > MOXIE - Capstone project for Flatiron bootcamp.
 
-##Table of contents
+## Table of contents
 
 - [General info] (#general-info)
 - [Project Demo] (#project-demo)
@@ -13,10 +13,11 @@
 * Designed and coded by Hung Le
 * Artwork from various magazines and illustrations from 1940s - 1960s magazines
 
-##General info
+## General info
+
 This application is designed to be a concept for a different type of p2p e-commerce business. While most e-commerce business work as a store, this app takes the concept of loot boxes and gacha mechanics in video games and tries to implement it into an e-commerce application. Users can buy tickets using points charged on their accounts in hopes of winning an item. Currently only the winner will receive an item, and others will not receive anything at all, but for future development, all users who buy tickets will win something (digital goods?).
 
-##Project Demo
+## Project Demo
 
 <div align="center">
 <kbd>
@@ -30,21 +31,23 @@ This application is designed to be a concept for a different type of p2p e-comme
 </kbd>
 </div>
 
-##Technologies
+## Technologies
+
 Tools and libraries used:
 
-###Frontend Development
+### Frontend Development
 
 - React.js - ^17.0.2
 - GreenSock (GSAP) - ^3.9.1
 - FUSE.JS - ^6.4.6
 - Moment.js - 2.29.1
 
-###Backend Development
+### Backend Development
 
 - Ruby-on-Rails
 
-##Features
+## Features
+
 Progress of this build for the Front-end:
 
 - Basic CRUD functionality
