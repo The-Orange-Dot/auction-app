@@ -21,13 +21,13 @@ This application is designed to be a concept for a different type of p2p e-comme
 
 <div align="center">
 <kbd>
-<img src="./images/moxie-screenshot.png">
+<img src="/images/moxie-screenshot.png">
 </kbd>
 </div>
 
 <div align="center">
 <kbd>
-<img src="./images/moxie-screenshot2.png">
+<img src="/images/moxie-screenshot2.png">
 </kbd>
 </div>
 
