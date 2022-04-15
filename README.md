@@ -19,6 +19,8 @@
 
 This application is designed to be a concept for a different type of p2p e-commerce business. While most e-commerce business work as a store, this app takes the concept of loot boxes and gacha mechanics in video games and tries to implement it into an e-commerce application. Users can buy tickets using points charged on their accounts in hopes of winning an item. Currently only the winner will receive an item, and others will not receive anything at all, but for future development, all users who buy tickets will win something (digital goods?).
 
+<a name="project-demo"></a>
+
 ## Project Demo
 
 <div align="center">
@@ -32,6 +34,8 @@ This application is designed to be a concept for a different type of p2p e-comme
 <img src="./moxie-screenshot2.png">
 </kbd>
 </div>
+
+<a name="technologies"></a>
 
 ## Technologies
 
