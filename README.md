@@ -4,14 +4,14 @@
 
 ## Table of contents
 
-- [General info] (#general-info)
-- [Project Demo] (#project-demo)
-- [Technologies] (#technologies)
-- [Features] (#features)
-- [Contact] (#contact)
+1. [General info] (#general-info)
+2. [Project Demo] (#project-demo)
+3. [Technologies] (#technologies)
+4. [Features] (#features)
+5. [Contact] (#contact)
 
-* Designed and coded by Hung Le
-* Artwork from various magazines and illustrations from 1940s - 1960s magazines
+- Designed and coded by Hung Le
+- Artwork from various magazines and illustrations from 1940s - 1960s magazines
 
 <a name="general-info"></a>
 
