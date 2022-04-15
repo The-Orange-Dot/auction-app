@@ -2,7 +2,7 @@
 
 > MOXIE - Capstone project for Flatiron bootcamp.
 
-## Table of contents
+# Table of contents
 
 1. [General info] (#general-info)
 2. [Project Demo] (#project-demo)
