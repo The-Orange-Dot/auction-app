@@ -78,9 +78,7 @@ Progress of this build for the Front-end:
 
 <a name="to-be-added"></a>
 
-## To be added
-
-Things to be added:
+## Tools and libraries used
 
 - Verified sellers title should only be held if seller rating is over 4.5
 - Websocket for winner and seller to communicate
