@@ -2,24 +2,25 @@
 
 > MOXIE - Capstone project for Flatiron bootcamp.
 
-# Table of contents
+## Table of contents
 
-1. [General info] (#general-info)
-2. [Project Demo] (#project-demo)
-3. [Technologies] (#technologies)
-4. [Features] (#features)
-5. [Contact] (#contact)
+1. [General info](#general)
+2. [Project Demo](#project)
+3. [Technologies](#technologies)
+4. [Features](#features)
+5. [To Be Added](#to-be-added)
+6. [Contact](#contact)
+
+<a name="general"></a>
+
+## General info
 
 - Designed and coded by Hung Le
 - Artwork from various magazines and illustrations from 1940s - 1960s magazines
 
-<a name="general-info"></a>
-
-## General info
-
 This application is designed to be a concept for a different type of p2p e-commerce business. While most e-commerce business work as a store, this app takes the concept of loot boxes and gacha mechanics in video games and tries to implement it into an e-commerce application. Users can buy tickets using points charged on their accounts in hopes of winning an item. Currently only the winner will receive an item, and others will not receive anything at all, but for future development, all users who buy tickets will win something (digital goods?).
 
-<a name="project-demo"></a>
+<a name="project"></a>
 
 ## Project Demo
 
@@ -52,6 +53,8 @@ Tools and libraries used:
 
 - Ruby-on-Rails
 
+<a name="features"></a>
+
 ## Features
 
 Progress of this build for the Front-end:
@@ -73,20 +76,19 @@ Progress of this build for the Front-end:
 - Winners of products are able to see seller information (need to implement a message feature)
 - Sellers can see the name and address of winner for delivery
 
+<a name="to-be-added"></a>
+
+##To be added
 Things to be added:
 
 - Verified sellers title should only be held if seller rating is over 4.5
 - Websocket for winner and seller to communicate
 - Add "delivered" and "received" before seller's points are added to their account
 
-==========================================================-
-FlatIron Capstone Requirement:
---Backend--
-Auth
-Validations (2 custom)
-Custom routes (at least 2)
---Front end--
-Auth
-HOC (spinner while loading etc)
-Use of hooks (ones that make sense, add context if you feel up to the challenge!)
-==========================================================-
+<a name="contact"></a>
+
+## Contact
+
+- Name: Hung Le
+- GitHub: https://github.com/The-Orange-Dot
+- LinkedIn: https://www.linkedin.com/in/hung-le-fullstack/
