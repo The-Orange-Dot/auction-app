@@ -78,7 +78,8 @@ Progress of this build for the Front-end:
 
 <a name="to-be-added"></a>
 
-##To be added
+## To be added
+
 Things to be added:
 
 - Verified sellers title should only be held if seller rating is over 4.5
