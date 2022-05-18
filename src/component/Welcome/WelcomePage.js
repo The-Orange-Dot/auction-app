@@ -30,7 +30,7 @@ const WelcomePage = ({ mobile }) => {
       .fromTo(
         ".ticket",
         {
-          x: 1000,
+          x: 1500,
         },
         { x: 0, stagger: 0.25, ease: "Power4.easeout", duration: 0.3 }
       );
