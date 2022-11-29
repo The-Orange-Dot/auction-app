@@ -338,9 +338,11 @@ const InfoPage = ({ mobile }) => {
           </p>
           <img src={happy} alt="cheerful girl" className="happy-girl HG" />
           <img src={present} alt="gift box" className="box B" />
-          <NavLink to="/browse">
-            <button className="start S"> Let's get started! </button>
-          </NavLink>
+          {mobile ? null : (
+            <NavLink to="/browse">
+              <button className="start S"> Let's get started! </button>
+            </NavLink>
+          )}
         </div>
       </div>
       <Copyright mobile={mobile} />
