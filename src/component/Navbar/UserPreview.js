@@ -50,11 +50,13 @@ const UserPreview = ({ pageLoaded, setUser, mobile }) => {
             </h2>
           </NavLink>
         )}
-        <NavLink to="/browse" style={{ textDecoration: "none" }}>
-          <h2 className={mobile ? "mobile-nav-button" : "nav-button"}>
-            Browse
-          </h2>
-        </NavLink>
+        {mobile ? null : (
+          <NavLink to="/browse" style={{ textDecoration: "none" }}>
+            <h2 className={mobile ? "mobile-nav-button" : "nav-button"}>
+              Browse
+            </h2>
+          </NavLink>
+        )}
       </span>
       {grayIsOn ? null : <ChargePoints setUser={setUser} mobile={mobile} />}
     </>

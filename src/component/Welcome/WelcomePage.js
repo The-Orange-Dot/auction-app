@@ -54,9 +54,11 @@ const WelcomePage = ({ mobile }) => {
             width: "100%",
           }}
         >
-          <NavLink to="/browse">
-            <button>Start Searching</button>
-          </NavLink>
+          {mobile ? null : (
+            <NavLink to="/browse">
+              <button>Start Searching</button>
+            </NavLink>
+          )}
           <button onClick={() => scrollHandler(800)}>More Info</button>
         </div>
       </div>
